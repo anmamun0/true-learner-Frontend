@@ -20,12 +20,12 @@ header.innerHTML = `
   <!-- Main Navbar -->
   <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
     <!-- Logo -->
-    <a href="/" class="font-bold flex items-center space-x-2  gap-0">
+    <a href="#" onclick="showPage('index_page');" class="font-bold flex items-center space-x-2  gap-0">
       <span class="text-lg -mr-2 -mb-1">true</span><span class="text-2xl">Learner</span>
     </a>
     <!-- Navigation Links (Center) -->
     <div class="hidden md:flex space-x-6 text-sm font-medium ">
-      <a  href="/"  onclick="showPage('index_page')"  class="hover:text-blue-500">Home</a>
+      <a  href="#"  onclick="showPage('index_page')"  class="hover:text-blue-500">Home</a>
       <div class="relative group">
         <a href="#courses_page" onclick="showPage('courses_page')"  class="hover:text-blue-500">Courses</a>
         <!-- Dropdown Menu -->
@@ -131,12 +131,66 @@ fetch(`http://127.0.0.1:8000/course/category/`)
             
             `;
     })
-})
+    })
+    const whiteHeader = () => {
+      ['navHeader', 'header_category', 'account_header'].forEach(id => {
+        const el = document.getElementById(id);
+        if (id === 'navHeader') el.className = "bg-white bg-opacity-95 text-gray-700  top-0 left-0 w-full z-30 transition-header ";
+        else el.classList.remove('bg-gray-700');
+      });
+      document.getElementById('fa-user').classList.add('text-white'); 
+    }
+    
+    const blackHeader = () => {
+      ['navHeader', 'header_category', 'account_header'].forEach(id => {
+        const el = document.getElementById(id);
+        if (id === 'navHeader') el.className = "bg-gray-700 bg-opacity-95 text-white top-0 left-0 w-full z-50 transition-header";
+        else el.classList.add('bg-gray-700');
+      });
+      document.getElementById('fa-user').classList.add('text-white'); 
+    }
+
+    
+
+
+
+    
  
+window.onload = function() {
+  const functionCall = localStorage.getItem('localCall');
+  if (functionCall) {
+      eval(functionCall); // This will execute 'myFunction()'
+  }
+};
 
+// window.addEventListener("beforeunload", function(event) {
+//   // Customize the message here, though modern browsers often ignore custom text
+//   event.returnValue = "Are you sure you want to leave?"; // Required for some browsers (like Chrome)
+//   alert("You are reloading the page!"); // This will trigger the alert
+// });
 
-const showPage = (page, course_id = 0) => {
-   const pages = ['index_page', 'courses_page', 'course_details']; // List of page IDs
+const showPage = (page, course_id = 0) => { 
+  
+  localStorage.setItem('localCall', `showPage('${page}','${course_id}');`)
+
+  const pages = ['index_page', 'courses_page', 'course_details']; // List of page IDs
+  if (page === 'index_page')
+  {
+    localStorage.removeItem('localCall');
+    document.getElementById('upper_header').classList.remove('hidden');
+    try {
+      whiteHeader();  
+      } catch (error) { 
+      }
+    window.location.href='/'
+  } 
+
+  let fullUrl = window.location.href;  
+  if (fullUrl.includes('html')) { 
+    window.location.href = '/'; 
+  }
+  
+
 
   pages.forEach((id) => {
     const element = document.getElementById(id); // Get the element by ID
@@ -149,30 +203,24 @@ const showPage = (page, course_id = 0) => {
 
     if (page !== 'index_page') {
         document.getElementById('upper_header').classList.add('hidden');
-        
     }
     
   if (page === 'courses_page') {  
-    document.getElementById('navHeader').className = "bg-white bg-opacity-95 text-gray-700  top-0 left-0 w-full z-30 transition-header ";
-    document.getElementById('header_category').classList.remove('bg-gray-700');
-    document.getElementById('account_header').classList.remove('bg-gray-700');
-      document.getElementById('fa-user').classList.remove('text-white');
-    window.location.href = './#courses_page';
+    try { whiteHeader(); } catch (error) { } 
 
+    window.location.href = './#courses_page';
     courseShow();
   }
 
   if (page === 'course_details') {
     window.location.href = './#course_details';
-     document.getElementById('navHeader').className = "bg-gray-700 bg-opacity-95 text-white  top-0 left-0 w-full z-50 transition-header  ";
-      document.getElementById('header_category').classList.add('bg-gray-700');
-      document.getElementById('account_header').classList.add('bg-gray-700');
-      document.getElementById('fa-user').classList.add('text-white');
+
+    try { blackHeader(); } catch (error) { } 
+ 
     showDetails(course_id);
   }
+ 
 };
-
-
 
 
 

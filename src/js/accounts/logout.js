@@ -19,7 +19,8 @@ function logoutUser() {
         console.error('Error during logout:', error);
         pushAlert('error', 'Logout failed. Please try again later.');
         });
-    localStorage.clear();
+    localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
     pushAlert('success', 'You have been logged out!');  
     window.location.href = '/';
 

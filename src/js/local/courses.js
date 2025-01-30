@@ -22,6 +22,7 @@ const courseShow = (slug = '') => {
 
                 filteredCourses.forEach(course => {
                     // Parse the description HTML and extract plain text
+                    
                     const parser = new DOMParser();
                     const htmlDoc = parser.parseFromString(course.description, 'text/html');
                     const plainTextDescription = htmlDoc.body.textContent || '';

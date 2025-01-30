@@ -1,5 +1,9 @@
 
-const initiatePayment = (user_id,course_id) => {   
+const initiatePayment = (user_id, course_id) => {   
+    if (!isAuthenticated()) {
+        window.location.href = './login.html';
+        }
+    
     fetch(`http://127.0.0.1:8000/payment/pay/${user_id}/${course_id}/`, {
         method: "POST",
         headers: {

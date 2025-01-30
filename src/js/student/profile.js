@@ -171,8 +171,11 @@ const showProfilePage = (page,course_id=0) => {
     if (page === 'watch_course')
     {
         watchCourse(course_id);
-        document.getElementById('footer').className = "bg-gray-800 py-4 text-white"
-
-        document.getElementById('navHeader').className="bg-gray-700 z-10 text-white font-semibold py-4   shadow-md   top-0 left-0 w-full"
+        document.getElementById('upper_header').classList.add('hidden');
+ 
+        document.getElementById('navHeader').className = "bg-gray-700 bg-opacity-95 text-white  top-0 left-0 w-full z-50 transition-header  ";
+        document.getElementById('header_category').classList.add('bg-gray-700');
+        document.getElementById('account_header').classList.add('bg-gray-700');
+        document.getElementById('fa-user').classList.add('text-white');
     }
 };
