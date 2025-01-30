@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrueLearner - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- Add this in the <head> section of your HTML -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <script defer>
+    // Toggle Mobile Menu
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Smooth Scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          document.getElementById(targetId).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+</head>
+
+<body class="bg-purple-50">
+
+  <header class=" z-30">  </header>
+
+  <main id="index_page" class=" ">
+    <div
+      class="relative rounded-b-lg min-h-screen bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 overflow-hidden">
+      <!-- Background Circles -->
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute bg-white opacity-10 rounded-full blur-3xl h-96 w-96 top-10 left-20"></div>
+        <div class="absolute bg-purple-400 opacity-20 rounded-full blur-2xl h-80 w-80 top-40 right-20"></div>
+        <div
+          class="absolute bg-pink-500 opacity-20 rounded-full blur-2xl h-96 w-96 bottom-20 left-1/2 transform -translate-x-1/2">
+        </div>
+      </div>
+
+      <div class="container mx-auto px-6 lg:px-20 py-20 text-center lg:text-left mt-24">
+        <!-- Text Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <!-- Headline and CTA -->
+          <div>
+            <h1 class="text-4xl lg:text-6xl font-extrabold text-white leading-tight">
+              Transform the Way You <span class="text-yellow-300">Learn</span>
+            </h1>
+            <p class="mt-6 text-lg text-gray-200">
+              Join TrueLearner today to access engaging courses, expert instructors, and tools to achieve your
+              educational dreams. Discover a new way to grow and excel.
+            </p>
+            <div
+              class="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+              <button
+                class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-yellow-300 transition-transform transform hover:scale-105">
+                Get Started
+              </button>
+              <button onclick="showPage('courses_page'); "
+                class="bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-transform transform hover:scale-105">
+                Explore Courses
+              </button>
+            </div>
+          </div>
+
+          <!-- Image or Animation -->
+          <div class="relative">
+            <img src="src/image/pexels-andrew-15863066.jpg" alt="Learning"
+              class="rounded-lg shadow-lg w-full transform hover:scale-105 transition-transform duration-500" />
+            <!-- Floating Badge -->
+            <div
+              class="absolute top-10 -left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+              Start Your Journey 🚀
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <section class="py-20 bg-gradient-to-br from-gray-100 to-gray-200">
+      <div class="max-w-6xl mx-auto text-center px-6">
+        <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>
+        <p class="text-gray-600 mt-4 text-lg">Follow these simple steps to start your learning journey.</p>
+        
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          <!-- Step 1 -->
+          <div class="relative group">
+            <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
+              <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
+                1
+              </div>
+              <div class="text-indigo-600 text-5xl mb-4 transition-transform duration-300 group-hover:scale-110">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Browse Courses</h3>
+              <p class="text-gray-600 mt-3">Explore our extensive catalog and find the perfect course for you.</p>
+            </div>
+          </div>
+    
+          <!-- Step 2 -->
+          <div class="relative group">
+            <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
+              <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
+                2
+              </div>
+              <div class="text-indigo-600 text-5xl mb-4 transition-transform duration-300 group-hover:scale-110">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Enroll & Pay</h3>
+              <p class="text-gray-600 mt-3">Complete a secure payment and get instant access to your courses.</p>
+            </div>
+          </div>
+    
+          <!-- Step 3 -->
+          <div class="relative group">
+            <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
+              <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
+                3
+              </div>
+              <div class="text-indigo-600 text-5xl mb-4 transition-transform duration-300 group-hover:scale-110">
+                <i class="fas fa-play-circle"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Start Learning</h3>
+              <p class="text-gray-600 mt-3">Watch video lectures, access materials, and engage with instructors.</p>
+            </div>
+          </div>
+    
+          <!-- Step 4 -->
+          <div class="relative group">
+            <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
+              <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
+                4
+              </div>
+              <div class="text-indigo-600 text-5xl mb-4 transition-transform duration-300 group-hover:scale-110">
+                <i class="fas fa-award"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Get Certified</h3>
+              <p class="text-gray-600 mt-3">Earn a certificate to showcase your skills and achievements.</p>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+
+
+
+
+
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-800">Why Choose TrueLearner?</h2>
+        <p class="text-gray-600 mt-4">Explore the benefits of learning with us</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mx-auto" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8c1.5 0 2.71-1.12 2.95-2.58m-5.9 0C9.29 6.88 10.5 8 12 8zm-2.93 7.5C8.08 15.66 9.31 16 12 16s3.93-.34 4.93-.5M15 12.42c.45.34.83.77 1.13 1.25m-8.26 0c.3-.48.68-.91 1.13-1.25" />
+            </svg>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Expert Instructors</h3>
+            <p class="text-gray-600 mt-2">Learn from industry leaders and certified professionals.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mx-auto" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Flexible Learning</h3>
+            <p class="text-gray-600 mt-2">Learn at your own pace, anytime, anywhere.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mx-auto" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Job-Ready Skills</h3>
+            <p class="text-gray-600 mt-2">Acquire skills that prepare you for the modern workplace.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="faqs" class="py-20 bg-gradient-to-b from-white to-gray-100">
+      <div class="max-w-4xl mx-auto text-center px-6">
+        <h2 class="text-4xl font-extrabold text-gray-900">Frequently Asked Questions</h2>
+        <p class="text-lg text-gray-600 mt-3">Find answers to the most common questions about our courses.</p>
+        
+        <div class="mt-10 text-left space-y-4">
+          
+          <!-- FAQ Item -->
+          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
+              <span>How do I enroll in a course?</span>
+              <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v8a1 1 0 11-2 0V6a1 1 0 011-1z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+              <svg class="w-5 h-5 text-indigo-600 hidden group-open:inline" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+            </summary>
+            <p class="text-gray-600 mt-3 leading-relaxed">You can enroll by clicking the "Enroll Now" button on the course page and following the instructions. Once registered, you’ll receive confirmation and can start learning immediately.</p>
+          </details>
+    
+          <!-- FAQ Item -->
+          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
+              <span>What payment methods do you accept?</span>
+              <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v8a1 1 0 11-2 0V6a1 1 0 011-1z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+              <svg class="w-5 h-5 text-indigo-600 hidden group-open:inline" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+            </summary>
+            <p class="text-gray-600 mt-3 leading-relaxed">We accept credit/debit cards, PayPal, and bank transfers. Secure checkout ensures safe transactions.</p>
+          </details>
+    
+          <!-- FAQ Item -->
+          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
+              <span>Do I get a certificate after completing the course?</span>
+              <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v8a1 1 0 11-2 0V6a1 1 0 011-1z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+              <svg class="w-5 h-5 text-indigo-600 hidden group-open:inline" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+            </summary>
+            <p class="text-gray-600 mt-3 leading-relaxed">es! After successfully completing the course, you’ll receive a verified certificate.</p>
+          </details>
+    
+          <!-- FAQ Item -->
+          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
+              <span>Can I access the course content after completion?</span>
+              <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v8a1 1 0 11-2 0V6a1 1 0 011-1z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+              <svg class="w-5 h-5 text-indigo-600 hidden group-open:inline" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+            </summary>
+            <p class="text-gray-600 mt-3 leading-relaxed">Yes! Lifetime access ensures you can revisit course materials anytime.</p>
+          </details>
+    
+        </div>
+      </div>
+    </section> 
+  </main>
+
+
+
+
+
+
+
+
+
+
+  <main id="courses_page" class="container  pb-24 pt-24  m-auto hidden"> 
+    <!-- Breadcrumb -->
+    <div id="path" class="ml-10 flex items-center space-x-2 text-gray-700 mb-6">
+      <a href="./" class="text-indigo-600 hover:text-indigo-800 font-medium">Home</a>
+      <span class="text-gray-400">/</span>
+      <a  href="#" onclick="showPage('courses_page')" class="text-indigo-600 hover:text-indigo-800 font-medium">Courses</a>
+    </div>
+    <hr class="bg-gray-1 pb-2">
+
+    <div class="grid grid-cols-12 mx-auto px-6 flex flex-col lg:flex-row gap-4">
+
+      <!-- Courses Section (Left Side) -->
+      <div class="col-span-9 p-6 rounded-xl  ">
+
+        <!-- Filter and Search Bar -->
+        <div class="flex justify-between items-center mb-4">
+                      <!-- Button for grid view and list view -->
+            <div class="flex space-x-4">
+              <button id="gridViewBtn" class="p-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition">
+                  <i class="fas fa-th-large"></i> <!-- Grid Icon -->
+              </button>
+              <button id="listViewBtn" class="p-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition">
+                  <i class="fas fa-list"></i> <!-- List Icon -->
+              </button>
+            </div>
+
+          <div class="relative w-80">
+            <input type="text" id="searchCourses"
+              class="z-1 px-4 py-2 w-full rounded-md border-[1px] border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-blue-700 placeholder:text-gray-400 transition"
+              placeholder="Search courses...">
+            <button class="absolute top-0 right-0 p-3 text-gray-500">
+              <i class="fas fa-search"></i> <!-- Search Icon -->
+            </button>
+          </div>
+        </div>
+
+        <!-- Courses Cards -->
+        <div id="course_card" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Example Course Card -->
+
+
+
+
+          <!-- Add more course cards here -->
+        </div>
+      </div>
+
+      <!-- Category Filter (Right Side) -->
+      <div class="col-span-3 bg-white rounded-xl shadow-xl p-6 mt-12">
+        <h2 class="text-xl font-extrabold text-gray-900 mb-6 ">Explore Categories</h2>
+
+        <div class="space-y-4">
+          <!-- Category Filter Header -->
+          <div class="flex justify-between items-center">
+            <button
+              class="text-md font-semibold text-indigo-700 border-b-2 border-indigo-600 pb-2 hover:text-indigo-800 focus:outline-none">All</button>
+            <span id="total_category" class="text-gray-400">(15)</span> <!-- Total courses count -->
+          </div>
+
+          <!-- Dynamic Categories (Populated Dynamically) -->
+          <div class="space-y-2"   id= "category_list" >
+            <div class="flex justify-between items-center">
+              <span class="text-md font-semibold text-gray-800">Web Development</span>
+              <span class="text-sm text-gray-400">(5)</span> <!-- Courses in this category -->
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-semibold text-gray-800">Data Science</span>
+              <span class="text-sm text-gray-400">(3)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-md font-semibold text-gray-800">Mobile Development</span>
+              <span class="text-sm text-gray-400">(4)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-md font-semibold text-gray-800">Machine Learning</span>
+              <span class="text-sm text-gray-400">(2)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+
+
+
+
+
+
+<!-- <p class="text-gray-300 leading-relaxed">Learn the latest technologies, frameworks, and methodologies to create dynamic, scalable websites. You'll gain hands-on experience working with both the front-end and back-end.</p>
+                <ul class="space-y-4 text-gray-200">
+                    <li class="flex items-center">
+                        <span class="w-6 h-6 mr-3 bg-blue-500 text-white rounded-full flex items-center justify-center">&#10003;</span> Build interactive, responsive websites.
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-6 h-6 mr-3 bg-blue-500 text-white rounded-full flex items-center justify-center">&#10003;</span> Master frameworks like React & Django.
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-6 h-6 mr-3 bg-blue-500 text-white rounded-full flex items-center justify-center">&#10003;</span> Learn to work with APIs and databases.
+                    </li>
+                </ul> -->
+
+
+
+<main id="course_details" class="min-h-screen bg-gray-900 text-white font-sans tracking-wide hidden ">
+   
+<!-- Course Overview -->
+<section id="overview" class="max-w-7xl mx-auto px-6 py-24 text-sm">
+  <div class="grid grid-cols-12   gap-12  ">
+    <!-- Left Section: Course Details -->
+    <div class=" rounded-xl p-8 space-y-6 col-span-7">
+      <h2 class="text-2xl font-bold text-white">Course Description</h2>
+      <div id="course_details_description" class="text-gray-300 text-xs leading-relaxed space-y-4">
+        <!-- Dynamic content will be injected here -->
+      </div> 
+
+      
+  <div class="container mx-auto mt-10 p-5 ">
+    <h1 class="text-3xl font-semibold  mb-5">Course Content</h1>
+    <p class="text-xs pb-4"><span id="course_total_sections"></span> sections •  <span id="course_total_lectures"></span>lectures • <span id="course_total_length"></span> total length</p>
+    <table class="min-w-full border-[1px] border-gray-700 table-auto   border-collapse shadow-md rounded-lg overflow-hidden">
+        <thead>
+            <tr class=" text-gray-600">
+                <th class="px-6 py-3 text-left text-sm font-medium">Video Title</th>
+                <th class="px-6 py-3 text-left text-sm font-medium">Duration</th>
+            </tr>
+        </thead>
+        <tbody id="videoList">
+            <!-- Video content will be inserted here by JS -->
+        </tbody>
+    </table>
+  </div>
+
+    </div>
+
+    <!-- Right Section: Course Image and Key Info -->
+    <div class="space-y-6 col-span-5 pt-20">
+      <!-- Course Thumbnail with Video Effect -->
+      <h1 id="course_details_title"
+      class="text-2xl font-extrabold leading-tight mb-4 transition-all hover:text-blue-300 transform ">
+      Master </h1>
+
+      <div class="relative group ">
+        <a href="#enroll" >
+         
+        <img id="course_details_image" src="https://via.placeholder.com/600x400" alt="Course Overview"
+          class="group-hover:opacity-50 w-full h-66 rounded-xl shadow-lg transform hover:scale-105 transition-all">
+
+        <!-- Play Button Overlay -->
+        <div
+          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10  transition-all rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M14.752 11.168l-6.016-3.259A1 1 0 007 8.743v6.514a1 1 0 001.736.854l6.016-3.259a1 1 0 000-1.708z" />
+          </svg>
+        </div> 
+        <!-- Video-like Controls -->
+      <div class="absolute inset-0 flex flex-col justify-between">
+        <!-- Top: Video Title -->
+        <div class="flex justify-between items-center px-4 py-2 bg-black bg-opacity-50 text-white">
+          <span class="text-sm font-semibold"></span>
+          <span class="text-xs">HD</span>
+        </div>
+
+        <!-- Center: Play Button -->
+        <div class="flex items-center justify-center">
+          <button
+            class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-800" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14.752 11.168l-6.016-3.259A1 1 0 007 8.743v6.514a1 1 0 001.736.854l6.016-3.259a1 1 0 000-1.708z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Bottom: Progress Bar and Time -->
+        <div class="px-4 py-2 bg-black bg-opacity-70 flex items-center justify-between">
+          <!-- Progress Bar -->
+          <div class="w-full bg-gray-600 rounded-full h-2 overflow-hidden mr-4">
+            <div class="bg-blue-500 h-full w-1/4"></div>
+          </div> 
+        </div>
+      </div> 
+    </a>
+
+        <div class="absolute -top-0 -left-6">  
+          <div class=" relative inline-block">
+          <!-- Sticker Background with Curved Effect -->
+                  <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-5 bg-blue-400 rounded-full"></div>
+
+                  <!-- Main Sticker -->
+                  <div id="course_price" class="bg-blue-500 text-white font-bold text-md px-6 py-2 rounded-full shadow-lg border border-blue-800 transform rotate-[2deg] hover:rotate-0 hover:scale-105 transition-all">
+                      $9
+                  </div>
+              </div>
+        </div>
+
+      </div>
+
+      <div class="relative text-sm text-white rounded-2xl p-8 border border-gray-600/50 backdrop-blur-lg transition-all flex flex-col items-center text-center w-full max-w-lg mx-auto shadow-xl">
+
+        <!-- Top Label -->
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black/80 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest text-blue-300 border border-gray-700">
+          🎓 Course Information
+        </span>
+      
+        <!-- Course Details -->
+        <div class="w-full mt-6 px-4">
+          <div class="space-y-3 text-sm text-white">
+      
+            <!-- Video -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-video   text-gray-500"></i>
+              <div>
+                <h3 class="">10.5 hours on-demand video</h3>
+              </div>
+            </div>
+      
+            <!-- Coding Exercises -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-code   text-gray-500"></i>
+              <div>
+                <h3 class="">7 coding exercises</h3>
+              </div>
+            </div>
+      
+            <!-- Assignments -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-tasks   text-gray-500"></i>
+              <div>
+                <h3 class="">Assignments</h3>
+              </div>
+            </div>
+      
+            <!-- Downloadable Resources -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-download   text-gray-500"></i>
+              <div>
+                <h3 class="">74 downloadable resources</h3>
+              </div>
+            </div>
+      
+            <!-- Mobile & TV Access -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-mobile-alt   text-gray-500"></i>
+              <div>
+                <h3 class="">Access on mobile and TV</h3>
+              </div>
+            </div>
+      
+            <!-- Lifetime Access -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-life-ring   text-gray-500"></i>
+              <div>
+                <h3 class="">Full lifetime access</h3>
+              </div>
+            </div>
+      
+            <!-- Certificate -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-certificate   text-gray-500"></i>
+              <div>
+                <h3 class="">Certificate of completion</h3>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Coupon Code and Enroll Button Section -->
+          <div class="mt-12 flex gap-6 items-center justify-between w-full">
+            <!-- Coupon Code Section -->
+            <div class="flex items-center space-x-4 w-1/2">
+              <div class="flex flex-col space-y-2 w-full">
+                <div class="flex gap-4"> 
+                  <i class="fas fa-tag   text-green-500"></i>
+                  <label for="couponCode" class="text-xs text-white">Have a Coupon Code?</label>
+                </div>
+                <input type="text" id="couponCode" class="w-full bg-transparent px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your coupon code">
+              </div>
+            </div>
+      
+            <!-- Enroll Button -->
+            <div class="w-1/2 text-right">
+              <a href="#enroll" class="inline-block bg-blue-600 hover:bg-blue-700 text-white  py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Enroll Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+    <!-- Add this link in the <head> section of your HTML for Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<!-- Instructor Section -->
+<section class="max-w-6xl mx-auto px-6 py-12">
+  <hr class="border-gray-600 mb-8">
+  
+  <!-- Heading -->
+  <div class="text-center mb-10">
+    <h2 class="text-4xl font-extrabold text-white tracking-wide">Meet Your Instructor</h2>
+    <p class="text-lg text-gray-300 mt-3">Learn from an industry expert with real-world experience.</p>
+  </div>
+
+  <!-- Instructor Card -->
+  <div class="flex flex-col md:flex-row justify-center items-center gap-8 bg-gray-800 p-6 md:p-10 rounded-2xl shadow-lg transition-all hover:shadow-2xl">
+    
+    <!-- Instructor Image -->
+    <div class="relative">
+      <div class="rounded-full h-24 w-24 overflow-hidden"> 
+      <img id="instructor_image" src="https://i.ibb.co/zVQfdZQx/cat.jpg" alt="Instructor" 
+        class="border-3 border-black shadow-lg transform hover:scale-105 transition-all">
+      </div>
+      
+      <!-- Verified Badge -->
+      <span class="absolute bottom-2 right-2 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-md">
+        Verified
+      </span>
+    </div>
+
+    <!-- Instructor Details -->
+    <div class="text-center md:text-left">
+      <h3 id="instructor_name" class="text-3xl font-bold text-white">John Doe</h3>
+      <p class="text-sm text-blue-400 font-medium mt-1">Senior Full-Stack Developer</p>
+      <p id="instructor_bio" class="text-gray-300 mt-4 leading-relaxed">
+        John is a seasoned full-stack developer with over <strong>10 years</strong> of experience. He has worked with 
+        top tech companies and contributed to multiple open-source projects. His passion is teaching and mentoring aspiring developers 
+        to master their craft.
+      </p>
+      
+      <!-- Social Links -->
+      <div class="flex justify-center md:justify-start gap-4 mt-5">
+        <a href="#" class="text-gray-300 hover:text-blue-400 transition-all">
+          <i class="fab fa-facebook-f w-6 h-6"></i>
+        </a>
+        <a href="#" class="text-gray-300 hover:text-blue-400 transition-all">
+          <i class="fab fa-twitter w-6 h-6"></i>
+        </a>
+        <a href="#" class="text-gray-300 hover:text-blue-400 transition-all">
+          <i class="fab fa-linkedin-in w-6 h-6"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- Enroll Section -->
+    <section id="enroll" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-5xl font-bold">Ready to Start Learning?</h2>
+        <p class="text-gray-200 mt-4 mb-8">Don’t miss this opportunity to level up your skills. Join now and unlock your
+          potential!</p>
+        <a href="#" id="enroll_now" onclick="initiatePayment('${user_id}','${course.code}')"
+          class="bg-white text-blue-600 font-bold py-3 px-6 rounded-full shadow-lg transition-all hover:bg-gray-100 hover:scale-105">Enroll
+          Now</a>
+      </div>
+    </section>
+  </main>
+ 
+  <!-- Footer -->
+  <footer> </footer>
+
+  <script src="src/js/local/alert.js"></script>
+  <script src="src/js/accounts/cookie.js"></script>
+  <script src="src/js/local/header.js"></script>
+  <script src="src/js/local/footer.js"></script>
+  <script src="src/js/accounts/logout.js"> </script>
+
+  <script src="src/js/local/courses.js"></script>
+
+  <script src="src/js/local/courses_details_view.js"> </script>
+  <script src="src/js/local/payment.js"> </script>
+</body>
+
+</html>

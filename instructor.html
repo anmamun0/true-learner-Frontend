@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-100 h-screen">
+    <div class="grid grid-cols-12 h-full">
+        <!-- Left Sidebar -->
+        <aside class="col-span-2 bg-gray-800 text-white flex flex-col  h-full text-sm md:text-md lg:text-lg">
+            <div class="p-4 text-center border-b border-gray-700">
+                <h2 class="text-lg font-bold">Instructor Panel</h2>
+            </div>
+            <nav class="flex-1 p-4">
+                <ul class="space-y-4">
+                    <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                        onclick="showContent('dashboard')">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16m-7 10h7"></path>
+                        </svg>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                        onclick="showContent('create-course')">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        <span>Create Course</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                        onclick="showContent('manage-courses')">
+                        <i class="fas fa-ellipsis-h w-5 h-5 mr-3"></i>
+
+                        <span>Manage Courses</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                        onclick="showContent('students')">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h3m0 0a4 4 0 008 0m-8 0a4 4 0 11-8 0m13 0h3M3 16h16m2 0a2 2 0 01-2 2H5a2 2 0 01-2-2m2 0a2 2 0 01-2-2h16a2 2 0 012 2z">
+                            </path>
+                        </svg>
+                        <span>My Students</span>
+                    </li>
+                    <div id="account_setting_button" class="relative">
+                        <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                                  >
+                            <i class="fas fa-cog w-5 h-5 mr-3"></i> 
+                            <span>Account Settings</span>
+                        </li> 
+                        <!-- Nested Account Settings Menu -->
+                            <ul id="account-settings-menu" class="w-full z-10 bg-gray-800 shadow-lg hidden border-[1px] border-gray-300 space-y-2 absolute top-8 left-36 p-2 text-sm rounded-md">
+                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer" onclick="showContent('edit-profile')"><span>Edit Profile</span></li>
+                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer" onclick="showContent('change-password')"><span>Change Password</span></li>
+                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer" onclick="showContent('privacy-settings')"><span>Privacy Settings</span></li>
+                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer"><span>Manage Devices</span></li>
+                            </ul>
+                    </div>
+                    
+                </ul>
+            </nav>
+        </aside>
+
+
+
+
+        <!-- Main Content -->
+        <main class="col-span-10 p-10  overflow-y-auto">
+            <!-- Dynamic Content Section -->
+            <section id="dashboard" class="content w-full">
+                
+    
+        <!-- Main Content Area -->
+        <div class="flex-1 p-6">
+
+            <!-- Dashboard Header -->
+            <div class="  justify-between items-center mb-8">
+                <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+                <p>Welcome to your instructor dashboard. Here you can see an overview of your activities.</p>
+                
+            </div>
+
+            <!-- Dashboard Summary Boxes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Total Courses Summary -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-700">Total Courses</h3>
+                    <p id="totalCourses" class="text-4xl font-bold text-gray-900">35</p>
+                    <div class="mt-4 text-sm text-gray-600">View details</div>
+                </div>
+
+                <!-- Total Students Summary -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-700">Total Students</h3>
+                    <p id="totalStudents" class="text-4xl font-bold text-gray-900">120</p>
+                    <div class="mt-4 text-sm text-gray-600">View details</div>
+                </div>
+
+                <!-- Recent Enrollments Summary -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-700">Recent Enrollments</h3>
+                    <p id="recentEnrollments" class="text-4xl font-bold text-gray-900">5</p>
+                    <div class="mt-4 text-sm text-gray-600">View details</div>
+                </div>
+
+                <!-- Active Instructors Summary -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-700">Active Instructors</h3>
+                    <p id="activeInstructors" class="text-4xl font-bold text-gray-900">10</p>
+                    <div class="mt-4 text-sm text-gray-600">View details</div>
+                </div>
+            </div>
+
+            <!-- Latest Activity Section -->
+            <div class="bg-white p-6 mt-12 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Latest Activity</h3>
+
+                <ul>
+                    <li class="flex justify-between mb-4">
+                        <div class="font-medium text-gray-800">New Course Added: "Web Development 101"</div>
+                        <span class="text-sm text-gray-500">2 hours ago</span>
+                    </li>
+                    <li class="flex justify-between mb-4">
+                        <div class="font-medium text-gray-800">Student "John Doe" enrolled in "Python Basics"</div>
+                        <span class="text-sm text-gray-500">1 day ago</span>
+                    </li>
+                    <li class="flex justify-between mb-4">
+                        <div class="font-medium text-gray-800">Instructor "Jane Smith" uploaded new material</div>
+                        <span class="text-sm text-gray-500">3 days ago</span>
+                    </li>
+                    <li class="flex justify-between mb-4">
+                        <div class="font-medium text-gray-800">Student "Sara Lee" completed "Data Science" course</div>
+                        <span class="text-sm text-gray-500">5 days ago</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+                <div class="grid grid-cols-4">
+
+                    <div class="p-6 max-w-md mx-auto">
+                        <!-- Course Card -->
+                        <div
+                            class="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <!-- Course Image -->
+                            <div class="relative">
+                                <img src="https://1000logos.net/wp-content/uploads/2020/08/Python-Logo.png"
+                                    alt="Course Thumbnail" class="w-full h-48 object-cover p-6" />
+                                <div
+                                    class="absolute top-2 right-2 bg-blue-500 text-white text-xs px-3 py-1 rounded-full">
+                                    Bestseller
+                                </div>
+                            </div>
+
+                            <!-- Course Content -->
+                            <div class="p-5">
+                                <!-- Course Title -->
+                                <h2
+                                    class="text-lg font-semibold text-gray-800 truncate hover:text-blue-600 cursor-pointer transition-colors">
+                                    Mastering Python Programming
+                                </h2>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section id="create-course" class="content relative hidden shadow-lg p-8 pb-16 px-12"> 
+                <div class="">
+                    <h1 class="text-2xl font-bold mb-4">Create Course</h1>
+                    <p class="text-gray-600  mb-8">Fill out the details below to create your course and add videos
+                        dynamically.</p> 
+                </div>
+                <div>
+                    <div class=" rounded-2xl p-8 w-full  ">
+                        <form action="/create-course" method="POST" id="form_create_course" enctype="multipart/form-data" class="space-y-6">
+                                    <!-- Submit Button -->
+                            <div class="text-center absolute top-8 right-8">
+                                <button type="submit"
+                                    class="px-4 bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 rounded-lg shadow-lg hover:opacity-90 transform transition-transform duration-300">
+                                    Public
+                                </button>
+                            </div>
+                            <!-- Two Column Layout -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Title -->
+                                <div>
+                                    <label for="title" class="block text-sm font-semibold text-gray-700">Course
+                                        Title</label>
+                                    <input type="text" id="title" name="title"
+                                        class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                                        placeholder="Enter an engaging course title" required />
+                                </div>
+
+                                <!-- Instructor -->
+                                <div>
+                                    <label for="instructor" class="block text-sm font-semibold text-gray-700">Instructor
+                                        Name</label>
+                                    <input type="text" id="instructor" name="instructor"
+                                        class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                                        placeholder="Enter your name" required />
+                                </div>
+
+                                <!-- Thumbnail Upload -->
+                                <div>
+                                    <label for="thumbnail" class="block text-sm font-semibold text-gray-700">Upload
+                                        Thumbnail</label>
+                                    <input type="file" id="thumbnail" name="thumbnail" accept="image/*"
+                                        class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                                        required />
+                                </div>
+
+                                <!-- Price -->
+                                <div>
+                                    <label for="price" class="block text-sm font-semibold text-gray-700">Price</label>
+                                    <div class="relative mt-2">
+                                        <span
+                                            class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
+                                        <input type="number" id="price" name="price"
+                                            class="pl-10 w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                                            placeholder="Enter the course price" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rich Text Editor -->
+                            <div>
+                                <label for="description" class="block text-sm font-semibold text-gray-700">Course
+                                    Description</label>
+                                <div id="editor" class="min-h-56 mt-2 bg-white rounded-lg border border-gray-300 p-3 shadow-sm">
+                                </div>
+                                <input type="hidden" id="description" name="description" required />
+                            </div>
+
+                            <!-- Dynamic Video Section -->
+                            <div id="video-section" class="relative border rounded-lg p-4  ">
+                                <label class="block text-sm font-semibold text-gray-700">Course Videos</label>
+                                <p class="text-sm text-gray-500 mb-4">Add multiple videos by entering their title and
+                                    URL.</p>
+
+                                <!-- Add New Button at Top-Right -->
+                                <button type="button" id="add-video"
+                                    class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-2 px-3 rounded-full shadow-lg hover:opacity-90 transition-transform flex items-center justify-center">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+
+                                <!-- Video Container -->
+                                <div id="video-container" class="space-y-4">
+                                    <div class="flex items-center space-x-4">
+                                        <input type="text" name="video_title[]"
+                                            class="w-1/2 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                                            placeholder="Video Title" required />
+                                        <input type="url" name="video_url[]"
+                                            class="w-1/2 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                                            placeholder="Video URL" required />
+                                        <button type="button"
+                                            class=" text-gray-900 px-4 py-2 rounded-lg  hover:scale-105 transition flex items-center space-x-2"
+                                            onclick="removeVideo(this)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section id="manage-courses" class="content hidden">
+                <h1 class="text-2xl font-bold mb-4">Manage Courses</h1>
+                <p>Here you can manage all the courses you've created and track their progress.</p>
+
+                <div class="max-w-7xl mx-auto py-8">
+
+                    <!-- Top Section: Course Count -->
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-3xl font-semibold text-gray-800">Course Management</h2>
+                        <div class="bg-blue-600 text-white px-6 py-2 rounded-lg text-xl font-medium">
+                            Total Courses: <span id="courseCount">3</span>
+                        </div>
+                    </div>
+            
+                    <!-- Course Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Example Course 1 -->
+                        <div class="course-card bg-white shadow-md rounded-lg p-6" id="course1">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
+                            <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 1</h3>
+                            <button onclick="showCourseDetails('course1')" class="mt-4 text-blue-600 hover:text-blue-800">View
+                                Details</button>
+                        </div>
+            
+                        <!-- Example Course 2 -->
+                        <div class="course-card bg-white shadow-md rounded-lg p-6" id="course2">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
+                            <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 2</h3>
+                            <button onclick="showCourseDetails('course2')" class="mt-4 text-blue-600 hover:text-blue-800">View
+                                Details</button>
+                        </div>
+            
+                        <!-- Example Course 3 -->
+                        <div class="course-card bg-white shadow-md rounded-lg p-6" id="course3">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
+                            <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 3</h3>
+                            <button onclick="showCourseDetails('course3')" class="mt-4 text-blue-600 hover:text-blue-800">View
+                                Details</button>
+                        </div>
+                    </div>
+            
+                    <div class="my-12">
+                        <div class=" rounded-2xl relative p-12 w-full bg-gray-200  shadow-lg ">
+                            
+                            
+                        </div>
+                    </div>
+            
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section id="students" class="content hidden">
+                <h1 class="text-2xl font-bold mb-4">My Students</h1>
+                <p>View and manage the list of students enrolled in your courses.</p>
+                    <!-- Content Section -->
+    <div class="max-w-7xl mx-auto py-8">
+
+        <!-- Top Stats Section -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">Total Students</h3>
+                <p class="text-3xl font-bold text-blue-500" id="totalStudents">50</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">Total Courses</h3>
+                <p class="text-3xl font-bold text-blue-500" id="totalCourses">10</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">Total Enrollments</h3>
+                <p class="text-3xl font-bold text-blue-500" id="totalEnrollments">150</p>
+            </div>
+        </div>
+
+        <!-- Course and Student Filters -->
+        <div class="flex space-x-4 mb-8">
+            <button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700" onclick="filterView('all')">All Courses</button>
+            <button class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-700" onclick="filterView('students')">All Students</button>
+            <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-700" onclick="filterView('enrollments')">Course Enrollment</button>
+        </div>
+
+        <!-- Course List -->
+        <div id="courseList" class="bg-white shadow-lg rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Course List</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3 text-left">Course Name</th>
+                            <th class="p-3 text-left">Number of Students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">Math 101</td>
+                            <td class="p-3">25</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">History 202</td>
+                            <td class="p-3">15</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">Science 303</td>
+                            <td class="p-3">10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Student List -->
+        <div id="studentList" class="bg-white shadow-lg rounded-lg p-6 mb-8 hidden">
+            <h2 class="text-2xl font-semibold mb-6">Student List</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3 text-left">Student Name</th>
+                            <th class="p-3 text-left">Course</th>
+                            <th class="p-3 text-left">Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">John Doe</td>
+                            <td class="p-3">Math 101</td>
+                            <td class="p-3">A</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">Jane Smith</td>
+                            <td class="p-3">History 202</td>
+                            <td class="p-3">B+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Enrollment Details -->
+        <div id="enrollmentDetails" class="bg-white shadow-lg rounded-lg p-6 mb-8 hidden">
+            <h2 class="text-2xl font-semibold mb-6">Course Enrollment</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3 text-left">Course</th>
+                            <th class="p-3 text-left">Enrolled Students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">Math 101</td>
+                            <td class="p-3">25</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">History 202</td>
+                            <td class="p-3">15</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3">Science 303</td>
+                            <td class="p-3">10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal for Viewing Student Details -->
+        <div id="studentModal" class="modal">
+            <div class="modal-content relative">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 class="text-xl font-semibold mb-4">Student Details</h2>
+                <div id="studentDetails"></div>
+                <button class="bg-red-500 text-white px-4 py-2 rounded mt-4" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+
+    </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section id="edit-profile" class="content hidden">
+                <h1 class="text-2xl font-bold mb-4">Edit Profile</h1>
+                <p>Update your personal details and manage your account settings here.</p>
+                <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-12">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Edit Profile</h2>
+                    
+                    <!-- Profile Edit Form -->
+                    <form id="editProfileForm">
+                        <div class="grid grid-cols-1 gap-6">
+                            
+                            <!-- Name -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email address" required>
+                            </div>
+            
+                            <!-- Phone -->
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your phone number" required>
+                            </div>
+            
+                            <!-- Profile Picture -->
+                            <div>
+                                <label for="profilePicture" class="block text-sm font-medium text-gray-700">Profile Picture</label>
+                                <input type="file" id="profilePicture" name="profilePicture" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" accept="image/*">
+                            </div>
+            
+                            <!-- Save Button -->
+                            <div class="flex justify-end mt-6">
+                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+            <section id="change-password" class="content hidden">
+                <h1 class="text-2xl font-bold mb-4">Change Password</h1>
+                <p>Update your personal details and manage your account settings here.</p>
+                <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-12">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Change Password</h2>
+                    
+                    <!-- Change Password Form -->
+                    <form id="changePasswordForm">
+                        <div class="grid grid-cols-1 gap-6">
+                            
+                            <!-- Current Password -->
+                            <div>
+                                <label for="currentPassword" class="block text-sm font-medium text-gray-700">Current Password</label>
+                                <input type="password" id="currentPassword" name="currentPassword" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your current password" required>
+                            </div>
+                            
+                            <!-- New Password -->
+                            <div>
+                                <label for="newPassword" class="block text-sm font-medium text-gray-700">New Password</label>
+                                <input type="password" id="newPassword" name="newPassword" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your new password" required>
+                            </div>
+            
+                            <!-- Confirm New Password -->
+                            <div>
+                                <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Confirm your new password" required>
+                            </div>
+            
+                            <!-- Save Button -->
+                            <div class="flex justify-end mt-6">
+                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    Change Password
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+            <section id="privacy-settings" class="content hidden">
+                <h1 class="text-2xl font-bold mb-4">Privacy Settings</h1>
+                <p>Update your personal details and manage your account settings here.</p>
+
+                <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-12">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Privacy Settings</h2>
+            
+                    <form id="privacySettingsForm">
+                        <div class="space-y-6">
+                            
+                            <!-- Profile Visibility -->
+                            <div>
+                                <label for="profileVisibility" class="block text-sm font-medium text-gray-700">Profile Visibility</label>
+                                <div class="mt-2">
+                                    <label for="public" class="inline-flex items-center mr-4">
+                                        <input type="radio" id="public" name="profileVisibility" value="public" class="form-radio text-blue-500" checked>
+                                        <span class="ml-2">Public</span>
+                                    </label>
+                                    <label for="private" class="inline-flex items-center">
+                                        <input type="radio" id="private" name="profileVisibility" value="private" class="form-radio text-blue-500">
+                                        <span class="ml-2">Private</span>
+                                    </label>
+                                </div>
+                            </div>
+            
+                            <!-- Email Notifications -->
+                            <div>
+                                <label for="emailNotifications" class="block text-sm font-medium text-gray-700">Email Notifications</label>
+                                <div class="mt-2 flex items-center">
+                                    <input type="checkbox" id="emailNotifications" name="emailNotifications" class="form-checkbox h-5 w-5 text-blue-500">
+                                    <span class="ml-2">Receive email notifications for updates and alerts</span>
+                                </div>
+                            </div>
+            
+                            <!-- Two-Factor Authentication -->
+                            <div>
+                                <label for="twoFactorAuth" class="block text-sm font-medium text-gray-700">Two-Factor Authentication (2FA)</label>
+                                <div class="mt-2 flex items-center">
+                                    <input type="checkbox" id="twoFactorAuth" name="twoFactorAuth" class="form-checkbox h-5 w-5 text-blue-500">
+                                    <span class="ml-2">Enable two-factor authentication for enhanced security</span>
+                                </div>
+                            </div>
+            
+                            <!-- Data Sharing Preferences -->
+                            <div>
+                                <label for="dataSharing" class="block text-sm font-medium text-gray-700">Data Sharing Preferences</label>
+                                <div class="mt-2">
+                                    <label for="shareData" class="inline-flex items-center mr-4">
+                                        <input type="radio" id="shareData" name="dataSharing" value="share" class="form-radio text-blue-500" checked>
+                                        <span class="ml-2">Share data with third-party partners</span>
+                                    </label>
+                                    <label for="dontShareData" class="inline-flex items-center">
+                                        <input type="radio" id="dontShareData" name="dataSharing" value="dontShare" class="form-radio text-blue-500">
+                                        <span class="ml-2">Do not share data with third-party partners</span>
+                                    </label>
+                                </div>
+                            </div>
+            
+                            <!-- Save Button -->
+                            <div class="flex justify-end mt-6">
+                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    Save Settings
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            
+            </section>
+        </main>
+    </div>
+    <script src="src/js/local/alert.js"></script>
+
+    <script src="src/js/accounts/cookie.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+    <script src="src/js/instructor.js"></script>
+    <script src="src/js/instructor/my_students.js"> </script>
+    <script src="src/js/instructor/create_course.js"> </script>
+    <script src="src/js/instructor/manage_courses.js"> </script>
+    <script src="src/js/instructor/edit_profile.js"> </script>
+    <script src="src/js/instructor/change_password.js"> </script>
+    <script src="src/js/instructor/privacy_settings.js"> </script>
+</body>
+
+</html>
