@@ -58,3 +58,82 @@ body{
 
 
 
+/*  FAQs secton  */
+
+.faq-section { cursor: pointer; }
+.faq-section:hover { background-color: #f3f4f6; }
+.faq-section h4 { font-weight: 600; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.tab-navigation { cursor: pointer; padding: 10px 20px; border: 1px solid #e5e7eb; border-radius: 5px; }
+.tab-navigation.active { background-color: #4c51bf; color: white; }
+
+/* Live chat button and modal styles */
+.live-chat-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    background-color: #4c51bf;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+.live-chat-box {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    padding: 15px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.live-chat-box.active {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* loader animation */
+
+
+.dot {   
+    animation: digitalDotAnimation 1.2s ease-in-out infinite;
+} 
+.dot:nth-child(1) {
+    animation-delay: 0s;
+} 
+.dot:nth-child(2) {
+    animation-delay: 0.3s;
+} 
+.dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Keyframe animation for dot pulsation */
+@keyframes digitalDotAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}

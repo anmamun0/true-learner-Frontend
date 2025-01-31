@@ -128,7 +128,7 @@ const courseShow = (slug = '') => {
                 );
                 displayCourses(filteredCourses, true);
             });
-
+            course_page_loading.innerHTML = '';
         })
         .catch(error => console.log(error));
 };

@@ -63,7 +63,7 @@ function populateTable() {
 
     videos.forEach(video => {
         const row = document.createElement("tr");
-        row.classList.add("border-t", "border-gray-300");
+        row.classList.add("border-t", "border-gray-700");
 
         const titleCell = document.createElement("td");
         titleCell.classList.add("px-6", "py-4", "text-sm", "font-medium", "text-gray-400");

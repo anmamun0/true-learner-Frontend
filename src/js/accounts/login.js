@@ -1,5 +1,5 @@
    // Toggle between Instructor and Student sections
-   function toggleSection(section) {
+   function loginUserToggle(section) {
     const instructorSection = document.getElementById('instructor-section');
     const studentSection = document.getElementById('student-section');
     const instructorTab = document.getElementById('instructor-tab');
@@ -26,7 +26,7 @@
 
 // By default, show the student section
 window.onload = function () {
-    toggleSection('student');
+    loginUserToggle('student');
 };
   
 // Function to log form data to the console after form submission

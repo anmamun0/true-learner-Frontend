@@ -6,6 +6,9 @@ async function fetchInstructors() {
         const response = await fetch("http://127.0.0.1:8000/user/instructors/");
         instructors = await response.json(); 
         displayInstructors(instructors);
+        instructors_loading = document.getElementById('instructors_loading').innerHTML = '';
+        
+
     } catch (error) {
         console.error("Error fetching data:", error);
     }

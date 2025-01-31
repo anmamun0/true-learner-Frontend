@@ -1,8 +1,9 @@
 const header = document.querySelector('header');
 header.innerHTML = `
 <!-- Navbar -->
-<nav id="navHeader" class="bg-white bg-opacity-95 text-gray-700  top-0 left-0 w-full z-30 transition-header  ">
+<nav id="navHeader" class="bg-white bg-opacity-95 shadow-xl text-gray-700  top-0 left-0 w-full z-30 transition-header  " style="box-shadow: 0 4px 6px -1px rgba(56, 2, 107, 0.22);">
  
+
   <!-- Secondary Bar (Support Links) -->
   <div class="bg-gray-100 text-gray-600 text-sm py-2" id="upper_header">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
@@ -11,33 +12,43 @@ header.innerHTML = `
         <span>anmamun0@gmail.com</span>
       </div>
       <div class="flex space-x-4">
-        <a href="#" class="hover:text-blue-500">FAQs</a>
-        <a href="#" class="hover:text-blue-500">Support</a>
+        <a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-500">FAQs</a>
+ 
+        <a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-500">Support</a>
       </div>
     </div>
   </div>
   <hr>
   <!-- Main Navbar -->
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-5">
     <!-- Logo -->
     <a href="#" onclick="showPage('index_page');" class="font-bold flex items-center space-x-2  gap-0">
       <span class="text-lg -mr-2 -mb-1">true</span><span class="text-2xl">Learner</span>
     </a>
     <!-- Navigation Links (Center) -->
     <div class="hidden md:flex space-x-6 text-sm font-medium ">
-      <a  href="#"  onclick="showPage('index_page')"  class="hover:text-blue-500">Home</a>
+      <a  href="/"  onclick="showPage('index_page'); event.preventDefault();"  class="hover:text-blue-500">Home</a>
       <div class="relative group">
-        <a href="#courses_page" onclick="showPage('courses_page')"  class="hover:text-blue-500">Courses</a>
+        <a href="/" onclick="showPage('courses_page'); event.preventDefault();"  class="hover:text-blue-500">Courses</a>
         <!-- Dropdown Menu -->
+   
  
         <div class="absolute bg-opacity-90 left-0 top-full pt-5 w-[500px] bg-transparent shadow-lg rounded-lg z-20 hidden group-hover:block">
+            <div id="header_reloading" class="absolute left-6 top-6">
+            <!-- Digital Reloading Animation with TailwindCSS -->
+                <div class="flex font-mono text-teal-400 text-4xl   space-x-3">
+                    <div class="dot w-3 h-3 bg-teal-600 rounded-full opacity-0  "></div>
+                    <div class="dot w-3 h-3 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+                    <div class="dot w-3 h-3 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+                </div> 
+            </div>
             <div id="header_category"  class="bg-white hidden group-hover:grid grid-cols-2 gap-2 p-4">
 
-            </div> 
+            </div>
         </div>
 
       </div>
-       <a href="#" class="hover:text-blue-500">Instructors</a>
+       <a href="/" onclick="showPage('instructors'); event.preventDefault();" class="hover:text-blue-500">Instructors</a>
       <a href="#" class="hover:text-blue-500">Contacts</a>
 
       ${isAuthenticated() ? `
@@ -120,47 +131,80 @@ document.getElementById('mobileAccountBtn')?.addEventListener('click', function(
   });
   
   
-const header_category = document.getElementById('header_category');
+const header_category = document.getElementById('header_category'); 
 fetch(`http://127.0.0.1:8000/course/category/`)
     .then(r => r.json())
     .then(category => {
         category.forEach(cat => {
             header_category.innerHTML += `
-                <a href="#" onclick="showPage('courses_page'); courseShow('${cat.slug}')"  class="border-b-[1px] border-gray-300 block text-sm px-2 py-1  transition-all duration-300 ease-in-out transform hover:ml-2">
+                <a href="#" onclick="showPage('courses_page'); courseShow('${cat.slug}')"  class="border-b-[1px] border-gray-200 border-opacity-30 block text-sm px-2 py-1  transition-all duration-300 ease-in-out transform hover:ml-2">
                 ${cat.name} </a>         
             
             `;
-    })
-    })
-    const whiteHeader = () => {
+        }) 
+      document.getElementById('header_reloading').innerHTML = '';
+})
+
+
+
+
+const whiteHeader = () =>
+{
+  try {
+    
       ['navHeader', 'header_category', 'account_header'].forEach(id => {
         const el = document.getElementById(id);
         if (id === 'navHeader') el.className = "bg-white bg-opacity-95 text-gray-700  top-0 left-0 w-full z-30 transition-header ";
         else el.classList.remove('bg-gray-700');
       });
-      document.getElementById('fa-user').classList.add('text-white'); 
-    }
+      document.getElementById('fa-user').classList.add('text-gray-700'); 
+  }
+  catch(error){}
+
+}
     
-    const blackHeader = () => {
+const blackHeader = () =>
+{
+  try {
       ['navHeader', 'header_category', 'account_header'].forEach(id => {
         const el = document.getElementById(id);
-        if (id === 'navHeader') el.className = "bg-gray-700 bg-opacity-95 text-white top-0 left-0 w-full z-50 transition-header";
+        if (id === 'navHeader') el.className = "bg-gray-700 bg-opacity-95 text-gray-100 top-0 left-0 w-full z-50 transition-header";
         else el.classList.add('bg-gray-700');
       });
       document.getElementById('fa-user').classList.add('text-white'); 
     }
+    catch(error){}
+}
+
+const setCustomUrl = (string) => {
+  let Url = window.location.href;
+  let result = Url.split("?")[0]; 
+
+  let newUrl = result + "?" + string;
+  window.history.pushState({}, "", newUrl); 
+
+}
+    
 
     
+
+ 
+
+
+
+
+
 
 
 
     
  
-window.onload = function() {
+window.onload = function () {
   const functionCall = localStorage.getItem('localCall');
   if (functionCall) {
       eval(functionCall); // This will execute 'myFunction()'
   }
+  console.log(functionCall);
 };
 
 // window.addEventListener("beforeunload", function(event) {
@@ -169,19 +213,17 @@ window.onload = function() {
 //   alert("You are reloading the page!"); // This will trigger the alert
 // });
 
-const showPage = (page, course_id = 0) => { 
+const showPage = (page, course_id = 0) =>
+{ 
+
+  const pages = ['index_page', 'courses_page', 'course_details','instructors','support']; // List of page IDs
   
   localStorage.setItem('localCall', `showPage('${page}','${course_id}');`)
-
-  const pages = ['index_page', 'courses_page', 'course_details']; // List of page IDs
   if (page === 'index_page')
   {
     localStorage.removeItem('localCall');
     document.getElementById('upper_header').classList.remove('hidden');
-    try {
-      whiteHeader();  
-      } catch (error) { 
-      }
+    whiteHeader(); 
     window.location.href='/'
   } 
 
@@ -205,21 +247,28 @@ const showPage = (page, course_id = 0) => {
         document.getElementById('upper_header').classList.add('hidden');
     }
     
+  
   if (page === 'courses_page') {  
-    try { whiteHeader(); } catch (error) { } 
-
-    window.location.href = './#courses_page';
+    whiteHeader();  
+    setCustomUrl('courses'); 
     courseShow();
   }
 
-  if (page === 'course_details') {
-    window.location.href = './#course_details';
-
-    try { blackHeader(); } catch (error) { } 
- 
+  if (page === 'course_details') {  
+    blackHeader(); 
+    const newURL = `courses/${course_id}`;
+    setCustomUrl(newURL);
     showDetails(course_id);
   }
- 
+
+  if (page === 'instructors') {
+    whiteHeader();
+    setCustomUrl('instructors');
+  }
+  if (page === 'support') {
+    whiteHeader();
+    setCustomUrl('support');
+  }
 };
 
 

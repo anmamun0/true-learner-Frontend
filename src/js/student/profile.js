@@ -54,6 +54,7 @@ const studentProfile = () => {
             form.querySelector('[name="about"]').value = student.student_profile ? student.student_profile.bio : '';
             form.querySelector('[name="address"]').value = student.student_profile.address;
 
+            document.getElementById('profile_loading').innerHTML = '';
         })
         .catch(error => console.log(error));
 }

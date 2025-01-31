@@ -24,7 +24,7 @@
     <main id="profile" class="px-8">
         <div class="max-w-7xl mx-auto mt-12 py-16 px-6">
             <!-- Profile Header -->
-            <div class="bg-white shadow rounded-xl p-8 flex flex-col lg:flex-row items-center gap-6">
+            <div class="relative bg-white shadow rounded-xl p-8 flex flex-col lg:flex-row items-center gap-6">
                 <img id="student_image" class="w-32 h-32 rounded-full border-4 border-blue-500"
                     src="https://via.placeholder.com/150" alt="Student Profile Picture">
                 <div class="flex-1">
@@ -38,9 +38,22 @@
                             <span id="completed_courses">3</span></span>
                     </div>
                 </div>
-                <button id="profile_edit_button" onclick="showProfilePage('profile_edit')"
-                    class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">Edit
-                    Profile</button>
+ 
+                    <button id="profile_edit_button" onclick="showProfilePage('profile_edit')"
+                        class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">Edit
+                        Profile
+                    </button>
+
+                    
+                    <div id="profile_loading" class="absolute bottom-6 right-12 ">
+                        <!-- Digital Reloading Animation with TailwindCSS -->
+                        <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
+                            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+                            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+                            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+                        </div> 
+                    </div> 
+                
             </div>
 
             <!-- Enrolled Courses -->

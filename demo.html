@@ -3,16 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructor Finder</title>
+    <title>Support Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-</head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center p-6">
-
+    <script src="https://unpkg.com/vanilla-modal"></script>
+   <!-- Add this to your styles -->
+<style>
+    /* Centering the loader */
  
+
+    .dot {   
+        animation: digitalDotAnimation 1.2s ease-in-out infinite;
+    } 
+    .dot:nth-child(1) {
+        animation-delay: 0s;
+    } 
+    .dot:nth-child(2) {
+        animation-delay: 0.3s;
+    } 
+    .dot:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    /* Keyframe animation for dot pulsation */
+    @keyframes digitalDotAnimation {
+        0% {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+    }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Digital Reloading Animation with TailwindCSS -->
+<div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-12 space-x-3">
+    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+</div>
+
+
+     
+
+    <!--Support Search Support Section -->
+    <section class="pt-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class=" text-2xl font-semibold text-gray-800 mb-6">Search for Help</h2>
+            <input type="text" id="searchBox" class="w-1/2 p-3 rounded-md border border-gray-300" placeholder="Search FAQ or Course Help..." oninput="searchHelp()">
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Left Side Navigation -->
+            <div class="space-y-4">
+                <div class="tab-navigation active" data-tab="instructor">Instructor FAQs</div>
+                <div class="tab-navigation" data-tab="student">Student FAQs</div>
+                <div class="tab-navigation" data-tab="general">General FAQs</div>
+                    <!-- Contact Form at the Bottom -->
+    <section class="py-12 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class=" text-2xl font-semibold text-gray-800 mb-6">Contact Us</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email Address</label>
+                    <input type="email" id="email" class="w-full p-3 rounded-md border border-gray-300" placeholder="Your email address" required>
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700">Description</label>
+                    <textarea id="description" class="w-full p-3 rounded-md border border-gray-300" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md">Submit</button>
+            </form>
+        </div>
+    </section>
+            </div>
+
+            <!-- Right Side FAQ Content -->
+            <div class="col-span-2 space-y-12">
+                <!-- Instructor FAQs -->
+                <div class="tab-content instructor active">
+                    <h3 class=" text-xl font-semibold text-gray-800 mb-6">Instructor FAQs</h3>
+                    <div class="space-y-6">
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">How do I create a course?</h4>
+                            <p class="text-gray-600 hidden">To create a course, log in to your instructor account, navigate to the 'My Courses' section, and click 'Create New Course'. Fill in the course details and upload your content.</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">How can I track student progress?</h4>
+                            <p class="text-gray-600 hidden">Once your course is live, you can view detailed analytics in the 'Course Management' section. This shows student engagement, completion rates, and more.</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">How do I set course pricing?</h4>
+                            <p class="text-gray-600 hidden">You can set a price for your course while creating it or by editing it in the 'My Courses' section. There are multiple pricing options available, including subscription and one-time fees.</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">Can I add quizzes or assignments to my course?</h4>
+                            <p class="text-gray-600 hidden">Yes! You can create quizzes and assignments under the 'Course Management' section. You have full control over the type of assessments and the grading system.</p>
+                        </div>
+                        <!-- Additional FAQs for Instructor -->
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class="text-lg font-medium text-gray-700">How do I interact with students?</h4>
+                            <p class="text-gray-600 hidden">You can interact with your students through discussion forums, live Q&A sessions, and email. We also provide a messaging system within the platform.</p>
+                        </div>
+                        
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class="text-lg font-medium text-gray-700">Can I offer discounts for my course?</h4>
+                            <p class="text-gray-600 hidden">Yes, you can create discount codes for your courses. The discount can be applied during checkout by students.</p>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- Student FAQs -->
+                <div class="tab-content student">
+                    <h3 class=" text-xl font-semibold text-gray-800 mb-6">Student FAQs</h3>
+                    <div class="space-y-6">
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">How do I enroll in a course?</h4>
+                            <p class="text-gray-600 hidden">Browse our course catalog, select the course you're interested in, and click 'Enroll'. For free courses, you'll be enrolled instantly, while paid courses require payment first.</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">Can I watch courses on mobile?</h4>
+                            <p class="text-gray-600 hidden">Yes! Our platform is fully mobile-optimized, so you can watch courses through our app or any mobile browser. Courses are accessible anywhere!</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">How do I track my course progress?</h4>
+                            <p class="text-gray-600 hidden">You can track your progress on the course page, where you'll see your completion percentage and which lessons have been completed.</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">Can I get a certificate after completing the course?</h4>
+                            <p class="text-gray-600 hidden">Yes! After completing a course, you can receive a certificate of completion. The certificate is available for download from your course dashboard.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General FAQs -->
+                <div class="tab-content general">
+                    <h3 class=" text-xl font-semibold text-gray-800 mb-6">General FAQs</h3>
+                    <div class="space-y-6">
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">How can I contact support?</h4>
+                            <p class="text-gray-600 hidden">You can contact support through the 'Contact Us' section or by submitting a support ticket in the 'Submit a Ticket' section at the bottom of the page.</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">How do I reset my password?</h4>
+                            <p class="text-gray-600 hidden">To reset your password, go to the login page, click on 'Forgot Password', and follow the instructions to receive a reset link in your email.</p>
+                        </div>
+                        <div class="faq-section p-4 rounded-md border border-gray-300">
+                            <h4 class=" text-md font-medium text-gray-700">What payment methods are accepted?</h4>
+                            <p class="text-gray-600 hidden">We accept major credit cards, debit cards, PayPal, and other secure payment methods. For subscription-based courses, payments are automatically renewed monthly or yearly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Chat Button and Box -->
+    <div class="live-chat-btn" onclick="toggleLiveChat()">💬</div>
+    <div class="live-chat-box" id="liveChatBox">
+        <h4 class="font-bold  text-md mb-4">Live Chat</h4>
+        <textarea class="w-full p-2 border rounded-md " placeholder="Type your message here..."></textarea>
+        <button class="w-full mt-4 p-2 bg-blue-600 text-white rounded-md">Send</button>
+    </div>
+
+
+
+    <!-- Script to Handle FAQ Toggle and Tab Navigation -->
     <script>
-    
+        const faqSections = document.querySelectorAll('.faq-section');
+
+        faqSections.forEach(faq => {
+            faq.addEventListener('click', function () {
+                const answer = this.querySelector('p');
+                answer.classList.toggle('hidden');
+            });
+        });
+
+        const tabs = document.querySelectorAll('.tab-navigation');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const activeTab = tab.getAttribute('data-tab');
+                tabContents.forEach(content => {
+                    if (content.classList.contains(activeTab)) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        function toggleLiveChat() {
+            const liveChatBox = document.getElementById('liveChatBox');
+            liveChatBox.classList.toggle('active');
+        }
     </script>
 
 </body>

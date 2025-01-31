@@ -43,6 +43,7 @@
   <header class=" z-30">  </header>
 
   <main id="index_page" class=" ">
+    
     <div
       class="relative rounded-b-lg min-h-screen bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 overflow-hidden">
       <!-- Background Circles -->
@@ -54,7 +55,7 @@
         </div>
       </div>
 
-      <div class="container mx-auto px-6 lg:px-20 py-20 text-center lg:text-left mt-24">
+      <div class="container mx-auto px-6 lg:px-20 py-20 text-center lg:text-left mt-36">
         <!-- Text Content -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <!-- Headline and CTA -->
@@ -98,7 +99,7 @@
 
     <section class="py-20 bg-gradient-to-br from-gray-100 to-gray-200">
       <div class="max-w-6xl mx-auto text-center px-6">
-        <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>
+        <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>  
         <p class="text-gray-600 mt-4 text-lg">Follow these simple steps to start your learning journey.</p>
         
         <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -312,6 +313,14 @@
               <button id="listViewBtn" class="p-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition">
                   <i class="fas fa-list"></i> <!-- List Icon -->
               </button>
+
+              <div id="course_page_loading">         <!-- Digital Reloading Animation with TailwindCSS -->
+                  <div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-4 space-x-3">
+                    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+                    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+                    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+                  </div> 
+              </div>
             </div>
 
           <div class="relative w-80">
@@ -408,10 +417,10 @@
       </div> 
 
       
-  <div class="container mx-auto mt-10 p-5 ">
+  <div class="container mx-auto mt-10   ">
     <h1 class="text-3xl font-semibold  mb-5">Course Content</h1>
     <p class="text-xs pb-4"><span id="course_total_sections"></span> sections •  <span id="course_total_lectures"></span>lectures • <span id="course_total_length"></span> total length</p>
-    <table class="min-w-full border-[1px] border-gray-700 table-auto   border-collapse shadow-md rounded-lg overflow-hidden">
+    <table class="min-w-full border-[1px] border-gray-700 p-4 table-auto   border-collapse shadow-md rounded-lg overflow-hidden">
         <thead>
             <tr class=" text-gray-600">
                 <th class="px-6 py-3 text-left text-sm font-medium">Video Title</th>
@@ -669,7 +678,7 @@
 
 
 
-<main>
+<main id="instructors" class="hidden py-16">
      <!-- 🔹 Header Section -->
      <div class="text-center py-12   w-full">
       <h2 class="text-4xl font-bold text-gray-800">Meet Our Expert Instructors</h2>
@@ -677,14 +686,21 @@
   </div>
 
 <!-- 🔹 Search & Filter -->
-<div class="max-w-4xl mx-auto mt-16 px-6 w-full">
-  <div class="relative">
+<div class="max-w-4xl mx-auto   px-6 w-full">
+  <div class="relative"> 
       <!-- Search Input Field -->
-      <input type="text" id="searchInput" 
-          class="w-full py-3 pl-12 pr-6 border border-gray-300 rounded-xl bg-white bg-opacity-80 backdrop-blur-md text-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-60 placeholder-gray-500 transition-all duration-300 ease-in-out transform hover:border-blue-600"
-          placeholder=" Search instructors by name or subject..." 
-          onkeyup="filterInstructors()">
+      <input type="text" id="searchInput"
+        class="w-full py-3 pl-12 pr-6 border border-gray-300 rounded-xl bg-white bg-opacity-80 backdrop-blur-md text-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-60 placeholder-gray-500 transition-all duration-300 ease-in-out transform hover:border-blue-600"
+        placeholder=" Search instructors by name or subject..." onkeyup="filterInstructors()">
 
+      <div id="instructors_loading" class="pt-4 pl-2">
+        <!-- Digital Reloading Animation with TailwindCSS -->
+        <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
+          <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+          <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+          <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+        </div>
+      </div>
       <!-- Search Icon inside input -->
       <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
           <i class="fas fa-search w-5 h-5"></i>
@@ -695,7 +711,7 @@
 
   <!-- Instructor Cards Section -->
   <div class="w-full max-w-6xl my-8 m-auto">
-      <h3 class="text-2xl font-semibold text-center text-gray-800 mb-5">👨‍🏫 All Instructors</h3>
+      <h3 class="text-xl font-semibold text-center text-gray-800 mb-6">  All Instructors</h3>
       <div id="instructorList" class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Instructor Cards will be added dynamically -->
            
@@ -714,6 +730,143 @@
 
 
 
+
+
+<!-- Support -->
+<main id="support" class="py-16 hidden">
+  
+     
+    <!--Support Header Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-12 mx-4 rounded-lg">
+      <h1 class=" text-3xl font-bold">Support Center</h1>
+      <p class="mt-4  text-md">Helping Students and Instructors Succeed. Browse FAQs, view tutorials, or reach out to our support team for further assistance.</p>
+  </div>
+
+  <!--Support Search Support Section -->
+  <section class="pt-8 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+          <h2 class=" text-2xl font-semibold text-gray-800 mb-6">Search for Help</h2>
+          <input type="text" id="searchBox" class="w-1/2 p-3 rounded-md border border-gray-300" placeholder="Search FAQ or Course Help..." oninput="searchHelp()">
+      </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Left Side Navigation -->
+          <div class="space-y-4">
+              <div class="tab-navigation active" data-tab="instructor">Instructor FAQs</div>
+              <div class="tab-navigation" data-tab="student">Student FAQs</div>
+              <div class="tab-navigation" data-tab="general">General FAQs</div>
+                  <!-- Contact Form at the Bottom -->
+  <section class="py-12 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-6">
+          <h2 class=" text-2xl font-semibold text-gray-800 mb-6">Contact Us</h2>
+          <form>
+              <div class="mb-4">
+                  <label for="email" class="block text-gray-700">Email Address</label>
+                  <input type="email" id="email" class="w-full p-3 rounded-md border border-gray-300" placeholder="Your email address" required>
+              </div>
+              <div class="mb-4">
+                  <label for="description" class="block text-gray-700">Description</label>
+                  <textarea id="description" class="w-full p-3 rounded-md border border-gray-300" placeholder="Your message..." required></textarea>
+              </div>
+              <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md">Submit</button>
+          </form>
+      </div>
+  </section>
+          </div>
+
+          <!-- Right Side FAQ Content -->
+          <div class="col-span-2 space-y-12">
+              <!-- Instructor FAQs -->
+              <div class="tab-content instructor active">
+                  <h3 class=" text-xl font-semibold text-gray-800 mb-6">Instructor FAQs</h3>
+                  <div class="space-y-6">
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">How do I create a course?</h4>
+                          <p class="text-gray-600 hidden">To create a course, log in to your instructor account, navigate to the 'My Courses' section, and click 'Create New Course'. Fill in the course details and upload your content.</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">How can I track student progress?</h4>
+                          <p class="text-gray-600 hidden">Once your course is live, you can view detailed analytics in the 'Course Management' section. This shows student engagement, completion rates, and more.</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">How do I set course pricing?</h4>
+                          <p class="text-gray-600 hidden">You can set a price for your course while creating it or by editing it in the 'My Courses' section. There are multiple pricing options available, including subscription and one-time fees.</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">Can I add quizzes or assignments to my course?</h4>
+                          <p class="text-gray-600 hidden">Yes! You can create quizzes and assignments under the 'Course Management' section. You have full control over the type of assessments and the grading system.</p>
+                      </div>
+                      <!-- Additional FAQs for Instructor -->
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class="text-lg font-medium text-gray-700">How do I interact with students?</h4>
+                          <p class="text-gray-600 hidden">You can interact with your students through discussion forums, live Q&A sessions, and email. We also provide a messaging system within the platform.</p>
+                      </div>
+                      
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class="text-lg font-medium text-gray-700">Can I offer discounts for my course?</h4>
+                          <p class="text-gray-600 hidden">Yes, you can create discount codes for your courses. The discount can be applied during checkout by students.</p>
+                      </div>  
+                  </div>
+              </div>
+
+              <!-- Student FAQs -->
+              <div class="tab-content student">
+                  <h3 class=" text-xl font-semibold text-gray-800 mb-6">Student FAQs</h3>
+                  <div class="space-y-6">
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">How do I enroll in a course?</h4>
+                          <p class="text-gray-600 hidden">Browse our course catalog, select the course you're interested in, and click 'Enroll'. For free courses, you'll be enrolled instantly, while paid courses require payment first.</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">Can I watch courses on mobile?</h4>
+                          <p class="text-gray-600 hidden">Yes! Our platform is fully mobile-optimized, so you can watch courses through our app or any mobile browser. Courses are accessible anywhere!</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">How do I track my course progress?</h4>
+                          <p class="text-gray-600 hidden">You can track your progress on the course page, where you'll see your completion percentage and which lessons have been completed.</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">Can I get a certificate after completing the course?</h4>
+                          <p class="text-gray-600 hidden">Yes! After completing a course, you can receive a certificate of completion. The certificate is available for download from your course dashboard.</p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- General FAQs -->
+              <div class="tab-content general">
+                  <h3 class=" text-xl font-semibold text-gray-800 mb-6">General FAQs</h3>
+                  <div class="space-y-6">
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">How can I contact support?</h4>
+                          <p class="text-gray-600 hidden">You can contact support through the 'Contact Us' section or by submitting a support ticket in the 'Submit a Ticket' section at the bottom of the page.</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">How do I reset my password?</h4>
+                          <p class="text-gray-600 hidden">To reset your password, go to the login page, click on 'Forgot Password', and follow the instructions to receive a reset link in your email.</p>
+                      </div>
+                      <div class="faq-section p-4 rounded-md border border-gray-300">
+                          <h4 class=" text-md font-medium text-gray-700">What payment methods are accepted?</h4>
+                          <p class="text-gray-600 hidden">We accept major credit cards, debit cards, PayPal, and other secure payment methods. For subscription-based courses, payments are automatically renewed monthly or yearly.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Live Chat Button and Box -->
+  <div class="live-chat-btn" onclick="toggleLiveChat()">💬</div>
+  <div class="live-chat-box" id="liveChatBox">
+      <h4 class="font-bold  text-md mb-4">Live Chat</h4>
+      <textarea class="w-full p-2 border rounded-md " placeholder="Type your message here..."></textarea>
+      <button class="w-full mt-4 p-2 bg-blue-600 text-white rounded-md">Send</button>
+  </div>
+
+
+</main>
 
 
 
@@ -747,6 +900,11 @@
 
   <script src="src/js/local/instructors.js"> </script>
 
+
+
+
+
+  <script src="src/js/support/support.js"> </script>
 </body>
 
 </html>
