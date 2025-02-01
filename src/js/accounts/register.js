@@ -71,7 +71,7 @@ function logFormData(event, userType) {
         pushAlert('error', 'Please fill in all required fields.');
         return;
     }
-    fetch('http://127.0.0.1:8000/user/register/', {
+    fetch('https://truelearner-backends.onrender.com/user/register/', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"

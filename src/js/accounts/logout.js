@@ -1,6 +1,6 @@
 // Function to logout the user
 function logoutUser() { 
-    fetch('http://127.0.0.1:8000/user/logout/', {
+    fetch('https://truelearner-backends.onrender.com/user/logout/', {
         method: 'GET', // Use GET for hitting the logout endpoint
         headers: {
             "Content-Type": "application/json", // Optional for GET requests
@@ -22,6 +22,6 @@ function logoutUser() {
     localStorage.removeItem('token');
     localStorage.removeItem('user_id');
     pushAlert('success', 'You have been logged out!');  
-    window.location.href = '/';
+    showPage('index_page');
 
 }

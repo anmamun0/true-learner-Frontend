@@ -18,10 +18,10 @@ footer.innerHTML = `
     <div>
       <h3 class="text-2xl font-semibold text-white mb-4">Quick Links</h3>
       <ul class="space-y-3">
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">Home</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">Courses</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">Pricing</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">Contact</a></li>
+        <li><a href="/"  onclick="showPage('index_page'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Home</a></li>
+        <li><a href="/"  onclick="showPage('courses_page'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Courses</a></li>
+        <li><a href="/"  onclick="showPage('instructors'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Instructors</a></li>
+        <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Contact</a></li>
       </ul>
     </div>
 
@@ -29,10 +29,10 @@ footer.innerHTML = `
     <div>
       <h3 class="text-2xl font-semibold text-white mb-4">Resources</h3>
       <ul class="space-y-3">
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">FAQs</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">Support</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">Privacy Policy</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition duration-300">Terms of Service</a></li>
+        <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">FAQs</a></li>
+        <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Support</a></li>
+        <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Privacy Policy</a></li>
+        <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Terms of Service</a></li>
       </ul>
     </div>
 
@@ -55,10 +55,10 @@ footer.innerHTML = `
   <div class="relative border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
     <p>&copy; 2025 YourWebsite. All rights reserved.</p>
     <div class="flex justify-center space-x-6 mt-4">
-      <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-facebook text-xl"></i></a>
-      <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-twitter text-xl"></i></a>
-      <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-instagram text-xl"></i></a>
-      <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-linkedin text-xl"></i></a>
+      <a href="https://www.facebook.com/anmamun0" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-facebook text-xl"></i></a>
+      <a href="https://www.facebook.com/anmamun0" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-twitter text-xl"></i></a>
+      <a href="https://www.anmamun0.verel.app" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-instagram text-xl"></i></a>
+      <a href="https://www.facebook.com/anmamun0" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-linkedin text-xl"></i></a>
     </div>
   </div>
 </div>

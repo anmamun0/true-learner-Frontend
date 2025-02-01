@@ -410,7 +410,16 @@
   <div class="grid grid-cols-12   gap-12  ">
     <!-- Left Section: Course Details -->
     <div class=" rounded-xl p-8 space-y-2 col-span-7">
-      <h2 class="text-2xl   text-white">Course Description</h2>
+      <div class="flex justify-between">
+          <h2 class="text-2xl   text-white">Course Description</h2> 
+          <div id="course_details_loading"> 
+            <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
+              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+            </div>
+        </div>
+      </div>
       <p class="text-sm font-semibold pb-4">Course Code: <span id="course_code"> 10</span></p>
       <div id="course_details_description" class="text-gray-300 text-xs leading-relaxed space-y-4">
         <!-- Dynamic content will be injected here -->
@@ -486,7 +495,8 @@
         </div>
       </div> 
     </a>
-
+    <!-- <span class="w-6 h-6 mr-3 bg-green-500 text-white rounded-full flex items-center justify-center">&#10003;</span>  -->
+     
         <div class="absolute -top-0 -left-6">  
           <div class=" relative inline-block">
           <!-- Sticker Background with Curved Effect -->
@@ -516,7 +526,7 @@
             <div class="flex items-center space-x-4">
               <i class="fas fa-video   text-gray-500"></i>
               <div>
-                <h3 class="">10.5 hours on-demand video</h3>
+                <h3 class=""><span id="course_total_length2" >10.5</span> hours on-demand video</h3>
               </div>
             </div>
       
@@ -524,7 +534,7 @@
             <div class="flex items-center space-x-4">
               <i class="fas fa-code   text-gray-500"></i>
               <div>
-                <h3 class="">7 coding exercises</h3>
+                <h3 class=""><span id="course_total_sections2" >7 </span>  coding exercises</h3>
               </div>
             </div>
       
@@ -540,7 +550,7 @@
             <div class="flex items-center space-x-4">
               <i class="fas fa-download   text-gray-500"></i>
               <div>
-                <h3 class="">74 downloadable resources</h3>
+                <h3 class=""><span id="course_total_lectures2" >74 </span>  downloadable resources</h3>
               </div>
             </div>
       
@@ -617,7 +627,7 @@
     <!-- Instructor Image -->
     <div class="relative">
       <div class="rounded-full h-24 w-24 overflow-hidden"> 
-      <img id="instructor_image" src="https://i.ibb.co/zVQfdZQx/cat.jpg" alt="Instructor" 
+      <img id="course_details_instructor_image" src="https://i.ibb.co/zVQfdZQx/cat.jpg" alt="Instructor" 
         class="border-3 border-black shadow-lg transform hover:scale-105 transition-all">
       </div>
       
@@ -629,9 +639,9 @@
 
     <!-- Instructor Details -->
     <div class="text-center md:text-left">
-      <h3 id="instructor_name" class="text-3xl font-bold text-white">John Doe</h3>
+      <h3 id="course_details_instructor_name" class="text-3xl font-bold text-white">John Doe</h3>
       <p class="text-sm text-blue-400 font-medium mt-1">Senior Full-Stack Developer</p>
-      <p id="instructor_bio" class="text-gray-300 mt-4 leading-relaxed">
+      <p id="course_details_instructor_bio" class="text-gray-300 mt-4 leading-relaxed">
         John is a seasoned full-stack developer with over <strong>10 years</strong> of experience. He has worked with 
         top tech companies and contributed to multiple open-source projects. His passion is teaching and mentoring aspiring developers 
         to master their craft.
@@ -676,51 +686,110 @@
 
 
 
-
-
 <main id="instructors" class="hidden py-16">
-     <!-- 🔹 Header Section -->
-     <div class="text-center py-12   w-full">
-      <h2 class="text-4xl font-bold text-gray-800">Meet Our Expert Instructors</h2>
-      <p class="text-gray-600 mt-2">Find the best instructors and learn from the experts.</p>
+  <!-- 🔹 Header Section -->
+  <div class="text-center py-12   w-full">
+    <h2 class="text-4xl font-bold text-gray-800">Meet Our Expert Instructors</h2>
+    <p class="text-gray-600 mt-2">Find the best instructors and learn from the experts.</p>
   </div>
 
-<!-- 🔹 Search & Filter -->
-<div class="max-w-4xl mx-auto   px-6 w-full">
-  <div class="relative"> 
+  <!--   Search & Filter -->
+  <div class="max-w-4xl mx-auto   px-6 w-full">
+    <div class="relative">
       <!-- Search Input Field -->
       <input type="text" id="searchInput"
         class="w-full py-3 pl-12 pr-6 border border-gray-300 rounded-xl bg-white bg-opacity-80 backdrop-blur-md text-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-60 placeholder-gray-500 transition-all duration-300 ease-in-out transform hover:border-blue-600"
         placeholder=" Search instructors by name or subject..." onkeyup="filterInstructors()">
 
-      <div id="instructors_loading" class="pt-4 pl-2">
-        <!-- Digital Reloading Animation with TailwindCSS -->
-        <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
-          <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-          <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-          <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+        <div id="instructors_loading" class="pt-4 pl-2">
+          <!-- Digital Reloading Animation with TailwindCSS -->
+          <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
+            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+          </div>
         </div>
-      </div>
       <!-- Search Icon inside input -->
       <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
-          <i class="fas fa-search w-5 h-5"></i>
+        <i class="fas fa-search w-5 h-5"></i>
       </div>
+    </div>
   </div>
-</div>
 
 
   <!-- Instructor Cards Section -->
   <div class="w-full max-w-6xl my-8 m-auto">
-      <h3 class="text-xl font-semibold text-center text-gray-800 mb-6">  All Instructors</h3>
-      <div id="instructorList" class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Instructor Cards will be added dynamically -->
-           
-      </div>
+    <h3 class="text-xl font-semibold text-center text-gray-800 mb-6"> All Instructors</h3>
+    <div id="instructorList" class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Instructor Cards will be added dynamically -->
+
+    </div>
   </div>
 
 </main>
 
 
+
+
+
+
+
+
+
+
+
+
+<main id="instructors_details" class="hidden">
+    <!-- Instructor Info -->
+    <div class="max-w-5xl mx-auto mt-10 p-6 rounded-lg">
+          <div id="instructors_details_loading" class="mt-16"> 
+            <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
+              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+            </div>
+          </div>
+      <div class="grid grid-cols-2 justify-between p-4 gap-10 justify-between items-center">
+        
+          <!-- Left Section -->
+          <div class="col-span-1"> 
+              <span  class="text-sm text-gray-500">Instructor</span>
+              <h1 id="instructor_details_name" class="text-2xl font-semibold"> Instructor Name</h1>
+              <p class="text-gray-600"> @<span id="instructor_details_username" ></span> </p>
+              <p id="instructor_details_title" class="text-gray-800 mt-2">Senior Software Engineer | Instructor</p>
+               <div class="flex space-x-8 mt-4">
+                  <p  class="text-gray-700 font-medium">Total Students: <span id="instructor_details_total_students" class="font-bold text-blue-600">44</span></p>
+                  <p class="text-gray-700 font-medium">Total Courses: <span id="instructor_details_total_courses" class="font-bold text-blue-600">12</span></p>
+              </div>
+              
+              <!-- About Section -->
+              <div class="max-w-5xl mx-auto mt-6 rounded-lg">
+                  <h2 class="text-xl font-semibold text-gray-800">About Me</h2>
+                  <p id="instructor_details_bio" id="aboutText" class="text-gray-600 mt-2">
+                  </p>
+                  <button id="showMore" class="mt-3 text-blue-600 font-medium hover:underline">Show More</button>
+              </div>
+          </div>
+
+          <!-- Right Section -->
+          <div class="col-span-1 flex flex-col items-end p-10">
+              <img id="instructor_details_image" src="https://via.placeholder.com/100" class="w-36 h-36 rounded-full shadow-md" alt="Instructor">
+              <ul class="mt-4 space-y-2 text-sm text-gray-700 space-y-4" id="instructor_details_social_media"> 
+                  
+              </ul>
+          </div>
+      </div>
+  </div>
+
+
+  <!-- Courses Section -->
+  <div class="max-w-5xl mx-auto  p-6    rounded-lg">
+      <h2 class="text-xl font-semibold text-gray-800">My Courses</h2>
+          <div id="instructor_details_course_filed" class="grid grid-cols-4 gap-6 mt-4 ">
+          </div> 
+      </div>
+  </div> 
+</main>
 
 
 
@@ -864,12 +933,290 @@
       <textarea class="w-full p-2 border rounded-md " placeholder="Type your message here..."></textarea>
       <button class="w-full mt-4 p-2 bg-blue-600 text-white rounded-md">Send</button>
   </div>
-
-
 </main>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- student Profile  -->
+
+
+<main id="student_profile" class="hidden px-8"> 
+    <div class="max-w-7xl mx-auto mt-12 py-16 px-6">
+        <!-- Profile Header -->
+        <div class="relative bg-white shadow rounded-xl p-8 flex flex-col lg:flex-row items-center gap-6">
+            <img id="student_image" class="w-32 h-32 rounded-full border-4 border-blue-500"
+                src="https://via.placeholder.com/150" alt="Student Profile Picture">
+            <div class="flex-1">
+                <h1 id="student_name" class="text-3xl font-bold text-gray-800">John Doe</h1>
+                <p class="text-gray-500 text-sm mt-2">@ <span id="student_username">username</span></p>
+                <p id="student_email" class="text-gray-500 text-sm mt-2">john.doe@example.com</p>
+                <div class="mt-4 flex flex-wrap gap-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-lg">Enrolled: <span
+                            id="enroll_count">5</span> Courses</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-600 text-sm font-medium rounded-lg">Certificates:
+                        <span id="completed_courses">3</span></span>
+                </div>
+            </div>
+
+                <button id="profile_edit_button" onclick="showPage('student_profile_update')"
+                    class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">Edit
+                    Profile
+                </button>
+
+                
+                <div id="profile_loading" class="absolute bottom-6 right-12 ">
+                    <!-- Digital Reloading Animation with TailwindCSS -->
+                    <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
+                        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+                        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+                        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+                    </div> 
+                </div> 
+            
+        </div>
+
+        <!-- Enrolled Courses -->
+        <div class="mt-12 px-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Enrolled Courses</h2>
+            <div id="enrolled_courses" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+            </div>
+        </div>
+
+        <!-- Certificates -->
+        <!-- <div class="mt-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Certificates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+           
+                <div class="bg-white shadow rounded-xl p-6 text-center transform hover:scale-105 transition">
+                    <h3 class="text-lg font-bold text-gray-800">Python Mastery</h3>
+                    <p class="text-sm text-gray-500 mt-2">Issued: Jan 2025</p>
+                    <button class="px-4 py-2 mt-4 bg-blue-500 text-white rounded-lg text-sm">View
+                        Certificate</button>
+                </div>
+
+                <div class="bg-white shadow rounded-xl p-6 text-center transform hover:scale-105 transition">
+                    <h3 class="text-lg font-bold text-gray-800">Full-Stack Development</h3>
+                    <p class="text-sm text-gray-500 mt-2">Issued: Dec 2024</p>
+                    <button class="px-4 py-2 mt-4 bg-blue-500 text-white rounded-lg text-sm">View
+                        Certificate</button>
+                </div>
+            </div>
+        </div> -->
+
+
+        <!-- Additional Info Section -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Additional Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Certificates Card -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Certificates</h3>
+                    <p class="text-gray-600 text-sm"><span id="certificates_count"> </span> certificates earned yet.</p>
+                </div>
+                <!-- Progress Card -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Progress</h3>
+                    <div class="relative pt-1">
+                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                            <div style="width:10%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500">
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm">70% Complete</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+
+
+ 
+<main id="student_profile_update" class="hidden  mt-24 ">
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 relative p-8">
+      <h2 class="text-2xl font-semibold text-gray-700 mb-6">Edit Profile</h2>
+
+      <form id="student_profile_update_form" action="#" method="POST">
+          
+          <!-- Submit Button -->
+          <div class="mt-6 text-right absolute top-0 right-8">
+              <button type="submit"
+                  class="px-4 py-3 text-white text-sm bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Save
+                   </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Name Field -->
+              <div class="flex flex-col">
+                  <label for="username" class="text-sm font-medium text-gray-700">Username</label>
+                  <input id="username" type="text" name="username"
+                      class="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Enter your name" required>
+              </div>
+
+              <!-- Email Field -->
+              <div class="flex flex-col">
+                  <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+                  <input id="email" type="email" name="email"
+                      class="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Enter your email" required>
+              </div>
+
+              <!-- Name Field -->
+              <div class="flex flex-col">
+                  <label for="first_name" class="text-sm font-medium text-gray-700">First Name</label>
+                  <input id="first_name" type="text" name="first_name"
+                      class="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Enter your name" required>
+              </div>
+              <!-- Name Field -->
+              <div class="flex flex-col">
+                  <label for="last_name" class="text-sm font-medium text-gray-700">Last Name</label>
+                  <input id="last_name" type="text" name="last_name"
+                      class="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Enter your name" required>
+              </div>
+
+
+              <!-- Phone Number Field -->
+              <div class="flex flex-col">
+                  <label for="phone" class="text-sm font-medium text-gray-700">Phone Number</label>
+                  <input id="phone" type="text" name="phone"
+                      class="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Enter your phone number" required>
+              </div>
+
+              <!-- Address Field -->
+              <div class="flex flex-col">
+                  <label for="address" class="text-sm font-medium text-gray-700">Address</label>
+                  <input id="address" type="text" name="address"
+                      class="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Enter your address" required>
+              </div>
+
+              <!-- Profile Photo Field -->
+              <div class="flex flex-col">
+                  <label for="photo" class="text-sm font-medium text-gray-700">Profile Photo</label>
+                  <input type="file" name="image" accept="image/*"
+                  class="w-full mt-2 p-2 border border-gray-300 rounded-md text-gray-900 placeholder-gray-500 focus:border-teal-600 focus:outline-none hover:border-gray-400 transition-all duration-200 ease-in-out"
+                  id="id_image" />
+                  <span class="text-xs text-gray-500 mt-2">Accepted formats: jpg, png, jpeg</span>
+              </div>
+
+              <!-- About Me -->
+              <div class="flex flex-col col-span-2">
+                  <label for="about" class="text-sm font-medium text-gray-700">About Me</label>
+                  <textarea id="about" name="about" rows="4"
+                      class="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Write something about yourself..."></textarea>
+              </div>
+          </div>
+
+      </form>
+  </div>
+</main>
+
+
+
+
+<main id="watch_paid_course" class="bg-gray-900 text-white pt-16 hidden pb-36">
+    <div id="watch_paid_loading">         <!-- Digital Reloading Animation with TailwindCSS -->
+      <div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-6 space-x-3">
+        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+      </div> 
+    </div>
+  <div class="container mx-auto p-8">
+    <h2 id="courseTitle" class="text-xl px-2 py-6 mb-2 font-semibold">Python Advance</h2>
+
+    <div class="grid grid-cols-12 gap-8">
+      <!-- Video Player -->
+      <div class="col-span-8 rounded-lg   overflow-hidden">
+        <div class="relative pb-[56.25%] group" id="video_fram">
+          <iframe id="videoPlayer" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg" src=""
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div id="iframe_overview"
+            class="absolute border-[1px] border-gray-600 inset-0 flex items-center justify-center bg-black bg-opacity-10 transition-all rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14.752 11.168l-6.016-3.259A1 1 0 007 8.743v6.514a1 1 0 001.736.854l6.016-3.259a1 1 0 000-1.708z" />
+            </svg>
+          </div>
+        </div>
+        <div class="mt-4 px-4">
+          <h2 id="videoTitle" class="text-xl mb-2">Video Title</h2>
+          <p id="videoDescription" class="text-sm text-gray-300">
+            Click on a video title above to watch the video and see the description.
+          </p>
+        </div>
+
+
+        <!-- Left Section: Course Details -->
+        <div class=" rounded-xl py-8 space-y-6 col-span-7">
+          <h2 class="text-2xl font-bold text-white">Course Description</h2>
+          <div id="course_description" class="text-gray-300 text-xs leading-relaxed space-y-4">
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Video List -->
+      <div class="text-xs pb-4   col-span-4">
+        <h2 class="text-2xl font-semibold mb-6">Available Courses</h2>
+        <div id="video_list" class="space-y-6 h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-rounded">
+          <!-- Video Cards dynamically loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main id="deshboard"  class="">
+   
+</main>
 
 
 
@@ -899,9 +1246,10 @@
   <script src="src/js/local/payment.js"> </script>
 
   <script src="src/js/local/instructors.js"> </script>
+  <script src="src/js/local/instructors_details.js"></script>
 
-
-
+  <script src="src/js/student/profile.js"> </script>
+  <script src="src/js/student/watch_course.js"></script>
 
 
   <script src="src/js/support/support.js"> </script>

@@ -1,12 +1,15 @@
 let instructors = [];
+const instructors_loading = document.getElementById('instructors_loading');
 
 // Fetch data from API
 async function fetchInstructors() {
+    instructors_loading.classList.add('hidden');
+
     try {
-        const response = await fetch("http://127.0.0.1:8000/user/instructors/");
+        const response = await fetch("https://truelearner-backends.onrender.com/user/instructors/");
         instructors = await response.json(); 
-        displayInstructors(instructors);
-        instructors_loading = document.getElementById('instructors_loading').innerHTML = '';
+        displayInstructors(instructors); 
+        instructors_loading.classList.remove('hidden');
         
 
     } catch (error) {
@@ -16,6 +19,7 @@ async function fetchInstructors() {
 
 // Function to Display Instructors
 function displayInstructors(filteredInstructors) {
+    
     const instructorList = document.getElementById("instructorList");
     instructorList.innerHTML = "";
     filteredInstructors.forEach(inst => {
@@ -35,7 +39,7 @@ function displayInstructors(filteredInstructors) {
                         ${inst.instructor_profile?.total_students || 0}
                     </span>
                 </p>
-                <a href="/instructor/${inst.id}" 
+                <a href="" onclick="showPage('instructors_details','${inst.id}')"
                     class="  mt-3 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition">
                     View Profile
                 </a>
@@ -57,3 +61,31 @@ function filterInstructors() {
 
 // Fetch instructors when the page loads
 fetchInstructors();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const instructorDetailsProfile = (inst_id=0) => {
+//     fetch(`https://truelearner-backends.onrender.com/user/instructors/10/`)
+//         .then(res => res.json())
+//         .then(data => {
+            
+//         })
+//         .catch(error => {
+//             console.log(error);
+            
+//     })
+// }

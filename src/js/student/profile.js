@@ -11,9 +11,9 @@ const studentProfile = () => {
     const enrolled_courses = document.getElementById('enrolled_courses');
     const certificates_count = document.getElementById('certificates_count');
 
-    const form = document.getElementById('student_update');
+    const form = document.getElementById('student_profile_update');
 
-    fetch(`http://127.0.0.1:8000/user/students/${student_id}`)
+    fetch(`https://truelearner-backends.onrender.com/user/students/${student_id}`)
         .then(res => res.json())
         .then(student => {
             console.log(student); 
@@ -39,7 +39,7 @@ const studentProfile = () => {
                             <h3 class="text-lg font-bold text-gray-800">${course.title}</h3> 
                             <div class="mt-4 flex justify-between items-center">
                                 <span class="text-blue-500 text-sm font-semibold">Completed: 80%</span>
-                                <button onclick="showProfilePage('watch_course','${course.code}')" class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">Continue</button>
+                                <button onclick="showPage('watch_paid_course','${course.code}')" class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">Continue</button>
                             </div>
                         </div>
                     </div>
@@ -64,9 +64,7 @@ studentProfile();
 
 
 
-
-const form = document.getElementById('student_update');
-
+const form = document.getElementById('student_profile_update_form');
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission (page reload)
     
@@ -89,10 +87,10 @@ form.addEventListener('submit', function (event) {
         "bio": formData.get('about')
     };
 
-
+    console.log(data);
     if (form.elements["image"].files.length == 0) {
 
-        fetch(`http://127.0.0.1:8000/user/students/${student_id}/update/`, {
+        fetch(`https://truelearner-backends.onrender.com/user/students/${student_id}/update/`, {
             method: 'PUT',
             headers: {
                 "Content-Type":"application/json"
@@ -102,7 +100,8 @@ form.addEventListener('submit', function (event) {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                alert('Successfully update, not image ');
+                pushAlert('success', 'Successfully update, not image ');
+                showPage('student_profile');
             })
             .catch(errro => console.log(errro));
         
@@ -129,7 +128,7 @@ form.addEventListener('submit', function (event) {
             console.log('updated image', imageURL); 
             data.image = imageURL;
             
-            fetch(`http://127.0.0.1:8000/user/students/${student_id}/update/`, {
+            fetch(`https://truelearner-backends.onrender.com/user/students/${student_id}/update/`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type":"application/json"
@@ -139,7 +138,9 @@ form.addEventListener('submit', function (event) {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    alert('adsf');
+                    pushAlert('success',"Updated your profile information");
+                    showPage('student_profile');
+
                 })
                 .catch(errro => console.log(errro));
              
@@ -147,36 +148,4 @@ form.addEventListener('submit', function (event) {
         .catch(error => console.log(error));
        
     
-});
-
-
-
-
-
-
-
-
-
-// Show profile page
-const showProfilePage = (page,course_id=0) => { 
-    const pages = ['profile', 'profile_edit', 'watch_course'];
-
-    pages.forEach((id) => {
-        const element = document.getElementById(id);
-        if (id === page) {
-            element.classList.remove('hidden');
-        } else {
-            element.classList.add('hidden');
-        }
-    });
-    if (page === 'watch_course')
-    {
-        watchCourse(course_id);
-        document.getElementById('upper_header').classList.add('hidden');
- 
-        document.getElementById('navHeader').className = "bg-gray-700 bg-opacity-95 text-white  top-0 left-0 w-full z-50 transition-header  ";
-        document.getElementById('header_category').classList.add('bg-gray-700');
-        document.getElementById('account_header').classList.add('bg-gray-700');
-        document.getElementById('fa-user').classList.add('text-white');
-    }
-};
+});  

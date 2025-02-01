@@ -27,14 +27,20 @@ function changeVideo(videoUrl, title, description) {
 
 // Function to load course videos dynamically
 function watchCourse(course_id) {
+    const watch_paid_loading = document.getElementById('watch_paid_loading');
+    watch_paid_loading.classList.remove('hidden');
+    
     const video_list = document.getElementById('video_list');
     video_list.innerHTML = ""; // Clear existing videos
 
-    fetch(`http://127.0.0.1:8000/course/courses/${course_id}/`)
+    fetch(`https://truelearner-backends.onrender.com/course/courses/${course_id}/`)
         .then(r => r.json())
         .then(course => {
+            console.log(course);
+            
             document.getElementById("courseTitle").innerText = course.title || "Course Title";
-            document.getElementById("course_details_description").innerHTML = course.description || "Course course_details_description";
+            const course_description = document.getElementById("course_description");
+            course_description.innerHTML = course.description;
 
             course.videos.forEach((video, index) => {
                 const videoCard = document.createElement("div");
@@ -86,11 +92,12 @@ function watchCourse(course_id) {
                 // Add active class to the first video card
                 video_list.querySelector('.video-card').classList.add('bg-blue-600');
             }
+            watch_paid_loading.classList.add('hidden');
         })
         .catch(e => console.log("Error loading course:", e));
 }
 
-// Set default video placeholder when the page loads
-window.onload = function () {
-    changeVideo("", "", "");
-};
+// // Set default video placeholder when the page loads
+// window.onload = function () {
+//     changeVideo("", "", "");
+// };

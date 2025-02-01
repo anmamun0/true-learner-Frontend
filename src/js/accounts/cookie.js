@@ -3,7 +3,10 @@
     return sessionId !== null;
 }
 
-
+const isStudent = () => { 
+    const role = localStorage.getItem('role');
+    return role == 'Student';
+}
 
 // Helper function to get cookies
    function getCookie(name) {

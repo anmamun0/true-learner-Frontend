@@ -1,12 +1,15 @@
+
 const courseShow = (slug = '') => {
+    const course_page_loadings = document.getElementById('course_page_loading');
+    course_page_loadings.classList.remove('hidden');
     console.log(slug);
     const course_card = document.getElementById('course_card');
     const searchCourses = document.getElementById('searchCourses');
     
     // Determine the API endpoint based on whether a slug is passed
     const apiUrl = slug 
-        ? `http://127.0.0.1:8000/course/courses/?category=${slug}` 
-        : 'http://127.0.0.1:8000/course/courses/';
+        ? `https://truelearner-backends.onrender.com/course/courses/?category=${slug}` 
+        : 'https://truelearner-backends.onrender.com/course/courses/';
 
     // Fetch courses data from the server
     fetch(apiUrl)
@@ -128,7 +131,7 @@ const courseShow = (slug = '') => {
                 );
                 displayCourses(filteredCourses, true);
             });
-            course_page_loading.innerHTML = '';
+            course_page_loadings.classList.add('hidden');
         })
         .catch(error => console.log(error));
 };
@@ -151,7 +154,7 @@ const categroyView = () => {
     const category_list = document.getElementById('category_list');
     category_list.innerHTML = '';
 
-    fetch(`http://127.0.0.1:8000/course/category/`)
+    fetch(`https://truelearner-backends.onrender.com/course/category/`)
         .then(r => r.json())
         .then(categorys => { 
             categorys.forEach(cat => {

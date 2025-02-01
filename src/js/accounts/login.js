@@ -38,14 +38,16 @@ function  loginFormData(event, userType) {
     const email = document.getElementById(`${userType}-email`).value;
     const password = document.getElementById(`${userType}-password`).value;
     const role = userType.charAt(0).toUpperCase() + userType.slice(1);
-    // Log the form data 
+    // Log the form data
+ 
     const data = {
+        role: role,
         email: email,
-        password: password,
-        role: role
+        password: password 
     };
+    console.log(data);
     
-    fetch('http://127.0.0.1:8000/user/login/', {
+    fetch('https://truelearner-backends.onrender.com/user/login/', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
@@ -56,6 +58,7 @@ function  loginFormData(event, userType) {
     })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             const non_field_errors = data['non_field_errors'] || '' ;
             if (non_field_errors) {
                 pushAlert('warning', non_field_errors);

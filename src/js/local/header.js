@@ -49,7 +49,7 @@ header.innerHTML = `
 
       </div>
        <a href="/" onclick="showPage('instructors'); event.preventDefault();" class="hover:text-blue-500">Instructors</a>
-      <a href="#" class="hover:text-blue-500">Contacts</a>
+      <a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-500">Contacts</a>
 
       ${isAuthenticated() ? `
             <a href="#" onclick="logoutUser()" class="hover:text-blue-500">Logout</a> 
@@ -84,7 +84,11 @@ header.innerHTML = `
             ${isAuthenticated() ? `
                  <div  x-show="open"  @click.away="open = false" id="account_header"  class="absolute right-0 mt-4 mr-8 w-40 bg-white   shadow-lg rounded-lg z-10" x-transition >
                     <ul>
-                        <li> <a href="./profile.html" class="block px-4 py-2  rounded-lg transition-all duration-300 ease-in-out transform hover:ml-2">Profile</a> </li>
+                    ${isStudent() ? `
+                        <li> <a href="" onclick="showPage('student_profile'); event.preventDefault();" class="block px-4 py-2  rounded-lg transition-all duration-300 ease-in-out transform hover:ml-2">Profile</a> </li>
+                    `: `
+                        <li> <a href="" onclick="showPage('deshboard'); event.preventDefault();" class="block px-4 py-2  rounded-lg transition-all duration-300 ease-in-out transform hover:ml-2">Deshboard</a> </li>
+                    `}
                         <li> <a href="#" onclick="logoutUser()" class="block px-4 py-2  rounded-lg transition-all duration-300 ease-in-out transform hover:ml-2">Logout</a> </li>
                     </ul>
                 </div>
@@ -132,7 +136,7 @@ document.getElementById('mobileAccountBtn')?.addEventListener('click', function(
   
   
 const header_category = document.getElementById('header_category'); 
-fetch(`http://127.0.0.1:8000/course/category/`)
+fetch(`https://truelearner-backends.onrender.com/course/category/`)
     .then(r => r.json())
     .then(category => {
         category.forEach(cat => {
@@ -199,7 +203,8 @@ const setCustomUrl = (string) => {
 
     
  
-window.onload = function () {
+window.onload = function () { 
+
   const functionCall = localStorage.getItem('localCall');
   if (functionCall) {
       eval(functionCall); // This will execute 'myFunction()'
@@ -216,9 +221,9 @@ window.onload = function () {
 const showPage = (page, course_id = 0) =>
 { 
 
-  const pages = ['index_page', 'courses_page', 'course_details','instructors','support']; // List of page IDs
+  const pages = ['index_page', 'courses_page', 'course_details','instructors','student_profile','student_profile_update','watch_paid_course','support','instructors_details','deshboard']; // List of page IDs
   
-  localStorage.setItem('localCall', `showPage('${page}','${course_id}');`)
+  localStorage.setItem('localCall', `showPage('${page}','${course_id}');`);
   if (page === 'index_page')
   {
     localStorage.removeItem('localCall');
@@ -265,9 +270,39 @@ const showPage = (page, course_id = 0) =>
     whiteHeader();
     setCustomUrl('instructors');
   }
+
+  if (page ==='instructors_details') {
+    instructorDetailsProfile(course_id);
+  }
+
   if (page === 'support') {
     whiteHeader();
     setCustomUrl('support');
+  }
+
+  if (page === 'student_profile') {
+    whiteHeader();
+    setCustomUrl('profile');
+  }
+
+  if (page === 'student_profile_update') {
+    whiteHeader();
+    setCustomUrl(`profile/edit`);
+  }
+
+  if (page === 'watch_paid_course') {
+    blackHeader();
+    watchCourse(course_id);
+    setCustomUrl(`watch/${course_id}`);
+  }
+
+
+
+  if (page === 'deshboard')
+  {
+    localStorage.removeItem('localCall');
+    window.location.href = './deshboard.html';
+    // setCustomUrl('deshboard');
   }
 };
 

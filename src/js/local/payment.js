@@ -2,9 +2,14 @@
 const initiatePayment = (user_id, course_id) => {   
     if (!isAuthenticated()) {
         window.location.href = './login.html';
-        }
+    }
     
-    fetch(`http://127.0.0.1:8000/payment/pay/${user_id}/${course_id}/`, {
+    if (!isStudent()) {
+        pushAlert('alert', "You are not a student!");
+        return;
+    }
+    
+    fetch(`https://truelearner-backends.onrender.com/payment/pay/${user_id}/${course_id}/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
