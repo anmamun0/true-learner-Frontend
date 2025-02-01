@@ -60,11 +60,11 @@ const courseShow = (slug = '') => {
                     const plainTextDescription = htmlDoc.body.textContent || '';
 
                     // Set course card structure based on view type 
-
+                    let courseCardHTML = ``;
                     if (isListView) {
                         // List View: image on the right side and content on the left side
                         courseCardHTML = `
-                            <div class="bg-white shadow-lg p-4 rounded-xl   shadow-md overflow-hidden transform hover:scale-[102%] hover:shadow-lg transition duration-300 course-card">
+                            <div class="bg-white shadow-lg p-4 rounded-xl   shadow-md overflow-hidden transform hover:scale-[102%] hover:shadow-lg transition duration-300 course-card" >
                                 <div class="flex">
                                     <!-- List view image on the right side -->
                                     <img src="${course.thumble}" alt="Course Thumbnail" class="w-24 h-24 object-cover ml-4">
@@ -85,7 +85,7 @@ const courseShow = (slug = '') => {
                     } else {
                         // Grid View: image on top and content underneath
                         courseCardHTML = `
-                            <div class="bg-white rounded-xl w-full shadow-md overflow-hidden transform hover:scale-[102%] hover:shadow-lg transition duration-300">
+                            <div class="bg-white rounded-xl w-full shadow-md overflow-hidden transform hover:scale-[102%] hover:shadow-lg transition duration-300" >
                                 <img src="${course.thumble}" alt="Course Thumbnail" class="w-full h-48 object-cover">
                                 <div class="px-6 py-4">
                                     <h3 class="text-xl font-semibold text-gray-900 mb-2">${course.title}</h3>

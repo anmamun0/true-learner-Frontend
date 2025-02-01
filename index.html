@@ -16,6 +16,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
+  <!-- Animaitn libary -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+   
   <script defer>
     // Toggle Mobile Menu
     function toggleMenu() {
@@ -41,10 +45,10 @@
 
 <body class="bg-purple-50">
 
-  <header class=" z-30">  </header>
+  <header class=" z-30"  data-aos="fade-down">  </header>
 
 
-  <main id="index_page" class=" ">
+  <main id="index_page" class=" " data-aos="fade-down">
     
     <div
       class="relative rounded-b-lg min-h-screen bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 overflow-hidden">
@@ -84,10 +88,10 @@
 
           <!-- Image or Animation -->
           <div class="relative">
-            <img src="src/image/pexels-andrew-15863066.jpg" alt="Learning"
+            <img data-aos="fade-left" src="src/image/pexels-andrew-15863066.jpg" alt="Learning"
               class="rounded-lg shadow-lg w-full transform hover:scale-105 transition-transform duration-500" />
             <!-- Floating Badge -->
-            <div
+            <div data-aos="fade-right" 
               class="absolute top-10 -left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 text-sm font-bold px-4 py-2 rounded-full shadow-lg">
               Start Your Journey 🚀
             </div>
@@ -99,7 +103,7 @@
 
 
 
-    <section class="py-20 bg-gradient-to-br from-gray-100 to-gray-200">
+    <section class="py-20 bg-gradient-to-br from-gray-100 to-gray-200" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
       <div class="max-w-6xl mx-auto text-center px-6">
         <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>  
         <p class="text-gray-600 mt-4 text-lg">Follow these simple steps to start your learning journey.</p>
@@ -173,8 +177,8 @@
 
 
     <!-- Features Section -->
-    <section id="features" class="py-16 bg-gray-100">
-      <div class="max-w-7xl mx-auto text-center">
+    <section id="features" class="py-16 bg-gray-100" >
+      <div class="max-w-7xl mx-auto text-center" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <h2 class="text-3xl font-bold text-gray-800">Why Choose TrueLearner?</h2>
         <p class="text-gray-600 mt-4">Explore the benefits of learning with us</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -211,7 +215,7 @@
 
 
     <section id="faqs" class="py-20 bg-gradient-to-b from-white to-gray-100">
-      <div class="max-w-4xl mx-auto text-center px-6">
+      <div class="max-w-4xl mx-auto text-center px-6" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <h2 class="text-4xl font-extrabold text-gray-900">Frequently Asked Questions</h2>
         <p class="text-lg text-gray-600 mt-3">Find answers to the most common questions about our courses.</p>
         
@@ -336,7 +340,7 @@
         </div>
 
         <!-- Courses Cards -->
-        <div id="course_card" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div id="course_card" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" >
           <!-- Example Course Card -->
 
 
@@ -347,8 +351,8 @@
       </div>
 
       <!-- Category Filter (Right Side) -->
-      <div class="col-span-3 bg-white rounded-xl shadow-xl p-6 mt-12">
-        <h2 class="text-xl font-extrabold text-gray-900 mb-6 ">Explore Categories</h2>
+      <div class="col-span-3 bg-white rounded-xl shadow-xl p-6 mt-12" >
+        <h2 class="text-xl font-extrabold text-gray-900 mb-6 " >Explore Categories</h2>
 
         <div class="space-y-4">
           <!-- Category Filter Header -->
@@ -1218,7 +1222,7 @@
 
 
 
-<main id="deshboard"  class="">
+<main id="deshboard"  class="" >
    
 </main>
 
@@ -1257,6 +1261,12 @@
 
 
   <script src="src/js/support/support.js"> </script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS
+    </script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 const header = document.querySelector('header');
 header.innerHTML = `
 <!-- Navbar -->
-<nav id="navHeader" class="bg-white bg-opacity-95 shadow-xl text-gray-700  top-0 left-0 w-full z-30 transition-header  " style="box-shadow: 0 4px 6px -1px rgba(56, 2, 107, 0.22);">
+<nav id="navHeader" class="bg-white bg-opacity-95 shadow-xl text-gray-700  top-0 left-0 w-full z-30 transition-header  " style="box-shadow: 0 4px 6px -1px rgba(56, 2, 107, 0.22);" data-aos="fade-down">
  
 
   <!-- Secondary Bar (Support Links) -->
@@ -33,7 +33,7 @@ header.innerHTML = `
         <!-- Dropdown Menu -->
    
  
-        <div class="absolute bg-opacity-90 left-0 top-full pt-5 w-[500px] bg-transparent shadow-lg rounded-lg z-20 hidden group-hover:block">
+        <div class="absolute bg-opacity-90 left-0 top-full pt-5 w-[500px] bg-transparent shadow-lg rounded-lg z-20 hidden group-hover:block" data-aos="fade-up-left">
             <div id="header_reloading" class="absolute left-6 top-6">
             <!-- Digital Reloading Animation with TailwindCSS -->
                 <div class="flex font-mono text-teal-400 text-4xl   space-x-3">

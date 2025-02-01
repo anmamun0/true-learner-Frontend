@@ -1,7 +1,7 @@
 const footer = document.querySelector('footer')
 footer.innerHTML = `
 <!-- Footer Section -->
-<div class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300 py-16 px-6">
+<div class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300 py-16 px-6" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
   <div class="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg"></div>
   
   <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">

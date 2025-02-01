@@ -10,7 +10,8 @@
 
     <!-- Add this in the <head> section of your HTML -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+      <!-- Animaitn libary -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
 </head>
 
@@ -21,31 +22,31 @@
     <div class="mt-20 flex items-center justify-center my-36">
         <div class="relative bg-white shadow-xl rounded-lg overflow-hidden max-w-3xl w-full p-12 space-y-6 flex-col md:flex-row">
              <!-- Tabs for Instructor and Student -->
-                <div class="text-gray-800 text-center " id="register_title">
+                <div class="text-gray-800 text-center " id="register_title"  data-aos="fade-down">
                     <h2 class="text-3xl font-bold">Student Register</h2>
                     <p class="mt-2 text-sm opacity-80">Grow Your Learning</p>
                 </div>
             <!-- Tabs for Instructor and Student -->
-            <div class="mt-24 flex">
-                <button id="student-tab" onclick="toggleSection('student')"
+            <div class="mt-24 flex"  >
+                <button id="student-tab" onclick="toggleSection('student')"  data-aos="fade-left"
                     class="py-3 px-4 w-full font-bold text-left text-white bg-blue-500 shadow-md transition duration-300">
                     Student Register
                 </button>
-                <button id="instructor-tab" onclick="toggleSection('instructor')"
+                <button id="instructor-tab" onclick="toggleSection('instructor')"  data-aos="fade-right"
                     class="py-3 px-4 w-full font-bold text-left text-gray-800 bg-white shadow-md transition duration-300">
                     Instructor Register
                 </button>
             </div>
 
             <!-- Forms Container -->
-            <div class="w-full p-6">
+            <div class="w-full p-6"  data-aos="fade-down">
                 <!-- Instructor Section -->
-                <div id="instructor-section" class="hidden">
+                <div id="instructor-section" class="hidden" >
                     <!-- <div class="absolute top-8 text-center w-full left-0">
                         <h2 class="text-3xl font-bold mb-4 text-gray-800">Instructor Register</h2>
                         <p class="mb-6 text-gray-500">Register to manage your courses and interact with students.</p>
                     </div> -->
-                    <form id="instructor-form" onsubmit="logFormData(event, 'instructor')" class="space-y-6">
+                    <form id="instructor-form" onsubmit="logFormData(event, 'instructor')" class="space-y-6" >
                         <div>
                             <label for="instructor-username" class="block text-sm text-gray-700 mb-2">Username (instructor) </label>
                             <input type="text" id="instructor-username" name="username"
@@ -168,7 +169,10 @@
     <script src="src/js/accounts/logout.js"> </script>
     <script src="src/js/accounts/register.js"> </script> 
  
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS
+    </script>
 
 </body>
 
