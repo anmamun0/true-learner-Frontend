@@ -23,13 +23,18 @@ document.getElementById("add-video").addEventListener("click", function () {
     videoGroup.className = "flex items-center space-x-4 mt-4";
     videoGroup.innerHTML = `
                 <input type="text" name="video_title[]"
-                class="w-1/2 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                class="w-1/2 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
                 placeholder="Video Title" required />
 
                 <input   type="url"  name="video_url[]"
-                class="w-1/2 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-500"
+                class="w-1/2 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
                 placeholder="Video URL" required
                 />
+
+                <!-- Video Duration Input -->
+                <input type="text" name="video_duration[]" class="w-1/6 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                placeholder="(hh:mm:ss)" required />
+
                 <button type="button"
                 class="text-gray-900 px-4 py-2 rounded-lg  hover:scale-105 transition flex items-center space-x-2"
                 onclick="removeVideo(this)" >

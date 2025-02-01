@@ -30,6 +30,12 @@ function showContent(sectionId) {
     if (selectedSection) {
         selectedSection.classList.remove('hidden');
     }
+    const pages = ['deshboard', 'create-course', 'manage-courses', 'students', 'edit-profile', 'privacy-settings']
+    
+    if (sectionId === 'students')
+    {
+        // studentManage();
+    }
 }
 
 
@@ -60,7 +66,7 @@ document.addEventListener('click', (event) => {
 
 
 const inst_id = localStorage.getItem('user_id');
-
+const instructore = {};
 
 
 const instinfo = () => {
@@ -71,9 +77,18 @@ const instinfo = () => {
     const recentEnrollments = document.getElementById('recentEnrollments');
     const last_activity_courses = document.getElementById('last_activity_courses');
 
+    // student section
+    const students_totalStudents = document.getElementById('students_totalStudents');
+    const students_totalCourses = document.getElementById('students_totalCourses');
+    const students_totalEnrollments = document.getElementById('students_totalEnrollments');
+    const student_course_list_table = document.getElementById('student_course_list_table');
+    const student_student_list_table = document.getElementById('student_student_list_table');
+    
+
     fetch(`https://truelearner-backends.onrender.com/user/instructors/${inst_id}/`)
         .then(res => res.json())
         .then(data => {
+            // instructore = data;
             console.log(data);
             totalCourses.innerText = data.courses.length;
             totalStudents.innerText = data.instructor_profile.total_students
@@ -86,14 +101,12 @@ const instinfo = () => {
                 if (i > 3) return;
 
                 last_activity_courses.innerHTML += `
-                        <div class="font-medium text-gray-800">New Course Added: " ${cur.title}</div>
+                        <div  class="font-medium text-gray-800">New Course Added: " ${cur.title}</div>
                         <span class="text-sm text-gray-500">2 hours ago</span>
                 `;
             })
 
-            const bestSeller = () => {
-
-
+            const bestSeller = () => { 
                 data.courses.sort((a, b) => b.total_student - a.total_student);
 
                 data.courses.forEach(course => {
@@ -127,6 +140,62 @@ const instinfo = () => {
                 });
             }
             bestSeller();
+
+
+
+
+            // student section: 
+            students_totalStudents.textContent = data.instructor_profile.total_students; 
+            students_totalCourses.innerText = data.courses.length;  
+            let cnt = 0;
+            data.courses.forEach(course =>
+            {
+                cnt += course.total_student;
+
+                student_course_list_table.innerHTML += `
+                <tr class="border-b hover:bg-gray-50">
+                        <td class="p-3">${course.title}</td>
+                        <td class="p-3">${course.total_student}</td>
+                </tr>`;
+
+                fetch(`http://127.0.0.1:8000/course/paid_student/${course.code}/`)
+                    .then(res => res.json())
+                    .then(paid_coures => {
+
+                        paid_coures.students.forEach(sdnt => {
+                            student_student_list_table.innerHTML += ` 
+                                    <td class="p-4 ">
+                                        <div class="flex flex-col">
+                                            <span class="text-lg font-semibold text-gray-900">${sdnt.user.first_name} ${sdnt.user.last_name}</span>
+                                            <span class="text-sm text-gray-500">@${sdnt.user.username}</span>
+                                        </div>
+                                    </td>
+                                    <td class="p-4 text-gray-700">${sdnt.user.email}</td>
+                                    <td class="p-4 text-gray-700">${sdnt.phone}</td>
+                                    <td class="p-4 text-gray-700">${sdnt.address}</td>
+                                    <td class="p-4 text-center">
+                                        <a href="${sdnt.facebook}" target="_blank"
+                                            class="text-blue-600 mx-2 text-xl hover:text-blue-800 transition duration-200">
+                                            <i class="fab fa-facebook"></i>
+                                        </a>
+                                        <a href="${sdnt.facebook}" target="_blank"
+                                            class="text-blue-600 mx-2 text-xl hover:text-blue-800 transition duration-200">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </td> 
+                            `;
+                        });
+                    })
+                    .catch(error => console.log(error));
+            }) 
+            students_totalEnrollments.innerText = cnt;
+
+
+
+
+
+
+
             document.getElementById('deshboard_loading').classList.add('hidden');
 
 
