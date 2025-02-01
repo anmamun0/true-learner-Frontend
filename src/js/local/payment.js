@@ -19,7 +19,7 @@ const initiatePayment = (user_id, course_id) => {
     .then(data => {
         if (data.url) {
             console.log("Redirecting to:", data.url);
-            window.location.href = data.url;  // Redirect user to SSLCOMMERZ payment page
+            window.open(data.url, "_blank");  // Redirect user to SSLCOMMERZ payment page
         } else {
             console.error("Error:", data.error);
             alert("Payment initialization failed: " + data.error);
