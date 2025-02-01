@@ -1,7 +1,36 @@
 
+const course_page_loadings = document.getElementById('course_page_loading');
+course_page_loadings.classList.remove('hidden');
+
+
+
+const categroyView = () => {
+    const category_list = document.getElementById('category_list');
+    category_list.innerHTML = '';
+
+    fetch(`https://truelearner-backends.onrender.com/course/category/`)
+        .then(r => r.json())
+        .then(categorys => { 
+            categorys.forEach(cat => {
+                category_list.innerHTML += `
+                <a onclick="courseShow('${cat.slug}')"  >
+                    <div class="flex justify-between  items-center text-sm py-2 w-full ">
+                        <span class="font-semibold text-gray-800 cursor-pointer">${cat.name}</span>
+                        <span class="text-gray-400">(${cat.course_count})</span> 
+                    </div>
+                </a>
+                `;
+            }); 
+        })
+        .catch(e => console.error(e));
+};
+
+// Call the function to populate the categories
+categroyView(); 
+
+
 const courseShow = (slug = '') => {
-    const course_page_loadings = document.getElementById('course_page_loading');
-    course_page_loadings.classList.remove('hidden');
+ 
     console.log(slug);
     const course_card = document.getElementById('course_card');
     const searchCourses = document.getElementById('searchCourses');
@@ -30,8 +59,7 @@ const courseShow = (slug = '') => {
                     const htmlDoc = parser.parseFromString(course.description, 'text/html');
                     const plainTextDescription = htmlDoc.body.textContent || '';
 
-                    // Set course card structure based on view type
-                    let courseCardHTML = '';
+                    // Set course card structure based on view type 
 
                     if (isListView) {
                         // List View: image on the right side and content on the left side
@@ -73,10 +101,10 @@ const courseShow = (slug = '') => {
                                 </div>
                             </div>
                         `;
-                    }
-
+                    } 
                     // Append the generated course card HTML to the course card container
                     course_card.innerHTML += courseCardHTML;
+                    
                 });
             };
 
@@ -150,30 +178,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }); 
 
-const categroyView = () => {
-    const category_list = document.getElementById('category_list');
-    category_list.innerHTML = '';
 
-    fetch(`https://truelearner-backends.onrender.com/course/category/`)
-        .then(r => r.json())
-        .then(categorys => { 
-            categorys.forEach(cat => {
-                category_list.innerHTML += `
-                <a onclick="courseShow('${cat.slug}')"  >
-                    <div class="flex justify-between  items-center text-sm py-2 w-full ">
-                        <span class="font-semibold text-gray-800 cursor-pointer">${cat.name}</span>
-                        <span class="text-gray-400">(${cat.course_count})</span> 
-                    </div>
-                </a>
-                `;
-            }); 
-        })
-        .catch(e => console.error(e));
-};
-
-// Call the function to populate the categories
-categroyView();
-
-
-
-
+ 

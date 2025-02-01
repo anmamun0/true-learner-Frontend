@@ -1,15 +1,14 @@
 let instructors = [];
-const instructors_loading = document.getElementById('instructors_loading');
-
+const instructors_loading = document.getElementById('instructors_loading'); 
 // Fetch data from API
 async function fetchInstructors() {
-    instructors_loading.classList.add('hidden');
+    instructors_loading.classList.remove('hidden');
 
     try {
         const response = await fetch("https://truelearner-backends.onrender.com/user/instructors/");
         instructors = await response.json(); 
         displayInstructors(instructors); 
-        instructors_loading.classList.remove('hidden');
+        instructors_loading.classList.add('hidden');
         
 
     } catch (error) {

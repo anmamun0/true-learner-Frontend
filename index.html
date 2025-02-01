@@ -43,6 +43,7 @@
 
   <header class=" z-30">  </header>
 
+
   <main id="index_page" class=" ">
     
     <div
@@ -687,9 +688,19 @@
 
 
 
-<main id="instructors" class="hidden py-16">
+<main id="instructors" class="hidden py-16"> 
+  
+  <div id="instructors_loading" class="pt-4 pl-2">
+    <!-- Digital Reloading Animation with TailwindCSS -->
+    <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
+      <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
+      <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+      <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+    </div>
+  </div>
   <!-- 🔹 Header Section -->
   <div class="text-center py-12   w-full">
+    
     <h2 class="text-4xl font-bold text-gray-800">Meet Our Expert Instructors</h2>
     <p class="text-gray-600 mt-2">Find the best instructors and learn from the experts.</p>
   </div>
@@ -702,14 +713,6 @@
         class="w-full py-3 pl-12 pr-6 border border-gray-300 rounded-xl bg-white bg-opacity-80 backdrop-blur-md text-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-60 placeholder-gray-500 transition-all duration-300 ease-in-out transform hover:border-blue-600"
         placeholder=" Search instructors by name or subject..." onkeyup="filterInstructors()">
 
-        <div id="instructors_loading" class="pt-4 pl-2">
-          <!-- Digital Reloading Animation with TailwindCSS -->
-          <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
-            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
-          </div>
-        </div>
       <!-- Search Icon inside input -->
       <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
         <i class="fas fa-search w-5 h-5"></i>

@@ -117,8 +117,7 @@ header.innerHTML = `
         ` : `
         <a href="./login.html"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Login</a>
         <a href="./register.html"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Sign Up!</a>
-        `}
-  
+        `} 
   </div>
 </nav>
 `;

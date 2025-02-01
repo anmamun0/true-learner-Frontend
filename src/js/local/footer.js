@@ -57,7 +57,7 @@ footer.innerHTML = `
     <div class="flex justify-center space-x-6 mt-4">
       <a href="https://www.facebook.com/anmamun0" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-facebook text-xl"></i></a>
       <a href="https://www.facebook.com/anmamun0" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-twitter text-xl"></i></a>
-      <a href="https://www.anmamun0.verel.app" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-instagram text-xl"></i></a>
+      <a href="https://anmamun0.vercel.app/" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-instagram text-xl"></i></a>
       <a href="https://www.facebook.com/anmamun0" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-linkedin text-xl"></i></a>
     </div>
   </div>
