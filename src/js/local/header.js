@@ -1,7 +1,7 @@
 const header = document.querySelector('header');
 header.innerHTML = `
 <!-- Navbar -->
-<nav id="navHeader" class="bg-white bg-opacity-80 backdrop-blur-sm  shadow-xl text-gray-700  top-0 left-0 w-full z-30 transition-header  " style="box-shadow: 0 4px 6px -1px rgba(56, 2, 107, 0.22);">
+<nav id="navHeader" class="bg-white bg-opacity-90 backdrop-blur-sm  shadow-xl text-gray-700  top-0 left-0 w-full z-30 transition-header  " style="box-shadow: 0 4px 6px -1px rgba(56, 2, 107, 0.22);">
  
 
   <!-- Secondary Bar (Support Links) -->
