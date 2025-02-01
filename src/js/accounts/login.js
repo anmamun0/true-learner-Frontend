@@ -1,4 +1,7 @@
-   // Toggle between Instructor and Student sections
+const login_loading = document.getElementById('login_loading');
+login_loading.classList.add('hidden');
+
+// Toggle between Instructor and Student sections
    function loginUserToggle(section) {
     const instructorSection = document.getElementById('instructor-section');
     const studentSection = document.getElementById('student-section');
@@ -28,11 +31,11 @@
 window.onload = function () {
     loginUserToggle('student');
 };
-  
+
 // Function to log form data to the console after form submission
 function  loginFormData(event, userType) {
     event.preventDefault(); // Prevent form submission to allow logging
- 
+    
     // Get the form data
     
     const email = document.getElementById(`${userType}-email`).value;
@@ -46,7 +49,8 @@ function  loginFormData(event, userType) {
         password: password 
     };
     console.log(data);
-    
+
+    login_loading.classList.remove('hidden');
     fetch('https://truelearner-backends.onrender.com/user/login/', {
         method: 'POST',
         headers: {
@@ -58,6 +62,8 @@ function  loginFormData(event, userType) {
     })
         .then(res => res.json())
         .then(data => {
+            login_loading.classList.add('hidden');
+
             console.log(data);
             const non_field_errors = data['non_field_errors'] || '' ;
             if (non_field_errors) {

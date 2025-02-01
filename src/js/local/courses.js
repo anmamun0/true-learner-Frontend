@@ -5,7 +5,7 @@ course_page_loadings.classList.remove('hidden');
 
 
 const categroyView = () => {
-    const category_list = document.getElementById('category_list');
+    const category_list = document.getElementById('category_list'); 
     category_list.innerHTML = '';
 
     fetch(`https://truelearner-backends.onrender.com/course/category/`)
@@ -20,7 +20,8 @@ const categroyView = () => {
                     </div>
                 </a>
                 `;
-            }); 
+            });  
+
         })
         .catch(e => console.error(e));
 };
@@ -30,7 +31,7 @@ categroyView();
 
 
 const courseShow = (slug = '') => {
- 
+    course_page_loadings.classList.remove('hidden');
     console.log(slug);
     const course_card = document.getElementById('course_card');
     const searchCourses = document.getElementById('searchCourses');
@@ -112,7 +113,7 @@ const courseShow = (slug = '') => {
             displayCourses(courses, false);
 
             // Listen for input event on the search field
-            searchCourses.addEventListener('input', () => {
+            searchCourses.addEventListener('input', () => { 
                 const query = searchCourses.value.toLowerCase();  // Get search query and convert to lowercase
 
                 // Filter courses based on title
@@ -122,7 +123,8 @@ const courseShow = (slug = '') => {
 
                 // Display filtered courses based on the selected view
                 const isListView = document.getElementById('listViewBtn').classList.contains('active');
-                displayCourses(filteredCourses, isListView);
+                displayCourses(filteredCourses, isListView); 
+
             });
 
             // Handle grid view and list view toggle

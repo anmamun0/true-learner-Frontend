@@ -1,4 +1,6 @@
-  // Toggle between Instructor and Student sections
+// Toggle between Instructor and Student sections
+const register_loading = document.getElementById('register_loading');
+
   function toggleSection(section) {
     const instructorSection = document.getElementById('instructor-section');
     const studentSection = document.getElementById('student-section');
@@ -46,6 +48,7 @@ window.onload = function () {
 // Log form data to console before submitting the form
 function logFormData(event, userType) {
     event.preventDefault(); // Prevent form submission to allow logging
+    register_loading.classList.remove('hidden');
 
     const role = userType.charAt(0).toUpperCase() + userType.slice(1);
     // Get the form data 
@@ -85,11 +88,15 @@ function logFormData(event, userType) {
         return res.json();
     })
     .then(data => {
+        register_loading.classList.add('hidden');
         pushAlert('success', 'Your account was created successfully!');
-        console.log(data);
+        console.log(data); 
+        showPage('index_page');
     })
     .catch(error => {
         console.error('Error:', error);
         pushAlert('error', 'Failed to create an account. Try again later.');
+        register_loading.classList.add('hidden');
+
     });
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - TrueLearner</title>
+    <link rel="stylesheet" href="src/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
@@ -16,13 +17,12 @@
 </head>
 
 <body class="bg-gray-100">
-    <header class=" z-30"  data-aos="fade-down">  </header>
-
+    <header class=" z-30"  data-aos="fade-down">  </header> 
     <!-- Page Container -->
-    <div class="mt-20 flex items-center justify-center my-36">
+    <div class=" flex items-center justify-center my-36"> 
         <div class="relative bg-white shadow-xl rounded-lg overflow-hidden max-w-3xl w-full p-12 space-y-6 flex-col md:flex-row">
              <!-- Tabs for Instructor and Student -->
-                <div class="text-gray-800 text-center " id="register_title"  data-aos="fade-down">
+                <div class="text-gray-800 text-center " id="register_title"  data-aos="fade-down"> 
                     <h2 class="text-3xl font-bold">Student Register</h2>
                     <p class="mt-2 text-sm opacity-80">Grow Your Learning</p>
                 </div>
@@ -157,6 +157,13 @@
                             Register as Student
                         </button>
                     </form>
+                    <div id="register_loading" class="hidden" >         <!-- Digital Reloading Animation with TailwindCSS -->
+                        <div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-6 space-x-3">
+                            <div class="dot w-5 h-5 bg-teal-500 rounded-full opacity-0  "></div>
+                            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+                            <div class="dot w-5 h-5 bg-teal-500 rounded-full opacity-0  delay-400"></div>
+                          </div>
+                    </div>
                 </div>
             </div>
         </div>
