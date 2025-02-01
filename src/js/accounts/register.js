@@ -88,10 +88,14 @@ function logFormData(event, userType) {
         return res.json();
     })
     .then(data => {
-        register_loading.classList.add('hidden');
         pushAlert('success', 'Your account was created successfully!');
+        register_loading.classList.add('hidden');
+        document.getElementById('register_message').innerHTML = `
+            <p>Go to in your email "${email}", for verify you account,</p>
+            <p class="text-gray-200 underline"> Then login you account! </p> 
+        `
         console.log(data); 
-        showPage('index_page');
+        // showPage('index_page');
     })
     .catch(error => {
         console.error('Error:', error);

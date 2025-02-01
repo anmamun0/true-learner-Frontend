@@ -64,21 +64,21 @@ function  loginFormData(event, userType) {
         .then(data => {
             login_loading.classList.add('hidden');
 
-            console.log(data);
-            const non_field_errors = data['non_field_errors'] || '' ;
-            if (non_field_errors) {
-                pushAlert('warning', non_field_errors);
+            // console.log(data); 
+            const non_field_errors = data['non_field_errors'] || ''; 
+            if (non_field_errors !== '') { 
+                pushAlert('warning', non_field_errors); 
+                return;
             }
-            else {
+            
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user_id', data.user_id);
                 localStorage.setItem('role', role);
 
-                console.log('Login successful:', data);
+                // console.log('Login successful:', data);
                 pushAlert('success', 'Login successful!');
-                window.location.href = '/';
-
-            }
+                window.location.href = './index.html'
+                // showPage('index_page');   its problem , sloved
         })
         .catch(error => {
             console.error('Error:', error);

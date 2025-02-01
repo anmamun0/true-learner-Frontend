@@ -1,0 +1,56 @@
+ 
+
+/* loader animation */
+
+
+.dot {   
+    animation: digitalDotAnimation 1.2s ease-in-out infinite;
+} 
+.dot:nth-child(1) {
+    animation-delay: 0s;
+} 
+.dot:nth-child(2) {
+    animation-delay: 0.3s;
+} 
+.dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+ /* Keyframe animation for dot pulsation */
+@keyframes digitalDotAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+ 
+ /* Hide button on scroll down */
+ /* .hide-on-scroll {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+} */
+
+/* When scrolling, apply slide-up effect */
+/* .peer:checked ~ .hide-on-scroll {
+    transform: translateY(-50px);
+    opacity: 0;
+} */
+
+
+/* Smooth transition for the button */
+/* #backHome { */
+    /* transition: transform 0.3s ease-in-out; */
+/* } */
+
+/* Hide on scroll down */
+/* .scroll-down { transform: translateY(-100%); } */
+
+/* Show on scroll up */
+/* .scroll-up { transform: translateY(0); } */

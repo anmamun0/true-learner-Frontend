@@ -1,3 +1,22 @@
+// let lastScrollTop = 0;
+//         const button = document.getElementById("backHome");
+
+//         window.addEventListener("scroll", function () {
+//             let scrollTop = window.scrollY;
+
+//             if (scrollTop > lastScrollTop) {
+//                 // Scroll Down → Hide Button (Move Up & Fade)
+//                 button.style.transform = "translateY(-50px)";
+//                 button.style.opacity = "0";
+//             } else {
+//                 // Scroll Up → Show Button (Move Down & Fade In)
+//                 button.style.transform = "translateY(0)";
+//                 button.style.opacity = "1";
+//             }
+//             lastScrollTop = scrollTop;
+//         });
+
+
 // side nav var control
 
 function showContent(sectionId) {
@@ -17,35 +36,36 @@ function showContent(sectionId) {
 
 //  account setting
 // Toggle function to show/hide nested menu
-       // Function to toggle visibility of nested menu
-       const toggleSubMenu = () => {
-        const menu = document.getElementById('account-settings-menu');
-        menu.classList.toggle('hidden');
+// Function to toggle visibility of nested menu
+const toggleSubMenu = () => {
+    const menu = document.getElementById('account-settings-menu');
+    menu.classList.toggle('hidden');
+}
+
+// Show the nested menu when the account setting button is clicked
+document.getElementById('account_setting_button').addEventListener('click', (event) => {
+    const menu = document.getElementById('account-settings-menu');
+    menu.classList.toggle('hidden');
+});
+
+// Hide the nested menu when clicking anywhere outside of the sidebar or button
+document.addEventListener('click', (event) => {
+    const menu = document.getElementById('account-settings-menu');
+    const button = document.getElementById('account_setting_button');
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.classList.add('hidden');
     }
-
-    // Show the nested menu when the account setting button is clicked
-    document.getElementById('account_setting_button').addEventListener('click', (event) => {
-        const menu = document.getElementById('account-settings-menu');
-        menu.classList.toggle('hidden');
-    });
-
-    // Hide the nested menu when clicking anywhere outside of the sidebar or button
-    document.addEventListener('click', (event) => {
-        const menu = document.getElementById('account-settings-menu');
-        const button = document.getElementById('account_setting_button');
-        if (!menu.contains(event.target) && !button.contains(event.target)) {
-            menu.classList.add('hidden');
-        }
-    });
+});
 
 
 
+const inst_id = localStorage.getItem('user_id');
 
 
 
-const instinfo = () =>
-{
-    const inst_id = localStorage.getItem('user_id');
+const instinfo = () => {
+    document.getElementById('deshboard_loading').classList.remove('hidden');
+
     const totalCourses = document.getElementById('totalCourses');
     const totalStudents = document.getElementById('totalStudents');
     const recentEnrollments = document.getElementById('recentEnrollments');
@@ -68,17 +88,17 @@ const instinfo = () =>
                 last_activity_courses.innerHTML += `
                         <div class="font-medium text-gray-800">New Course Added: " ${cur.title}</div>
                         <span class="text-sm text-gray-500">2 hours ago</span>
-                `; 
+                `;
             })
 
             const bestSeller = () => {
 
 
                 data.courses.sort((a, b) => b.total_student - a.total_student);
-                
+
                 data.courses.forEach(course => {
                     document.getElementById('bestSellerCourse').innerHTML += ` 
-                            <div class="flex items-center bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition duration-300 relative">
+                            <div class="flex z-1 items-center bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition duration-300 relative">
                             <!-- Course Thumbnail -->
                             <img src="${course.thumble}" alt="Course Thumbnail" class="w-24 h-24 object-cover rounded-md">
                     
@@ -107,6 +127,8 @@ const instinfo = () =>
                 });
             }
             bestSeller();
+            document.getElementById('deshboard_loading').classList.add('hidden');
+
 
         })
         .catch(e => console.log(e));
@@ -117,4 +139,16 @@ instinfo();
 
 
 
+const deshboardHeader = () => {
+    
+    fetch(`https://truelearner-backends.onrender.com/user/instructors/${inst_id}/`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('deshboard_username').innerText = data.username;
+            document.getElementById('deshboard_user_image').src = data.instructor_profile.image;
+        })
+        .catch(e => console.log(e));
+}
+
+deshboardHeader();
 

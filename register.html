@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - TrueLearner</title>
     <link rel="stylesheet" href="src/css/style.css">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
@@ -21,6 +22,10 @@
     <!-- Page Container -->
     <div class=" flex items-center justify-center my-36"> 
         <div class="relative bg-white shadow-xl rounded-lg overflow-hidden max-w-3xl w-full p-12 space-y-6 flex-col md:flex-row">
+            <div id="register_message" class="text-center text-white bg-red-600 px-6">
+               
+            </div>
+
              <!-- Tabs for Instructor and Student -->
                 <div class="text-gray-800 text-center " id="register_title"  data-aos="fade-down"> 
                     <h2 class="text-3xl font-bold">Student Register</h2>
@@ -40,6 +45,13 @@
 
             <!-- Forms Container -->
             <div class="w-full p-6"  data-aos="fade-down">
+                <div id="register_loading" class="absolute right-8  top-4 hidden" >         <!-- Digital Reloading Animation with TailwindCSS -->
+                    <div class="flex justify-center items-center font-mono text-teal-400 text-4xl space-x-3">
+                        <div class="dot w-5 h-5 bg-teal-500 rounded-full opacity-0  "></div>
+                        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+                        <div class="dot w-5 h-5 bg-red-700 rounded-full opacity-0  delay-400"></div>
+                      </div>
+                </div>
                 <!-- Instructor Section -->
                 <div id="instructor-section" class="hidden" >
                     <!-- <div class="absolute top-8 text-center w-full left-0">
@@ -157,13 +169,7 @@
                             Register as Student
                         </button>
                     </form>
-                    <div id="register_loading" class="hidden" >         <!-- Digital Reloading Animation with TailwindCSS -->
-                        <div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-6 space-x-3">
-                            <div class="dot w-5 h-5 bg-teal-500 rounded-full opacity-0  "></div>
-                            <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-                            <div class="dot w-5 h-5 bg-teal-500 rounded-full opacity-0  delay-400"></div>
-                          </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>

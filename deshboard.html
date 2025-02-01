@@ -5,14 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Dashboard</title>
+    <link rel="stylesheet" href="src/css/deshboard.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+ 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   
+    
     <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
 
 </head>
 
 <body class="bg-gray-100 h-screen">
+   
+
     <div class="grid grid-cols-12 h-full">
         <!-- Left Sidebar -->
         <aside class="col-span-2 bg-gray-800 text-white flex flex-col  h-full text-sm md:text-md lg:text-lg">
@@ -54,128 +61,141 @@
                         <span>My Students</span>
                     </li>
                     <div id="account_setting_button" class="relative">
-                        <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer"
-                                  >
-                            <i class="fas fa-cog w-5 h-5 mr-3"></i> 
+                        <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer">
+                            <i class="fas fa-cog w-5 h-5 mr-3"></i>
                             <span>Account Settings</span>
-                        </li> 
+                        </li>
                         <!-- Nested Account Settings Menu -->
-                            <ul id="account-settings-menu" class="w-full z-10 bg-gray-800 shadow-lg hidden border-[1px] border-gray-300 space-y-2 absolute top-8 left-36 p-2 text-sm rounded-md">
-                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer" onclick="showContent('edit-profile')"><span>Edit Profile</span></li>
-                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer" onclick="showContent('change-password')"><span>Change Password</span></li>
-                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer" onclick="showContent('privacy-settings')"><span>Privacy Settings</span></li>
-                                <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer"><span>Manage Devices</span></li>
-                            </ul>
+                        <ul id="account-settings-menu"
+                            class="w-full z-10 bg-gray-800 shadow-lg hidden border-[1px] border-gray-300 space-y-2 absolute top-8 left-36 p-2 text-sm rounded-md">
+                            <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                                onclick="showContent('edit-profile')"><span>Edit Profile</span></li>
+                            <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                                onclick="showContent('change-password')"><span>Change Password</span></li>
+                            <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                                onclick="showContent('privacy-settings')"><span>Privacy Settings</span></li>
+                            <li class="p-2 hover:bg-gray-700 rounded-md cursor-pointer"><span>Manage Devices</span></li>
+                        </ul>
                     </div>
-                    
+
                 </ul>
             </nav>
         </aside>
 
-
-
-
-
-
-        
+ 
         <!-- Main Content -->
-        <main class="col-span-10 p-10  overflow-y-auto">
+        <main class="col-span-10  overflow-y-auto">
+            <div class="w-full py-1  bg-gradient-to-r from-gray-200 to-gray-300  rounded-lg  flex justify-between items-center px-12 text-xs">
+                <div id="deshboard_loading" class="hidden" >
+                    <div class="flex justify-center items-center font-mono text-teal-400 text-4xl space-x-3">
+                        <div class="dot w-5 h-5 bg-gray-500 rounded-full opacity-0  "></div>
+                        <div class="dot w-5 h-5 bg-gray-600 rounded-full opacity-0   delay-200"></div>
+                        <div class="dot w-5 h-5 bg-gray-700 rounded-full opacity-0  delay-400"></div>
+                      </div>
+                </div> 
+                <div></div>
+
+                <!-- Right Section: User Profile and Back Button -->
+                <div class="flex items-center justify-end space-x-4"> 
+                    <!-- User Profile -->
+                    <div class="flex items-center space-x-2">
+                        <span id="deshboard_username" class="text-sm">@username</span> 
+                        <img id="deshboard_user_image" src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Avatar" class="h-8 w-8 rounded-full">
+                    </div>
+            
+                    <!-- Back Home Button -->
+                    <a href="/">
+                        <button id="backHome"  
+                        class="m-1 px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white rounded-xl shadow-xl transform hover:underline transition-all duration-300">
+                        ← Home
+                        </button> 
+                    </a>
+                </div>
+            </div>
+            
+            
+            
+
+
+        <div class="p-10 ">
             <!-- Dynamic Content Section -->
             <section id="dashboard" class="content w-full">
-                
-    
-        <!-- Main Content Area -->
-        <div class="flex-1 p-6">
 
-            <!-- Dashboard Header -->
-            <div class="  justify-between items-center mb-8">
-                <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
-                <p>Welcome to your instructor dashboard. Here you can see an overview of your activities.</p>
-                
-            </div>
 
-            <!-- Dashboard Summary Boxes -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Total Courses Summary -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-700">Total Courses</h3>
-                    <p id="totalCourses" class="text-4xl font-bold text-gray-900">35</p>
-                    <div class="mt-4 text-sm text-gray-600">View details</div>
+                <!-- Main Content Area -->
+                <div class="flex-1 p-6">
+                    <!-- Dashboard Header -->
+                    <div class="  justify-between items-center mb-8">
+                        <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+                        <p>Welcome to your instructor dashboard. Here you can see an overview of your activities.</p>
+
+                    </div>
+
+                    <!-- Dashboard Summary Boxes -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Total Courses Summary -->
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold text-gray-700">Total Courses</h3>
+                            <p id="totalCourses" class="text-4xl font-bold text-gray-900">35</p>
+                            <div class="mt-4 text-sm text-gray-600">View details</div>
+                        </div>
+
+                        <!-- Total Students Summary -->
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold text-gray-700">Total Students</h3>
+                            <p id="totalStudents" class="text-4xl font-bold text-gray-900">120</p>
+                            <div class="mt-4 text-sm text-gray-600">View details</div>
+                        </div>
+
+                        <!-- Recent Enrollments Summary -->
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold text-gray-700">Recent Enrollments</h3>
+                            <p id="recentEnrollments" class="text-4xl font-bold text-gray-900">5</p>
+                            <div class="mt-4 text-sm text-gray-600">View details</div>
+                        </div>
+
+                        <!-- Active Instructors Summary -->
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold text-gray-700">Active Instructor </h3>
+                            <span
+                                class="w-6 h-6 mt-3 bg-green-500 text-white rounded-full flex items-center justify-center">&#10003;</span>
+
+                            <!-- <p id="activeInstructors" class="text-4xl font-bold text-gray-900">10</p> -->
+                            <div class="mt-4 text-sm text-gray-600">View details</div>
+                        </div>
+                    </div>
+
+                    <!-- Latest Activity Section -->
+                    <div class="bg-white p-6 mt-12 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-gray-700 mb-4">Latest Activity</h3>
+
+                        <ul id="last_activity_courses">
+
+
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Total Students Summary -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-700">Total Students</h3>
-                    <p id="totalStudents" class="text-4xl font-bold text-gray-900">120</p>
-                    <div class="mt-4 text-sm text-gray-600">View details</div>
+
+
+                <div id="bestSellerCourse" class="space-y-4 px-6">
+                    <!-- Single Course Item -->
+
                 </div>
 
-                <!-- Recent Enrollments Summary -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-700">Recent Enrollments</h3>
-                    <p id="recentEnrollments" class="text-4xl font-bold text-gray-900">5</p>
-                    <div class="mt-4 text-sm text-gray-600">View details</div>
-                </div>
-
-                <!-- Active Instructors Summary -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-700">Active Instructor </h3>
-                    <span class="w-6 h-6 mt-3 bg-green-500 text-white rounded-full flex items-center justify-center">&#10003;</span> 
-
-                    <!-- <p id="activeInstructors" class="text-4xl font-bold text-gray-900">10</p> -->
-                    <div class="mt-4 text-sm text-gray-600">View details</div>
-                </div>
-            </div>
-
-            <!-- Latest Activity Section -->
-            <div class="bg-white p-6 mt-12 rounded-lg shadow-md">
-                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Latest Activity</h3>
-
-                <ul id="last_activity_courses">
-                  
-                    
-                </ul>
-            </div>
-        </div>
-
-
-
-            <div id="bestSellerCourse" class="space-y-4 px-6">
-                <!-- Single Course Item -->
-                
-            </div> 
-                
             </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <section id="create-course" class="content relative hidden shadow-lg p-8 pb-16 px-12"> 
+            <section id="create-course" class="content relative hidden shadow-lg p-8 pb-16 px-12">
                 <div class="">
                     <h1 class="text-2xl font-bold mb-4">Create Course</h1>
                     <p class="text-gray-600  mb-8">Fill out the details below to create your course and add videos
-                        dynamically.</p> 
+                        dynamically.</p>
                 </div>
                 <div>
                     <div class=" rounded-2xl p-8 w-full  ">
-                        <form action="/create-course" method="POST" id="form_create_course" enctype="multipart/form-data" class="space-y-6">
-                                    <!-- Submit Button -->
+                        <form action="/create-course" method="POST" id="form_create_course"
+                            enctype="multipart/form-data" class="space-y-6">
+                            <!-- Submit Button -->
                             <div class="text-center absolute top-8 right-8">
                                 <button type="submit"
                                     class="px-4 bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 rounded-lg shadow-lg hover:opacity-90 transform transition-transform duration-300">
@@ -228,7 +248,8 @@
                             <div>
                                 <label for="description" class="block text-sm font-semibold text-gray-700">Course
                                     Description</label>
-                                <div id="editor" class="min-h-56 mt-2 bg-white rounded-lg border border-gray-300 p-3 shadow-sm">
+                                <div id="editor"
+                                    class="min-h-56 mt-2 bg-white rounded-lg border border-gray-300 p-3 shadow-sm">
                                 </div>
                                 <input type="hidden" id="description" name="description" required />
                             </div>
@@ -261,29 +282,11 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </form>
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <section id="manage-courses" class="content hidden">
                 <h1 class="text-2xl font-bold mb-4">Manage Courses</h1>
@@ -298,238 +301,229 @@
                             Total Courses: <span id="courseCount">3</span>
                         </div>
                     </div>
-            
+
                     <!-- Course Cards -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Example Course 1 -->
                         <div class="course-card bg-white shadow-md rounded-lg p-6" id="course1">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png"
+                                alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
                             <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 1</h3>
-                            <button onclick="showCourseDetails('course1')" class="mt-4 text-blue-600 hover:text-blue-800">View
+                            <button onclick="showCourseDetails('course1')"
+                                class="mt-4 text-blue-600 hover:text-blue-800">View
                                 Details</button>
                         </div>
-            
+
                         <!-- Example Course 2 -->
                         <div class="course-card bg-white shadow-md rounded-lg p-6" id="course2">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png"
+                                alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
                             <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 2</h3>
-                            <button onclick="showCourseDetails('course2')" class="mt-4 text-blue-600 hover:text-blue-800">View
+                            <button onclick="showCourseDetails('course2')"
+                                class="mt-4 text-blue-600 hover:text-blue-800">View
                                 Details</button>
                         </div>
-            
+
                         <!-- Example Course 3 -->
                         <div class="course-card bg-white shadow-md rounded-lg p-6" id="course3">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png"
+                                alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
                             <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 3</h3>
-                            <button onclick="showCourseDetails('course3')" class="mt-4 text-blue-600 hover:text-blue-800">View
+                            <button onclick="showCourseDetails('course3')"
+                                class="mt-4 text-blue-600 hover:text-blue-800">View
                                 Details</button>
                         </div>
                     </div>
-            
+
                     <div class="my-12">
                         <div class=" rounded-2xl relative p-12 w-full bg-gray-200  shadow-lg ">
-                            
-                            
+
+
                         </div>
                     </div>
-            
+
                 </div>
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <section id="students" class="content hidden">
                 <h1 class="text-2xl font-bold mb-4">My Students</h1>
                 <p>View and manage the list of students enrolled in your courses.</p>
-                    <!-- Content Section -->
-    <div class="max-w-7xl mx-auto py-8">
+                <!-- Content Section -->
+                <div class="max-w-7xl mx-auto py-8">
 
-        <!-- Top Stats Section -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-lg font-semibold text-gray-700">Total Students</h3>
-                <p class="text-3xl font-bold text-blue-500" id="totalStudents">50</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-lg font-semibold text-gray-700">Total Courses</h3>
-                <p class="text-3xl font-bold text-blue-500" id="totalCourses">10</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-lg font-semibold text-gray-700">Total Enrollments</h3>
-                <p class="text-3xl font-bold text-blue-500" id="totalEnrollments">150</p>
-            </div>
-        </div>
+                    <!-- Top Stats Section -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-gray-700">Total Students</h3>
+                            <p class="text-3xl font-bold text-blue-500" id="totalStudents">50</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-gray-700">Total Courses</h3>
+                            <p class="text-3xl font-bold text-blue-500" id="totalCourses">10</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-gray-700">Total Enrollments</h3>
+                            <p class="text-3xl font-bold text-blue-500" id="totalEnrollments">150</p>
+                        </div>
+                    </div>
 
-        <!-- Course and Student Filters -->
-        <div class="flex space-x-4 mb-8">
-            <button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700" onclick="filterView('all')">All Courses</button>
-            <button class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-700" onclick="filterView('students')">All Students</button>
-            <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-700" onclick="filterView('enrollments')">Course Enrollment</button>
-        </div>
+                    <!-- Course and Student Filters -->
+                    <div class="flex space-x-4 mb-8">
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+                            onclick="filterView('all')">All Courses</button>
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+                            onclick="filterView('students')">All Students</button>
+                        <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-700"
+                            onclick="filterView('enrollments')">Course Enrollment</button>
+                    </div>
 
-        <!-- Course List -->
-        <div id="courseList" class="bg-white shadow-lg rounded-lg p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-6">Course List</h2>
-            <div class="overflow-x-auto">
-                <table class="min-w-full table-auto">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="p-3 text-left">Course Name</th>
-                            <th class="p-3 text-left">Number of Students</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">Math 101</td>
-                            <td class="p-3">25</td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">History 202</td>
-                            <td class="p-3">15</td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">Science 303</td>
-                            <td class="p-3">10</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                    <!-- Course List -->
+                    <div id="courseList" class="bg-white shadow-lg rounded-lg p-6 mb-8">
+                        <h2 class="text-2xl font-semibold mb-6">Course List</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full table-auto">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="p-3 text-left">Course Name</th>
+                                        <th class="p-3 text-left">Number of Students</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">Math 101</td>
+                                        <td class="p-3">25</td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">History 202</td>
+                                        <td class="p-3">15</td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">Science 303</td>
+                                        <td class="p-3">10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-        <!-- Student List -->
-        <div id="studentList" class="bg-white shadow-lg rounded-lg p-6 mb-8 hidden">
-            <h2 class="text-2xl font-semibold mb-6">Student List</h2>
-            <div class="overflow-x-auto">
-                <table class="min-w-full table-auto">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="p-3 text-left">Student Name</th>
-                            <th class="p-3 text-left">Course</th>
-                            <th class="p-3 text-left">Grade</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">John Doe</td>
-                            <td class="p-3">Math 101</td>
-                            <td class="p-3">A</td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">Jane Smith</td>
-                            <td class="p-3">History 202</td>
-                            <td class="p-3">B+</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                    <!-- Student List -->
+                    <div id="studentList" class="bg-white shadow-lg rounded-lg p-6 mb-8 hidden">
+                        <h2 class="text-2xl font-semibold mb-6">Student List</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full table-auto">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="p-3 text-left">Student Name</th>
+                                        <th class="p-3 text-left">Course</th>
+                                        <th class="p-3 text-left">Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">John Doe</td>
+                                        <td class="p-3">Math 101</td>
+                                        <td class="p-3">A</td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">Jane Smith</td>
+                                        <td class="p-3">History 202</td>
+                                        <td class="p-3">B+</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-        <!-- Enrollment Details -->
-        <div id="enrollmentDetails" class="bg-white shadow-lg rounded-lg p-6 mb-8 hidden">
-            <h2 class="text-2xl font-semibold mb-6">Course Enrollment</h2>
-            <div class="overflow-x-auto">
-                <table class="min-w-full table-auto">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="p-3 text-left">Course</th>
-                            <th class="p-3 text-left">Enrolled Students</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">Math 101</td>
-                            <td class="p-3">25</td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">History 202</td>
-                            <td class="p-3">15</td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-3">Science 303</td>
-                            <td class="p-3">10</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                    <!-- Enrollment Details -->
+                    <div id="enrollmentDetails" class="bg-white shadow-lg rounded-lg p-6 mb-8 hidden">
+                        <h2 class="text-2xl font-semibold mb-6">Course Enrollment</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full table-auto">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="p-3 text-left">Course</th>
+                                        <th class="p-3 text-left">Enrolled Students</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">Math 101</td>
+                                        <td class="p-3">25</td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">History 202</td>
+                                        <td class="p-3">15</td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">Science 303</td>
+                                        <td class="p-3">10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-        <!-- Modal for Viewing Student Details -->
-        <div id="studentModal" class="modal">
-            <div class="modal-content relative">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2 class="text-xl font-semibold mb-4">Student Details</h2>
-                <div id="studentDetails"></div>
-                <button class="bg-red-500 text-white px-4 py-2 rounded mt-4" onclick="closeModal()">Close</button>
-            </div>
-        </div>
+                    <!-- Modal for Viewing Student Details -->
+                    <div id="studentModal" class="modal">
+                        <div class="modal-content relative">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <h2 class="text-xl font-semibold mb-4">Student Details</h2>
+                            <div id="studentDetails"></div>
+                            <button class="bg-red-500 text-white px-4 py-2 rounded mt-4"
+                                onclick="closeModal()">Close</button>
+                        </div>
+                    </div>
 
-    </div>
+                </div>
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
             <section id="edit-profile" class="content hidden">
                 <h1 class="text-2xl font-bold mb-4">Edit Profile</h1>
                 <p>Update your personal details and manage your account settings here.</p>
                 <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-12">
                     <h2 class="text-3xl font-semibold text-gray-800 mb-6">Edit Profile</h2>
-                    
+
                     <!-- Profile Edit Form -->
                     <form id="editProfileForm">
                         <div class="grid grid-cols-1 gap-6">
-                            
+
                             <!-- Name -->
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your full name" required>
+                                <input type="text" id="name" name="name"
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Enter your full name" required>
                             </div>
-                            
+
                             <!-- Email -->
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email address" required>
+                                <input type="email" id="email" name="email"
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Enter your email address" required>
                             </div>
-            
+
                             <!-- Phone -->
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your phone number" required>
+                                <input type="tel" id="phone" name="phone"
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Enter your phone number" required>
                             </div>
-            
+
                             <!-- Profile Picture -->
                             <div>
-                                <label for="profilePicture" class="block text-sm font-medium text-gray-700">Profile Picture</label>
-                                <input type="file" id="profilePicture" name="profilePicture" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" accept="image/*">
+                                <label for="profilePicture" class="block text-sm font-medium text-gray-700">Profile
+                                    Picture</label>
+                                <input type="file" id="profilePicture" name="profilePicture"
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    accept="image/*">
                             </div>
-            
+
                             <!-- Save Button -->
                             <div class="flex justify-end mt-6">
-                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <button type="submit"
+                                    class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                     Save Changes
                                 </button>
                             </div>
@@ -538,46 +532,47 @@
                 </div>
             </section>
 
-
-
-
-
-
-
-
-
-
             <section id="change-password" class="content hidden">
                 <h1 class="text-2xl font-bold mb-4">Change Password</h1>
                 <p>Update your personal details and manage your account settings here.</p>
                 <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-12">
                     <h2 class="text-3xl font-semibold text-gray-800 mb-6">Change Password</h2>
-                    
+
                     <!-- Change Password Form -->
                     <form id="changePasswordForm">
                         <div class="grid grid-cols-1 gap-6">
-                            
+
                             <!-- Current Password -->
                             <div>
-                                <label for="currentPassword" class="block text-sm font-medium text-gray-700">Current Password</label>
-                                <input type="password" id="currentPassword" name="currentPassword" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your current password" required>
+                                <label for="currentPassword" class="block text-sm font-medium text-gray-700">Current
+                                    Password</label>
+                                <input type="password" id="currentPassword" name="currentPassword"
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Enter your current password" required>
                             </div>
-                            
+
                             <!-- New Password -->
                             <div>
-                                <label for="newPassword" class="block text-sm font-medium text-gray-700">New Password</label>
-                                <input type="password" id="newPassword" name="newPassword" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your new password" required>
+                                <label for="newPassword" class="block text-sm font-medium text-gray-700">New
+                                    Password</label>
+                                <input type="password" id="newPassword" name="newPassword"
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Enter your new password" required>
                             </div>
-            
+
                             <!-- Confirm New Password -->
                             <div>
-                                <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
-                                <input type="password" id="confirmPassword" name="confirmPassword" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Confirm your new password" required>
+                                <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm New
+                                    Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword"
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Confirm your new password" required>
                             </div>
-            
+
                             <!-- Save Button -->
                             <div class="flex justify-end mt-6">
-                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <button type="submit"
+                                    class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                     Change Password
                                 </button>
                             </div>
@@ -586,88 +581,92 @@
                 </div>
             </section>
 
-
-
-
-
-
-
-
-
-
-
-
             <section id="privacy-settings" class="content hidden">
                 <h1 class="text-2xl font-bold mb-4">Privacy Settings</h1>
                 <p>Update your personal details and manage your account settings here.</p>
 
                 <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-12">
                     <h2 class="text-3xl font-semibold text-gray-800 mb-6">Privacy Settings</h2>
-            
+
                     <form id="privacySettingsForm">
                         <div class="space-y-6">
-                            
+
                             <!-- Profile Visibility -->
                             <div>
-                                <label for="profileVisibility" class="block text-sm font-medium text-gray-700">Profile Visibility</label>
+                                <label for="profileVisibility" class="block text-sm font-medium text-gray-700">Profile
+                                    Visibility</label>
                                 <div class="mt-2">
                                     <label for="public" class="inline-flex items-center mr-4">
-                                        <input type="radio" id="public" name="profileVisibility" value="public" class="form-radio text-blue-500" checked>
+                                        <input type="radio" id="public" name="profileVisibility" value="public"
+                                            class="form-radio text-blue-500" checked>
                                         <span class="ml-2">Public</span>
                                     </label>
                                     <label for="private" class="inline-flex items-center">
-                                        <input type="radio" id="private" name="profileVisibility" value="private" class="form-radio text-blue-500">
+                                        <input type="radio" id="private" name="profileVisibility" value="private"
+                                            class="form-radio text-blue-500">
                                         <span class="ml-2">Private</span>
                                     </label>
                                 </div>
                             </div>
-            
+
                             <!-- Email Notifications -->
                             <div>
-                                <label for="emailNotifications" class="block text-sm font-medium text-gray-700">Email Notifications</label>
+                                <label for="emailNotifications" class="block text-sm font-medium text-gray-700">Email
+                                    Notifications</label>
                                 <div class="mt-2 flex items-center">
-                                    <input type="checkbox" id="emailNotifications" name="emailNotifications" class="form-checkbox h-5 w-5 text-blue-500">
+                                    <input type="checkbox" id="emailNotifications" name="emailNotifications"
+                                        class="form-checkbox h-5 w-5 text-blue-500">
                                     <span class="ml-2">Receive email notifications for updates and alerts</span>
                                 </div>
                             </div>
-            
+
                             <!-- Two-Factor Authentication -->
                             <div>
-                                <label for="twoFactorAuth" class="block text-sm font-medium text-gray-700">Two-Factor Authentication (2FA)</label>
+                                <label for="twoFactorAuth" class="block text-sm font-medium text-gray-700">Two-Factor
+                                    Authentication (2FA)</label>
                                 <div class="mt-2 flex items-center">
-                                    <input type="checkbox" id="twoFactorAuth" name="twoFactorAuth" class="form-checkbox h-5 w-5 text-blue-500">
+                                    <input type="checkbox" id="twoFactorAuth" name="twoFactorAuth"
+                                        class="form-checkbox h-5 w-5 text-blue-500">
                                     <span class="ml-2">Enable two-factor authentication for enhanced security</span>
                                 </div>
                             </div>
-            
+
                             <!-- Data Sharing Preferences -->
                             <div>
-                                <label for="dataSharing" class="block text-sm font-medium text-gray-700">Data Sharing Preferences</label>
+                                <label for="dataSharing" class="block text-sm font-medium text-gray-700">Data Sharing
+                                    Preferences</label>
                                 <div class="mt-2">
                                     <label for="shareData" class="inline-flex items-center mr-4">
-                                        <input type="radio" id="shareData" name="dataSharing" value="share" class="form-radio text-blue-500" checked>
+                                        <input type="radio" id="shareData" name="dataSharing" value="share"
+                                            class="form-radio text-blue-500" checked>
                                         <span class="ml-2">Share data with third-party partners</span>
                                     </label>
                                     <label for="dontShareData" class="inline-flex items-center">
-                                        <input type="radio" id="dontShareData" name="dataSharing" value="dontShare" class="form-radio text-blue-500">
+                                        <input type="radio" id="dontShareData" name="dataSharing" value="dontShare"
+                                            class="form-radio text-blue-500">
                                         <span class="ml-2">Do not share data with third-party partners</span>
                                     </label>
                                 </div>
                             </div>
-            
+
                             <!-- Save Button -->
                             <div class="flex justify-end mt-6">
-                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <button type="submit"
+                                    class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                     Save Settings
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
-            
+
             </section>
-        </main>
-    </div>
+        </div>
+    </main>
+</div>
+
+
+
     <script src="src/js/local/alert.js"></script>
 
     <script src="src/js/accounts/cookie.js"></script>
