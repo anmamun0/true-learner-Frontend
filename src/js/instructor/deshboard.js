@@ -190,10 +190,8 @@ const instinfo = () => {
             }) 
             students_totalEnrollments.innerText = cnt;
 
-
-
-
-
+            //$  course _create section 
+            showAllCateogry();
 
 
             document.getElementById('deshboard_loading').classList.add('hidden');
