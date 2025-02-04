@@ -55,11 +55,9 @@ function  loginFormData(event, userType) {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            "X-CSRFToken": getCookie("csrftoken")  // CSRF token from cookies
-        },
+         },
         body: JSON.stringify(data),
-        credentials: 'include'  // Ensures sessionid is included
-    })
+     })
         .then(res => res.json())
         .then(data => {
             console.log(data);
