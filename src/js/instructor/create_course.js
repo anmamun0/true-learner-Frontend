@@ -132,7 +132,7 @@ const createCourse = () => {
       .then(resData => {
           course_data.thumble = resData.data.display_url; 
 
-        fetch(`http://127.0.0.1:8000/course/courses/create/`, {
+        fetch(`https://truelearner-backends.onrender.com/course/courses/create/`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',

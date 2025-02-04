@@ -1,83 +1,24 @@
-   // Function to show course details container and populate the form
-   function showCourseDetails(courseId) {
-    // Show the course details container
-    const courseDetailsContainer = document.getElementById('courseDetailsContainer');
-    courseDetailsContainer.classList.remove('hidden');
-
-    // Get course data based on the course ID
-    let courseName, instructor, description;
-    if (courseId === 'course1') {
-        courseName = 'Course 1';
-        instructor = 'John Doe';
-        description = 'Description for Course 1';
-    } else if (courseId === 'course2') {
-        courseName = 'Course 2';
-        instructor = 'Jane Smith';
-        description = 'Description for Course 2';
-    } else if (courseId === 'course3') {
-        courseName = 'Course 3';
-        instructor = 'Sarah Lee';
-        description = 'Description for Course 3';
-    }
-
-    // Populate the form with the course details
-    document.getElementById('courseName').value = courseName;
-    document.getElementById('instructor').value = instructor;
-    document.getElementById('description').value = description;
+const manageCourses = () => {
+    const manage_courses_list = document.getElementById('manage_courses_list');
+    fetch(`https://truelearner-backends.onrender.com/user/instructors/${inst_id}/`)
+        .then(res => res.json())
+        .then(data => {
+            data.courses.forEach(course => {
+                manage_courses_list.innerHTML +=
+                    `
+                    <div class="course-card bg-white shadow-md rounded-lg p-6" id="course1">
+                        <img src="${course.thumble}" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
+                         <h3 class="text-md font-semibold text-gray-700 mt-4 truncate">${course.title}</h3>
+                        <button onclick="" class="mt-4 text-blue-600 hover:text-blue-800">View Details</button>
+                     </div>
+                    `;
+            })
+        })
+        .catch(error => console.log(error));
 }
-
-// Updating total course count dynamically (for demo purposes)
-const courseCards = document.querySelectorAll('.course-card');
-const courseCount = document.getElementById('courseCount');
-courseCount.textContent = courseCards.length;
+manageCourses();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// + create Couse
-  // Initialize Quill.js editor
-  const quill = new Quill("#updator", {
-    theme: "snow",
-    placeholder: "Write the course description here...",
-    modules: {
-        toolbar: [
-            [{ header: [1, 2, 3, false] }],
-            ["bold", "italic", "underline", "strike"],
-            [{ list: "ordered" }, { list: "bullet" }],
-            ["link", "image"],
-            ["clean"],
-        ],
-    },
-});
 
 // Add another video input group
 document.getElementById("add-video").addEventListener("click", function () {
@@ -105,6 +46,8 @@ document.getElementById("add-video").addEventListener("click", function () {
 function removeVideo(button) {
     button.parentElement.remove();
 }
+
+
 
 // Handle form submission and include Quill data and video inputs
 document.getElementById("form_update_course").addEventListener("submit", function (event) {

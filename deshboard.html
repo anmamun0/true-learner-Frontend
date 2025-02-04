@@ -225,7 +225,7 @@
                                         Name</label>
                                     <input type="text" id="instructor" name="instructor"
                                         class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                        placeholder="Enter your name" required />
+                                          value="@username" disabled />
                                 </div>
 
                                 <!-- Thumbnail Upload -->
@@ -354,36 +354,8 @@
                     </div>
 
                     <!-- Course Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Example Course 1 -->
-                        <div class="course-card bg-white shadow-md rounded-lg p-6" id="course1">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png"
-                                alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
-                            <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 1</h3>
-                            <button onclick="showCourseDetails('course1')"
-                                class="mt-4 text-blue-600 hover:text-blue-800">View
-                                Details</button>
-                        </div>
-
-                        <!-- Example Course 2 -->
-                        <div class="course-card bg-white shadow-md rounded-lg p-6" id="course2">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png"
-                                alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
-                            <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 2</h3>
-                            <button onclick="showCourseDetails('course2')"
-                                class="mt-4 text-blue-600 hover:text-blue-800">View
-                                Details</button>
-                        </div>
-
-                        <!-- Example Course 3 -->
-                        <div class="course-card bg-white shadow-md rounded-lg p-6" id="course3">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210629203724/MachineLearningwithPythonmin.png"
-                                alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
-                            <h3 class="text-xl font-semibold text-gray-700 mt-4">Course 3</h3>
-                            <button onclick="showCourseDetails('course3')"
-                                class="mt-4 text-blue-600 hover:text-blue-800">View
-                                Details</button>
-                        </div>
+                    <div id="manage_courses_list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Daynamic course added Course  --> 
                     </div>
 
                     <div class="my-12">
