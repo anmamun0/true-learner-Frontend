@@ -62,6 +62,7 @@ function  loginFormData(event, userType) {
     })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             login_loading.classList.add('hidden');
 
             // console.log(data); 
@@ -73,7 +74,7 @@ function  loginFormData(event, userType) {
             
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user_id', data.user_id);
-                localStorage.setItem('role', role);
+                localStorage.setItem('role', role); 
 
                 // console.log('Login successful:', data);
                 pushAlert('success', 'Login successful!');

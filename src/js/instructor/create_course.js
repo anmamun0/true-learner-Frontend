@@ -98,6 +98,7 @@ const createCourse = () => {
 
     const course_data = {
       "title": formData.get('title'),
+      "thumble": '',
       "category": formData.getAll('category').map(value => parseInt(value, 10)),
       "description": "Learn Python from scratch with hands-on projects.",
       "price": formData.get('price'),
@@ -105,6 +106,7 @@ const createCourse = () => {
       "total_session": formData.get('total_session'),
       "total_length": formData.get('total_length'),
       'videos': [],
+      
     }
     videoTitles.forEach((title, idx) => {
       const video = {
@@ -119,7 +121,35 @@ const createCourse = () => {
     const courseThumbleForm = new FormData();
     courseThumbleForm.append('image', file);
     
- 
+    
+    // fetch('https://api.imgbb.com/1/upload?key=99af3bf39b56183ca39470aa2ea81b31',
+    //   {
+    //     method: 'POST',
+    //     body: courseThumbleForm,
+    //   }
+    // )
+    //   .then(res => res.json())
+    //   .then(resData => {
+    //       course_data.thumble = resData.data.display_url; 
+
+        fetch(`https://truelearner-backends.onrender.com/course/courses/create/`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken':getCookie("csrftoken"),
+          },
+          body: JSON.stringify(course_data),
+          credentials:"include",
+        })
+          .then(res => res.json())
+          .then(data => {
+            alert('success');
+          })
+          .catch(e => console.log(e));
+        
+      // })
+      // .catch(e => console.log(e));
+
 
     console.log('testing', course_data);
 

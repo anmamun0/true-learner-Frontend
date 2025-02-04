@@ -1,27 +1,34 @@
 // Function to logout the user
-function logoutUser() { 
+
+
+function logoutUser() {  
+
+    const logutData = {
+        'token': getToken(),
+    }  
+    
     fetch('https://truelearner-backends.onrender.com/user/logout/', {
-        method: 'GET', // Use GET for hitting the logout endpoint
+        method: 'POST', // Use GET for hitting the logout endpoint
         headers: {
             "Content-Type": "application/json", // Optional for GET requests
-            "X-CSRFToken": getCookie("csrftoken") // Include CSRF if required by backend
-        },
-        credentials: 'include'  // Ensure session cookies are sent
-    })
+         },
+        body:JSON.stringify(logutData),
+     })
     .then(res => res.json() )
     .then(data => { 
         console.log('Logout successful:', data); 
-        // localStorage.clear(); 
-        pushAlert('success', 'You have been logged out!'); 
+        // localStorage.clear();  
+        localStorage.removeItem('role');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user_id');
+        pushAlert('success', 'You have been logged out!');  
+        showPage('index_page');
         
     })
         .catch(error => {  
         console.error('Error during logout:', error);
         pushAlert('error', 'Logout failed. Please try again later.');
         });
-    localStorage.removeItem('token');
-    localStorage.removeItem('user_id');
-    pushAlert('success', 'You have been logged out!');  
-    showPage('index_page');
+
 
 }

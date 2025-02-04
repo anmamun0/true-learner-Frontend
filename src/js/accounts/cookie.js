@@ -8,8 +8,13 @@ const isStudent = () => {
     return role == 'Student';
 }
 
+const getToken = () => {
+    
+    return localStorage.getItem('token');
+} 
+
 // Helper function to get cookies
-   function getCookie(name) {
+function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
