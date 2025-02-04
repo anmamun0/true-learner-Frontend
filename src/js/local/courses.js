@@ -72,12 +72,12 @@ const courseShow = (slug = '') => {
                                     
                                     <!-- Course content on the left side -->
                                     <div class="px-6 py-4 flex-1">
-                                        <h3 class="text-xl font-semibold text-gray-900 mb-2">${course.title}</h3>
-                                        <p class="text-gray-600 mb-3 text-sm">${plainTextDescription.slice(0, 70)}...</p>
+                                        <h3 class="text-md font-semibold text-gray-900 mb-2">${course.title}</h3>
+                                        <p class="text-gray-600 mb-3 text-sm">${plainTextDescription.slice(0, 100)}...</p>
                                         
                                         <div class="flex justify-between items-center">
                                             <span class="text-lg font-bold text-indigo-600">$${course.price}</span>
-                                            <a href="" onclick="showPage('course_details','${course.code}');event.preventDefault();" class="px-5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow hover:from-indigo-500 hover:to-purple-500 transition">View</a>
+                                            <a href="" onclick="showPage('course_details','${course.code}');event.preventDefault();" class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow hover:from-indigo-500 hover:to-purple-500 transition">View</a>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@ const courseShow = (slug = '') => {
                             <div class="bg-white rounded-xl w-full shadow-md overflow-hidden transform hover:scale-[102%] hover:shadow-lg transition duration-300" >
                                 <img src="${course.thumble}" alt="Course Thumbnail" class="w-full h-48 object-cover">
                                 <div class="px-6 py-4">
-                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">${course.title}</h3>
+                                    <h3 class="text-md font-semibold text-gray-900 mb-2">${course.title}</h3>
                                     <p class="text-gray-600 mb-2 text-xs">${plainTextDescription.slice(0, 70)}...</p>
                                      <!-- Additional Course Info -->
                                     <div class="flex justify-between items-center mb-3">

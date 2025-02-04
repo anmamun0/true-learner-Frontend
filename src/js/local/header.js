@@ -108,10 +108,10 @@ header.innerHTML = `
   </div>
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg rounded-lg mt-4 px-4 py-2">
-    <a  href="/"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Home</a>
-    <a href="#courses_page" onclick="showPage('courses_page')";  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg" >Courses</a>
-    <a href="#" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Instructors</a>
-    <a href="#" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Contacts</a>
+    <a  href="/" onclick="showPage('index_page');"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Home</a>
+    <a href="/" onclick="showPage('courses_page'); event.preventDefault();"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg" >Courses</a>
+    <a href="/" onclick="showPage('instructors'); event.preventDefault();"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Instructors</a>
+    <a href="/"  onclick="showPage('support'); event.preventDefault();"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Contacts</a>
     ${isAuthenticated() ? `
         <a href="#" onclick="logoutUser()"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Logout</a>
         ` : `

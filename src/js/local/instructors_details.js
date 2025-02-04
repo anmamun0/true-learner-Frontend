@@ -51,7 +51,7 @@ const instructorDetailsProfile = (inst_id ) => {
                 console.log('asdfasdf', course);
                 
                 instructor_details_course_filed.innerHTML += `
-                  <div class="bg-white rounded-2xl shadow-lg overflow-hidden  ">
+                  <div class="bg-white rounded-2xl shadow-lg overflow-hidden my-4 ">
                         <img src="${course.thumble}" alt="Course Image" class="w-full h-28 object-cover">
                         <div class="p-4">
                             <h3 class="text-md font-semibold text-gray-800">${course.title}</h3>

@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Dashboard</title>
     <link rel="stylesheet" href="src/css/deshboard.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='90' font-size='90'>tL</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -23,14 +25,14 @@
 <body class="bg-gray-100 h-screen">
    
 
-    <div class="grid grid-cols-12 h-full">
+    <div class="md:grid grid-cols-12 h-full">
         <!-- Left Sidebar -->
-        <aside class="col-span-2 bg-gray-800 text-white flex flex-col  h-full text-sm md:text-md lg:text-lg">
+        <aside class="items-center col-span-2 bg-gray-800 text-white flex flex-col  text-sm md:text-md lg:text-lg">
             <div class="p-4 text-center border-b border-gray-700">
                 <h2 class="text-lg font-bold">Instructor Panel</h2>
             </div>
-            <nav class="flex-1 p-4">
-                <ul class="space-y-4">
+            <nav class="flex-1 p-4 text-sm md:text-md">
+                <ul class="flex flex-wrap justify-center md:flex-col space-y-2 md:space-y-4 gap-4 md:gap-0">
                     <li class="flex items-center p-2 hover:bg-gray-700 rounded-md cursor-pointer"
                         onclick="showContent('dashboard')">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -254,12 +256,13 @@
                             <div >
                                 <label for="description" class="block text-sm font-semibold text-gray-700">Course Description</label>
                                 <!-- Rich Text Editor (contenteditable div) -->
-                                <div id="editor"
-                                    class="mt-2 bg-white   rounded-lg border border-gray-300 p-3 resize-none overflow-auto shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                    contenteditable="true" style="height: calc(1.5em * 9);">
+                                <div id="course_create_editor"
+                                    class="mt-2 bg-white  rounded-lg border border-gray-300 p-3 resize-none overflow-auto shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                      style="height: calc(1.5em * 9);">
                                 </div>
-                                
                                 <!-- Hidden Input Field -->
+                                <!-- <input type="hidden" id="description" name="description" required /> -->
+                                 
                              </div>
 
                     <!-- Toal seciton, lecture , lenght -->

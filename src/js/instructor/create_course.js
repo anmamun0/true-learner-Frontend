@@ -2,7 +2,7 @@
 
 
 // Initialize Quill.js editor
-var quill = new Quill('#editor', {
+var quill = new Quill('#course_create_editor', {
   theme: 'snow',
   placeholder: "Write the course description here...",
   modules: {
@@ -22,8 +22,7 @@ var quill = new Quill('#editor', {
       ['clean'] // Remove formatting button
     ]
   }
-});
-
+}); 
 
 // Add another video input group
 document.getElementById("add-video").addEventListener("click", function () {
@@ -100,7 +99,7 @@ const createCourse = () => {
       "title": formData.get('title'),
       "thumble": '',
       "category": formData.getAll('category').map(value => parseInt(value, 10)),
-      "description": document.getElementById("editor").innerHTML,
+      "description": document.getElementById("course_create_editor").innerHTML,
       "price": formData.get('price'),
       "total_lecture": formData.get('total_lecture'),
       "total_session": formData.get('total_session'),
@@ -135,16 +134,14 @@ const createCourse = () => {
         fetch(`https://truelearner-backends.onrender.com/course/courses/create/`, {
           method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken':getCookie("csrftoken"),
+            'Content-Type': 'application/json', 
           },
-          body: JSON.stringify(course_data),
-          credentials:"include",
+          body: JSON.stringify(course_data), 
         })
           .then(res => res.json())
           .then(data => {
             console.log(data);
-            alert('success');
+            pushAlert('success',"Successfully created course")
           })
           .catch(e => console.log(e));
         

@@ -181,7 +181,7 @@
 
     <!-- Features Section -->
     <section id="features" class="py-16 bg-gray-100" >
-      <div class="max-w-7xl mx-auto text-center" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      <div class="max-w-7xl p-6 mx-auto text-center" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <h2 class="text-3xl font-bold text-gray-800">Why Choose TrueLearner?</h2>
         <p class="text-gray-600 mt-4">Explore the benefits of learning with us</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -299,10 +299,10 @@
     </div>
     <hr class="bg-gray-1 pb-2">
 
-    <div class="grid grid-cols-12 mx-auto px-6 flex flex-col lg:flex-row gap-4">
+    <div class="md:flex justify-between mx-auto px-6  gap-4">
 
       <!-- Courses Section (Left Side) -->
-      <div class="col-span-9 p-6 rounded-xl  ">
+      <div class="col-span-6 md:col-span-9 p-6 rounded-xl  ">
 
         <!-- Filter and Search Bar -->
         <div class="flex justify-between items-center mb-4">
@@ -335,7 +335,7 @@
         </div>
 
         <!-- Courses Cards -->
-        <div id="course_card" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" >
+        <div id="course_card" class="grid grid-cols-1  lg:grid-cols-3 gap-6 space-y-8" >
           <!-- Example Course Card -->
 
 
@@ -346,7 +346,7 @@
       </div>
 
       <!-- Category Filter (Right Side) -->
-      <div class="col-span-3 bg-white rounded-xl shadow-xl p-6 mt-12" >
+      <div class="col-span-6 sm:col-span-3 bg-white items-center justify-center justify-items-center m-auto rounded-xl shadow-xl p-6 mt-12 mx-8 md:mx-0" >
         <h2 class="text-xl font-extrabold text-gray-900 mb-6 " >Explore Categories</h2>
 
         <div class="space-y-4">
@@ -359,22 +359,7 @@
 
           <!-- Dynamic Categories (Populated Dynamically) -->
           <div class="space-y-2"   id= "category_list" >
-            <div class="flex justify-between items-center">
-              <span class="text-md font-semibold text-gray-800">Web Development</span>
-              <span class="text-sm text-gray-400">(5)</span> <!-- Courses in this category -->
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-lg font-semibold text-gray-800">Data Science</span>
-              <span class="text-sm text-gray-400">(3)</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-md font-semibold text-gray-800">Mobile Development</span>
-              <span class="text-sm text-gray-400">(4)</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-md font-semibold text-gray-800">Machine Learning</span>
-              <span class="text-sm text-gray-400">(2)</span>
-            </div>
+             
           </div>
         </div>
       </div>
@@ -715,7 +700,7 @@
 
 
   <!-- Instructor Cards Section -->
-  <div class="w-full max-w-6xl my-8 m-auto">
+  <div class="w-full max-w-6xl my-8 m-auto p-6">
     <h3 class="text-xl font-semibold text-center text-gray-800 mb-6"> All Instructors</h3>
     <div id="instructorList" class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Instructor Cards will be added dynamically -->
@@ -737,7 +722,7 @@
               <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
             </div>
           </div>
-      <div class="grid grid-cols-2 justify-between p-4 gap-10 justify-between items-center">
+      <div class="md:grid grid-cols-2 justify-between p-4 gap-10 justify-between items-center">
         
           <!-- Left Section -->
           <div class="col-span-1"> 
@@ -760,9 +745,9 @@
           </div>
 
           <!-- Right Section -->
-          <div class="col-span-1 flex flex-col items-end p-10">
-              <img id="instructor_details_image" src="https://via.placeholder.com/100" class="w-36 h-36 rounded-full shadow-md" alt="Instructor">
-              <ul class="mt-4 space-y-2 text-sm text-gray-700 space-y-4" id="instructor_details_social_media"> 
+          <div class="m-4 col-span-1 gap-6 flex md:flex-col justify-between  items-center p-10">
+              <img id="instructor_details_image" src="https://via.placeholder.com/100" class="w-36 h-36  rounded-full shadow-md" alt="Instructor">
+              <ul class="flex flex-col  mt-4 space-y-2 text-sm text-gray-700 space-y-4" id="instructor_details_social_media"> 
                   
               </ul>
           </div>
@@ -773,7 +758,7 @@
   <!-- Courses Section -->
   <div class="max-w-5xl mx-auto  p-6    rounded-lg">
       <h2 class="text-xl font-semibold text-gray-800">My Courses</h2>
-          <div id="instructor_details_course_filed" class="grid grid-cols-4 gap-6 mt-4 ">
+          <div id="instructor_details_course_filed" class="sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 ">
           </div> 
       </div>
   </div> 
