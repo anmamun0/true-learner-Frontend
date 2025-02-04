@@ -2,6 +2,8 @@ const user_id = localStorage.getItem('user_id');
  
 
 const showDetails = (course_id) => { 
+
+
     const title = document.getElementById('course_details_title');
     const course_price = document.getElementById('course_price');
     const description = document.getElementById('course_details_description');
@@ -19,18 +21,21 @@ const showDetails = (course_id) => {
     fetch(`https://truelearner-backends.onrender.com/course/courses/${course_id}`)
         .then(res => res.json())
         .then(course => {
-            // Parse the description HTML and extract plain text
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(course.description, 'text/html');
-            const plainTextDescription = htmlDoc.body.textContent || '';
+            
             const enroll_now = document.getElementById('enroll_now')
             enroll_now.onclick = () =>  {
                 initiatePayment(user_id, course.code);
             }; 
-            
+                // Initialize Quill.js editor in read-only mode
+                var quill = new Quill('#editor', {
+                    theme: 'snow',
+                    readOnly: true,  // Disable editing
+                    modules: { toolbar: false } // Remove toolbar
+                });
+                document.getElementById('editor').innerHTML = course.description;
+                            
             console.log(course);
-            title.innerText = `${course.title}`;
-            description.innerHTML = course.description;
+            title.innerText = `${course.title}`; 
             image.src = course.thumble;
             course_total_sections.innerText = course.total_session;
             course_total_sections2.innerText = course.total_session;

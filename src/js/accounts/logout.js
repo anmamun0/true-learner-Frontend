@@ -6,7 +6,7 @@ function logoutUser() {
     const logutData = {
         'token': getToken(),
     }  
-    
+
     fetch('https://truelearner-backends.onrender.com/user/logout/', {
         method: 'POST', // Use GET for hitting the logout endpoint
         headers: {

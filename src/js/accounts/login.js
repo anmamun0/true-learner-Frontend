@@ -76,8 +76,11 @@ function  loginFormData(event, userType) {
 
                 // console.log('Login successful:', data);
                 pushAlert('success', 'Login successful!');
-                window.location.href = './index.html'
-                // showPage('index_page');   its problem , sloved
+                setInterval(() => {
+                    window.location.href = './index.html'
+                    
+                },1000)
+                // showPage('index_page');    
         })
         .catch(error => {
             console.error('Error:', error);

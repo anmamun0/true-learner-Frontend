@@ -89,18 +89,18 @@ const createCourse = () => {
     event.preventDefault();
 
     const formData = new FormData(this);
-    console.log("Form Data:");
-    document.getElementById("description").value = document.getElementById("editor").innerHTML;
+    console.log("Form Data:"); 
     const videoTitles = formData.getAll("video_title[]");
     const videoUrls = formData.getAll("video_url[]");
     const video_duration = formData.getAll("video_duration[]");
 
 
     const course_data = {
+      'token': getToken(),
       "title": formData.get('title'),
       "thumble": '',
       "category": formData.getAll('category').map(value => parseInt(value, 10)),
-      "description": "Learn Python from scratch with hands-on projects.",
+      "description": document.getElementById("editor").innerHTML,
       "price": formData.get('price'),
       "total_lecture": formData.get('total_lecture'),
       "total_session": formData.get('total_session'),
@@ -122,17 +122,17 @@ const createCourse = () => {
     courseThumbleForm.append('image', file);
     
     
-    // fetch('https://api.imgbb.com/1/upload?key=99af3bf39b56183ca39470aa2ea81b31',
-    //   {
-    //     method: 'POST',
-    //     body: courseThumbleForm,
-    //   }
-    // )
-    //   .then(res => res.json())
-    //   .then(resData => {
-    //       course_data.thumble = resData.data.display_url; 
+    fetch('https://api.imgbb.com/1/upload?key=99af3bf39b56183ca39470aa2ea81b31',
+      {
+        method: 'POST',
+        body: courseThumbleForm,
+      }
+    )
+      .then(res => res.json())
+      .then(resData => {
+          course_data.thumble = resData.data.display_url; 
 
-        fetch(`https://truelearner-backends.onrender.com/course/courses/create/`, {
+        fetch(`http://127.0.0.1:8000/course/courses/create/`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
@@ -143,12 +143,13 @@ const createCourse = () => {
         })
           .then(res => res.json())
           .then(data => {
+            console.log(data);
             alert('success');
           })
           .catch(e => console.log(e));
         
-      // })
-      // .catch(e => console.log(e));
+      })
+      .catch(e => console.log(e));
 
 
     console.log('testing', course_data);

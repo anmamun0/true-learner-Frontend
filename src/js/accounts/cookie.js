@@ -8,6 +8,8 @@ const isStudent = () => {
     return role == 'Student';
 }
 
+// alert(getToken()); 
+
 const getToken = () => {
     
     return localStorage.getItem('token');
