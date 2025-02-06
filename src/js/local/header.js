@@ -64,6 +64,7 @@ header.innerHTML = `
             <!-- Button -->
             <button @click="open = !open" class="hover:text-blue-600 flex items-center space-x-2">
                <!-- <i class="fas fa-user text-gray-700" id="fa-user"></i> --> 
+
             ${isAuthenticated() ? `
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -75,6 +76,7 @@ header.innerHTML = `
                         </svg>
                     </a>
                 `}
+                
             <img src="https://i.pravatar.cc/150" alt="User Image" class="w-8 h-8 rounded-full border border-gray-300 object-cover">
 
             </button>

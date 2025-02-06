@@ -19,6 +19,9 @@
 
   <!-- Animaitn libary -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   
 </head>
 
@@ -346,10 +349,7 @@
             </section>
 
 
-
-
-
-            <section id="manage-courses" class="content hidden">
+            <section id="manage-courses" class="content hidden ">
                 <h1 class="text-2xl font-bold mb-4">Manage Courses</h1>
                 <p>Here you can manage all the courses you've created and track their progress.</p>
 
@@ -376,6 +376,351 @@
                     </div>
 
                 </div>
+            </section>
+
+            <section id="analisis_courses" class="content hidden"> 
+                <div class="px-6 max-w-6xl mx-auto"> 
+                    <div class="pb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-6 py-2">
+                                <!-- image  -->
+                                <div>
+                                    <label class="block text-xl font-medium mb-1">Course Thumbnail</label>
+                                    <div class="relative w-full" id="edit-thumbnail-btn">
+                                        <!-- Thumbnail Image -->
+                                        <img id="course_details_image" src="https://i.pravatar.cc/150" alt="Course Overview"
+                                            class="w-full h-60 rounded-xl shadow-lg object-cover border border-gray-300 dark:border-gray-700">
+            
+                                        <!-- Edit Button -->
+                                        <button id="analisis_course_price"
+                                            class="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full shadow-md hover:bg-gray-900 transition">
+                                            <span class="font-semibold ">$40</span>
+                                        </button>
+            
+                                    </div>
+                                </div>
+            
+                                <!-- title  -->
+                                <div class="flex gap-6">
+                                    <!-- Course Title Field -->
+                                    <div class="w-full">
+                                         <div class=" ">
+                                            <p id="analisis_title" > .. </p>
+                                         </div>
+                                    </div>
+            
+                                    <!-- Edit Button -->
+                                    <div class="flex justify-end items-center mt-4">
+                                        <button type="button" id="edit-Title"
+                                            class="text-blue-500 hover:text-blue-700 flex items-center">
+                                            <i class="fas fa-edit mr-1"></i> Edit
+                                        </button>
+                                    </div>
+                                </div>
+
+                                 <!-- editor desciptions -->
+                                <div> 
+                                    <label for="analisis_description" class="block text-sm font-semibold text-gray-700">Course Description</label>
+                                    <div id="analisis_description"
+                                        class="mt-2  bg-gray-50 opacity-80 text-xs  rounded-lg border border-gray-200 p-3 resize-none overflow-auto shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                        style="height: calc(1.5em * 16);">
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="mt-10">
+                                <!-- Grid Layout for Inputs Length and lectures and sessions-->
+                                <div class="grid grid-cols-3 gap-6 my-8">
+                                    <!-- Total Lecture Input -->
+                                    <div>
+                                        <label for="analisis_total_lecture" class="block text-sm font-semibold text-gray-700">Total
+                                            Lecture</label>
+                                        <div class="flex items-center">
+                                            <input type="number" id="analisis_total_lecture" name="analisis_total_lecture"
+                                                class="mt-2 w-full rounded-lg border border-gray-400 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                                placeholder="40" required disabled />
+            
+                                        </div>
+                                    </div>
+            
+                                    <!-- Total Session Input -->
+                                    <div>
+                                        <label for="analisis_total_session" class="block text-sm font-semibold text-gray-700">Total
+                                            Session</label>
+                                        <div class="flex items-center">
+                                            <input type="number" id="analisis_total_session" name="analisis_total_session"
+                                                class="mt-2 w-full rounded-lg border border-gray-400 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                                placeholder="10" required disabled />
+            
+                                        </div>
+                                    </div>
+            
+                                    <!-- Total Length Input -->
+                                    <div>
+                                        <label for="analisis_total_length" class="block text-sm font-semibold text-gray-700">Total
+                                            Length</label>
+                                        <div class="flex items-center">
+                                            <input type="number" id="analisis_total_length" name="analisis_total_length"
+                                                class="mt-2 w-full rounded-lg border border-gray-400 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                                placeholder="20" required disabled />
+                                            <button type="button" id="edit-Lecture-Session-Length"
+                                                class="ml-2 mt-3 text-blue-500 hover:text-blue-700">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+            
+            
+                                <!-- course all video list -->
+                                <section 
+                                    class="relative space-y-6 bg-white opacity-80 p-6 rounded-xl my-8 pb-12  border border-gray-200">
+                                    <!-- Video item -->
+                                   <div id="create_video_container" class="space-y-3">
+
+                                   </div>   
+            
+                                    <button type="button" id="create-New-video"
+                                        class="absolute -bottom-2 md:-bottom-4 -right-4 bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-2 px-3 rounded-full shadow-lg hover:opacity-90 transition-transform flex items-center justify-center">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </section>
+            
+                            </div>
+                        </div>
+             
+                        <div>
+                           
+                        </div> 
+                    </div> 
+
+                    <div class="py-12"> 
+                        <header class="flex justify-between items-center mb-6">
+                            <h1 class="text-2xl font-bold">Course Management</h1>
+                        </header>
+                
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                                <h2 class="text-lg font-semibold">Total Courses</h2>
+                                <p class="text-3xl font-bold" id="analisis_total_courses">12</p>
+                            </div>
+                            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                                <h2 class="text-lg font-semibold">Total Students</h2>
+                                <p class="text-3xl font-bold" id="analisis_total_students">1,250</p>
+                            </div>
+                            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                                <h2 class="text-lg font-semibold">Total Revenue</h2>
+                                <p class="text-3xl font-bold" id="analisis_total_revenue">$24,500</p>
+                            </div>
+                            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                                <h2 class="text-lg font-semibold">Completion Rate</h2>
+                                <p class="text-3xl font-bold text-green-500" id="analisis_completion_rate">85%</p>
+                            </div>
+                        </div>
+                
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                                <h2 class="text-lg font-semibold mb-4">Enrollment Trends</h2>
+                                <canvas id="enrollmentChart"></canvas>
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                                <h2 class="text-lg font-semibold mb-4">Monthly Revenue</h2>
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                
+                        <div class="mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                            <h2 class="text-lg font-semibold mb-4">Enrolled Students</h2>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse min-w-max">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-b p-3">Name</th>
+                                            <th class="border-b p-3">Email</th>
+                                            <th class="border-b p-3">Enrolled Course</th>
+                                            <th class="border-b p-3">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="analisis_student_list" class="overflow-x-auto">
+                                        <tr>
+                                            <td class="p-3">John Doe</td>
+                                            <td class="p-3">john@example.com</td>
+                                            <td class="p-3">JavaScript Mastery</td>
+                                            <td class="p-3 text-green-600">Active</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                
+                    </div>
+
+
+
+
+
+                </div>
+             
+            
+                <!--  popup models  -->
+                <div>
+                    <!-- Popup Modal for Image Update -->
+                    <div id="popup-Image"
+                        class="fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-70 hidden">
+                        <div
+                            class="bg-white w-full max-w-md mx-4 sm:mx-0 p-6 rounded-lg shadow-xl transform transition-all scale-95 hover:scale-100">
+                            <div class="flex justify-between items-center border-b pb-3">
+                                <h2 class="text-xl font-semibold text-gray-900">Update Course Thumbnail</h2>
+                                <button id="close-popup-btn" class="text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-times text-xl"></i>
+                                </button>
+                            </div>
+            
+                            <!-- Image Preview -->
+                            <div class="mt-4">
+                                <img id="previewImage" src="https://i.pravatar.cc/150"
+                                    class="w-full h-48 rounded-lg shadow-md object-cover border border-gray-300" />
+                            </div>
+            
+                            <!-- File Input -->
+                            <div class="mt-4">
+                                <input type="file" id="thumbnail" accept="image/*"
+                                    class="w-full p-2 border border-gray-300 rounded-md" onchange="previewImage(event)">
+                            </div>
+            
+                            <!-- Buttons -->
+                            <div class="mt-6 flex justify-end gap-3">
+                                <button id="close-popup-btn"
+                                    class="px-5 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition">Cancel</button>
+                                <button id="save-thumbnail-btn"
+                                    class="px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Save</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Popup Modal for Title and Price Update -->
+                    <div id="popup-Title"
+                        class="fixed z-10 inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center hidden">
+                        <div class="bg-white w-full max-w-xl mx-4 sm:mx-0 p-8 rounded-xl shadow-2xl transform transition-all  ">
+                            <h2 class="text-2xl font-semibold text-gray-900">Update Course Details</h2>
+                            <p class="text-gray-600 mt-1">Please enter the new course details below:</p>
+            
+                            <!-- Course Title Field -->
+                            <input type="text" id="popupTitle"
+                                class="mt-4 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Enter new title" required />
+            
+                            <!-- Course Price Field -->
+                            <div class="mt-4">
+                                <label class="block text-sm font-medium">Course Price ($)</label>
+                                <div class="relative">
+                                    <input type="number" id="popupPrice"
+                                        class="pr-8 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="Enter new price" required />
+                                </div>
+                            </div>
+            
+                            <div class="mt-6 flex justify-end space-x-3">
+                                <button id="saveButton-Title"
+                                    class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">Save</button>
+                                <button id="cancelButton-Title"
+                                    class="bg-gray-600 text-white py-2 px-6 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-300">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Popup Modal for Updating Fields -->
+                    <div id="popup-Lecture-Session-Length"
+                        class="fixed  z-10 inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center hidden ">
+                        <div class="bg-white w-full max-w-xl mx-4 sm:mx-0 p-8 rounded-xl shadow-2xl transform transition-all  ">
+                            <h2 class="text-2xl font-semibold text-gray-900">Update Course Details</h2>
+                            <p class="text-gray-600 mt-1">Please enter the new values below:</p>
+            
+                            <div class="flex gap-6 justify-between">
+                                <div class="mt-4">
+                                    <label for="popupLecture" class="block text-sm font-semibold text-gray-700">Total
+                                        Lecture</label>
+                                    <input type="number" id="popupLecture"
+                                        class="mt-2 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="40" required />
+                                </div>
+            
+                                <div class="mt-4">
+                                    <label for="popupSession" class="block text-sm font-semibold text-gray-700">Total
+                                        Session</label>
+                                    <input type="number" id="popupSession"
+                                        class="mt-2 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="10" required />
+                                </div>
+            
+                                <div class="mt-4">
+                                    <label for="popupLength" class="block text-sm font-semibold text-gray-700">Total
+                                        Length</label>
+                                    <input type="number" id="popupLength"
+                                        class="mt-2 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="20" required />
+                                </div>
+                            </div>
+            
+                            <div class="mt-6 flex justify-end space-x-3">
+                                <button id="saveButton-Lecture-Session-Length"
+                                    class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">Save</button>
+                                <button id="cancelButton-Lecture-Session-Length"
+                                    class="bg-gray-600 text-white py-2 px-6 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-300">Cancel</button>
+                            </div>
+            
+                        </div>
+                    </div>
+            
+                    <!-- Delete Confirmation Modal -->
+                    <div id="delete-confirmation"
+                        class="fixed inset-0 z-20 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+                        <div class="bg-white w-96 p-6 rounded-xl shadow-lg text-center">
+                            <p class="font-semibold text-lg text-gray-900 mb-4">Are you sure you want to delete this
+                                video?</p>
+                            <div class="flex justify-center gap-4">
+                                <button id="cancel-delete"
+                                    class="px-5 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancel</button>
+                                <button id="confirm-delete"
+                                    class="px-5 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+            
+             
+                    <!-- Video Section Popup Modal -->
+                    <div id="video-section-modal"
+                        class="fixed inset-0 z-30 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+                        <div class="bg-white w-2xl p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Add New Video</h2>
+                            <form id="video-form">
+                                <div class="space-y-4">
+                                    <div>
+                                        <input type="text" name="video_title"
+                                            class="w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                            placeholder="Video Title" required />
+            
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <input type="url" name="video_url"
+                                            class="w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                            placeholder="Video URL" required />
+                                        <input type="text" name="video_duration"
+                                            class="w-5/6 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
+                                            placeholder="Duration (hh:mm:ss)" required />
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex justify-between gap-3">
+                                    <button type="button" id="close-video-modal"
+                                        class="px-5 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancel</button>
+                                    <button type="submit" id="save-video"
+                                        class="px-5 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
             </section>
 
 
@@ -686,6 +1031,8 @@
     <script src="src/js/instructor/edit_profile.js"> </script>
     <script src="src/js/instructor/change_password.js"> </script>
     <script src="src/js/instructor/privacy_settings.js"> </script>
+
+    <script src="src/js/instructor/analisis_courses.js"> </script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

@@ -94,3 +94,22 @@ function  loginFormData(event, userType) {
 //     "user_id": 12,
 //     "csrfToken": "9Sxng2BneBjbLmFGkQz8PGX5RhDPYkctl1c5y8a92ppBPDb6Xjs1L7H2o3OKkpD7"
 // }
+
+ 
+ 
+// password togle for visiable
+function togglePassword(field,eyeOpen_icon,eyeClosed_icon) {
+    const passwordInput = document.getElementById(field);
+    const eyeOpen = document.getElementById(eyeOpen_icon);
+    const eyeClosed = document.getElementById(eyeClosed_icon);
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";  // Show password
+        eyeOpen.classList.add("hidden");  
+        eyeClosed.classList.remove("hidden");
+    } else {
+        passwordInput.type = "password"; // Hide password
+        eyeOpen.classList.remove("hidden");
+        eyeClosed.classList.add("hidden");
+    }
+} 

@@ -75,13 +75,24 @@
                         <div>
                             <label for="instructor-password" class="block text-sm text-gray-700 mb-2">Password</label>
                             <div class="flex items-center border rounded-lg overflow-hidden">
-                                <span class="bg-gray-200 px-4 text-gray-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 11c1.84-1.84 2.5-4.5 2-7.1M2-11" />
-                                    </svg>
-                                </span>
+                                          <!-- Password Visibility Toggle Icon -->
+                            <span class="bg-gray-200 px-4 text-gray-500 cursor-pointer" onclick="togglePassword('instructor-password','eye-open-instructor','eye-closed-instructor')">
+                                <svg id="eye-open-instructor" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M15.25 12a3.25 3.25 0 11-6.5 0 3.25 3.25 0 016.5 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5s8.268 2.943 9.542 7c-1.274 4.057-5.065 7-9.542 7s-8.268-2.943-9.542-7z" />
+                                </svg>
+                                
+                                <!-- Eye Slash Icon (Hidden by Default) -->
+                                <svg id="eye-closed-instructor" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M3 3l18 18M10.343 10.343a3 3 0 104.243 4.243m-1.415-4.829a3 3 0 11-4.243 4.243m1.415-4.829a3 3 0 014.243 4.243m1.415-4.829a3 3 0 00-4.243 4.243" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M17.657 17.657a12.073 12.073 0 002.6-3.03M6.343 6.343a12.073 12.073 0 00-2.6 3.03m18 0A12.073 12.073 0 0012 5m0 14a12.073 12.073 0 01-9.542-7" />
+                                </svg>
+                            </span>
+
                                 <input type="password" id="instructor-password" name="password"
                                     class="w-full p-3 m-3 border-[1px] border-gray-300 focus:ring-blue-500 focus:border-blue-500 border-gray-300"
                                     placeholder="Enter your password">
@@ -126,15 +137,30 @@
                         <div>
                             <label for="student-password" class="block text-sm text-gray-700 mb-2">Password</label>
                             <div class="flex items-center border rounded-lg overflow-hidden">
-                                <span class="bg-gray-200 px-4 text-gray-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 11c1.84"></svg>
-                                </span>
-                                <input type="password" id="student-password" name="password"
-                                    class="w-full p-3 m-3 border-[1px] border-gray-300 focus:ring-cyan-500 focus:border-cyan-500 border-gray-300"
-                                    placeholder="Enter your password">
+                                <!-- Password Visibility Toggle Icon -->
+                            <span class="bg-gray-200 px-4 text-gray-500 cursor-pointer" onclick="togglePassword('student-password','eye-open-student','eye-closed-student')">
+                                <svg id="eye-open-student" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M15.25 12a3.25 3.25 0 11-6.5 0 3.25 3.25 0 016.5 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5s8.268 2.943 9.542 7c-1.274 4.057-5.065 7-9.542 7s-8.268-2.943-9.542-7z" />
+                                </svg>
+                                
+                                <!-- Eye Slash Icon (Hidden by Default) -->
+                                <svg id="eye-closed-student" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M3 3l18 18M10.343 10.343a3 3 0 104.243 4.243m-1.415-4.829a3 3 0 11-4.243 4.243m1.415-4.829a3 3 0 014.243 4.243m1.415-4.829a3 3 0 00-4.243 4.243" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M17.657 17.657a12.073 12.073 0 002.6-3.03M6.343 6.343a12.073 12.073 0 00-2.6 3.03m18 0A12.073 12.073 0 0012 5m0 14a12.073 12.073 0 01-9.542-7" />
+                                </svg>
+                            </span>
+                            
+                            <!-- Password Input Field -->
+                            <input type="password" id="student-password" name="password"
+                                class="w-full p-3 m-3 focus:ring-cyan-500 focus:border-cyan-500 border-gray-300"
+                                placeholder="Enter your password">
+                        
+
                             </div>
                         </div>
                         <button type="submit"

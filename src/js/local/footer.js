@@ -28,7 +28,7 @@ footer.innerHTML = `
     <!-- Resources -->
     <div>
       <h3 class="text-2xl font-semibold   mb-4">Resources</h3>
-      <ul class="space-y-3">
+      <ul class="space-y-2">
         <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">FAQs</a></li>
         <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Support</a></li>
         <li><a href="/"  onclick="showPage('support'); event.preventDefault();"  class="hover:text-blue-400 transition duration-300">Privacy Policy</a></li>

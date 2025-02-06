@@ -86,7 +86,7 @@ const createCourse = () => {
 
   document.getElementById("form_create_course").addEventListener("submit", function (event) {
     event.preventDefault();
-
+    pushAlert('warning',"Wait few second! Stay here")
     const formData = new FormData(this);
     console.log("Form Data:"); 
     const videoTitles = formData.getAll("video_title[]");

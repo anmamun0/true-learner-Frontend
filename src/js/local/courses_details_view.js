@@ -67,6 +67,9 @@ const showDetails = (course_id) => {
 
                 })
                 .catch(error => console.log('Error fetching instructor:', error));
+            
+            
+            enrollCondition(course_id);
         })
         .catch(error => console.log('Error fetching course:', error));
         
@@ -139,3 +142,33 @@ function allVideotoggleHeight() {
         toggleButton.innerHTML = `<i class="fas fa-angle-down"></i>`;
     }
 }
+
+const enrollCondition = (code) => {
+    if (localStorage.getItem('role') !== 'Student') {
+        return;
+    }
+    
+    let has = false;
+    const enroll_now = document.getElementById('enroll_now');
+    
+    fetch(`https://truelearner-backends.onrender.com/user/students/${user_id}/`)
+        .then(res => res.json())
+        .then(data => {
+            
+            data.student_profile.courses.forEach(course => { 
+                if (course.code == code) {
+                    has = true; 
+                }
+            });
+
+            if (has) {
+                enroll_now.innerHTML = `
+                    <a href="/" onclick="showPage('watch_paid_course','${code}')"
+                        class="bg-white text-blue-600 font-bold py-3 px-6 rounded-full shadow-lg transition-all hover:bg-gray-100 hover:scale-105">
+                        Continue
+                    </a>
+                `;
+            }
+        })
+        .catch(error => console.error('Error fetching student data:', error));
+};

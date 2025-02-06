@@ -19,7 +19,7 @@
 
 // side nav var control
 
-function showContent(sectionId) {
+function showContent(sectionId,course_id=0) {
     // Hide all sections
     document.querySelectorAll('.content').forEach((section) => {
         section.classList.add('hidden');
@@ -30,11 +30,11 @@ function showContent(sectionId) {
     if (selectedSection) {
         selectedSection.classList.remove('hidden');
     }
-    const pages = ['deshboard', 'create-course', 'manage-courses', 'students', 'edit-profile', 'privacy-settings']
+    const pages = ['deshboard', 'create-course', 'manage-courses', 'analisis_courses','students', 'edit-profile', 'privacy-settings']
     
-    if (sectionId === 'students')
+    if (sectionId === 'analisis_courses')
     {
-        // studentManage();
+        analisisCourseContent(course_id);
     }
 }
 
@@ -193,8 +193,8 @@ const instinfo = () => {
             //$  course _create section 
             showAllCateogry();
 
+            manageCourses();
 
-            document.getElementById('deshboard_loading').classList.add('hidden');
 
 
         })

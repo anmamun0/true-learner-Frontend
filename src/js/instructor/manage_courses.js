@@ -1,4 +1,5 @@
 const manageCourses = () => {
+    
     const manage_courses_list = document.getElementById('manage_courses_list');
     fetch(`https://truelearner-backends.onrender.com/user/instructors/${inst_id}/`)
         .then(res => res.json())
@@ -9,14 +10,15 @@ const manageCourses = () => {
                     <div class="course-card bg-white shadow-md rounded-lg p-6" id="course1">
                         <img src="${course.thumble}" alt="Course Thumbnail" class="w-full h-32 object-cover rounded-lg">
                          <h3 class="text-md font-semibold text-gray-700 mt-4 truncate">${course.title}</h3>
-                        <button onclick="" class="mt-4 text-blue-600 hover:text-blue-800">View Details</button>
+                        <button onclick="showContent('analisis_courses','${course.code}')" class="mt-4 text-blue-600 hover:text-blue-800">View Details</button>
                      </div>
                     `;
+            document.getElementById('deshboard_loading').classList.add('hidden');
+                
             })
         })
         .catch(error => console.log(error));
 }
-manageCourses();
 
 
 
