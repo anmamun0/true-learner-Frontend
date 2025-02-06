@@ -90,12 +90,12 @@
           </div>
 
           <!-- Image or Animation -->
-          <div class="relative">
+          <div class="relative  ">
             <img data-aos="fade-left" src="src/image/pexels-andrew-15863066.jpg" alt="Learning"
               class="rounded-lg shadow-lg w-full transform hover:scale-105 transition-transform duration-500" />
             <!-- Floating Badge -->
             <div data-aos="fade-right" 
-              class="absolute top-10 -left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+              class="absolute top-10 -left-4 md:-left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 text-sm font-bold px-4 py-2 rounded-full shadow-lg">
               Start Your Journey 🚀
             </div>
           </div>
@@ -111,10 +111,10 @@
         <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>  
         <p class="text-gray-600 mt-4 text-lg">Follow these simple steps to start your learning journey.</p>
         
-        <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  ">
           
           <!-- Step 1 -->
-          <div class="relative group">
+          <div class="relative group my-2">
             <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
               <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
                 1
@@ -128,7 +128,7 @@
           </div>
     
           <!-- Step 2 -->
-          <div class="relative group">
+          <div class="relative group my-2">
             <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
               <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
                 2
@@ -142,7 +142,7 @@
           </div>
     
           <!-- Step 3 -->
-          <div class="relative group">
+          <div class="relative group my-2">
             <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
               <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
                 3
@@ -156,7 +156,7 @@
           </div>
     
           <!-- Step 4 -->
-          <div class="relative group">
+          <div class="relative group my-2">
             <div class="p-10 bg-white backdrop-blur-xl bg-opacity-80 shadow-xl rounded-2xl transition transform group-hover:-translate-y-2 duration-300 hover:shadow-2xl">
               <div class="absolute top-0 left-0 w-12 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-full transform -translate-y-1/2 translate-x-1/2 text-2xl font-bold">
                 4
@@ -180,7 +180,7 @@
 
 
     <!-- Features Section -->
-    <section id="features" class="py-16 bg-gray-100" >
+    <section id="features" class="py-10 bg-gray-100" >
       <div class="max-w-7xl p-6 mx-auto text-center" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <h2 class="text-3xl font-bold text-gray-800">Why Choose TrueLearner?</h2>
         <p class="text-gray-600 mt-4">Explore the benefits of learning with us</p>
@@ -217,7 +217,7 @@
 
 
 
-    <section id="faqs" class="py-20 bg-gradient-to-b from-white to-gray-100">
+    <section id="faqs" class="py-16 pb-20 bg-gradient-to-b from-white to-gray-100">
       <div class="max-w-4xl mx-auto text-center px-6" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <h2 class="text-4xl font-extrabold text-gray-900">Frequently Asked Questions</h2>
         <p class="text-lg text-gray-600 mt-3">Find answers to the most common questions about our courses.</p>
@@ -293,13 +293,21 @@
   <main id="courses_page" class="container  pb-24 pt-24  m-auto hidden"> 
     <!-- Breadcrumb -->
     <div id="path" class="ml-10 flex items-center space-x-2 text-gray-700 mb-6">
-      <a href="./" class="text-indigo-600 hover:text-indigo-800 font-medium">Home</a>
+      <a href="/"  onclick="showPage('index_page'); event.preventDefault();" class="text-indigo-600 hover:text-indigo-800 font-medium">Home</a>
       <span class="text-gray-400">/</span>
       <a  href="#" onclick="showPage('courses_page')" class="text-indigo-600 hover:text-indigo-800 font-medium">Courses</a>
+
+      <div id="course_page_loading" class="opacity-80 px-2">         <!-- Digital Reloading Animation with TailwindCSS -->
+        <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
+          <div class="dot w-4 h-4 bg-teal-600 rounded-full opacity-0  "></div>
+          <div class="dot w-4 h-4 bg-teal-600 rounded-full opacity-0   delay-200"></div>
+          <div class="dot w-4 h-4 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+        </div> 
+    </div>
     </div>
     <hr class="bg-gray-1 pb-2">
 
-    <div class="md:flex justify-between mx-auto px-6  gap-4">
+    <div class="md:grid grid-cols-12 justify-between mx-auto    gap-4">
 
       <!-- Courses Section (Left Side) -->
       <div class="col-span-6 md:col-span-9 p-6 rounded-xl  ">
@@ -313,15 +321,7 @@
               </button>
               <button id="listViewBtn" class="p-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition">
                   <i class="fas fa-list"></i> <!-- List Icon -->
-              </button>
-
-              <div id="course_page_loading">         <!-- Digital Reloading Animation with TailwindCSS -->
-                  <div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-4 space-x-3">
-                    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-                    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-                    <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
-                  </div> 
-              </div>
+              </button> 
             </div>
 
           <div class="relative w-80">
@@ -335,7 +335,7 @@
         </div>
 
         <!-- Courses Cards -->
-        <div id="course_card" class="grid grid-cols-1  lg:grid-cols-3 gap-6 space-y-8" >
+        <div id="course_card" class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-6  " >
           <!-- Example Course Card -->
 
 
@@ -346,15 +346,15 @@
       </div>
 
       <!-- Category Filter (Right Side) -->
-      <div class="col-span-6 sm:col-span-3 bg-white items-center justify-center justify-items-center m-auto rounded-xl shadow-xl p-6 mt-12 mx-8 md:mx-0" >
+      <div class="col-span-6 sm:col-span-3 bg-gray-50 items-center justify-center justify-items-center m-auto rounded-md shadow-md p-6 mt-12 mx-8 md:mx-0" >
         <h2 class="text-xl font-extrabold text-gray-900 mb-6 " >Explore Categories</h2>
 
         <div class="space-y-4">
           <!-- Category Filter Header -->
-          <div class="flex justify-between items-center">
+          <div class="flex justify-between gap-4 items-center">
             <button
               class="text-md font-semibold text-indigo-700 border-b-2 border-indigo-600 pb-2 hover:text-indigo-800 focus:outline-none">All</button>
-            <span id="total_category" class="text-gray-400">(15)</span> <!-- Total courses count -->
+            <span id="total_category" class="text-gray-400 -mt-2">(15)</span> <!-- Total courses count -->
           </div>
 
           <!-- Dynamic Categories (Populated Dynamically) -->
@@ -388,15 +388,15 @@
 
 
 
-<main id="course_details" class="min-h-screen bg-gray-900 text-white font-sans tracking-wide hidden ">
+<main id="course_details" class="min-h-screen font-sans tracking-wide hidden text-gray-900">
    
 <!-- Course Overview -->
-<section id="overview" class="max-w-7xl mx-auto px-6 py-24 text-sm">
-  <div class="grid grid-cols-12   gap-12  ">
+<section id="overview" class="max-w-7xl mx-auto px-6 pt-24 pb-10 text-sm">
+  <div class="md:grid grid-cols-12   gap-12  ">
     <!-- Left Section: Course Details -->
     <div class=" rounded-xl p-8 space-y-2 col-span-7">
       <div class="flex justify-between">
-          <h2 class="text-2xl   text-white">Course Description</h2> 
+          <h2 class="text-2xl   ">Course Description</h2> 
           <div id="course_details_loading"> 
             <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
               <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
@@ -406,80 +406,97 @@
         </div>
       </div>
       <p class="text-sm font-semibold pb-4">Course Code: <span id="course_code"> 10</span></p>
-       
-      <div > 
-          <div id="editor" class=" text-justify text-gray-300 bg-transparent -ml-4  resize-none overflow-auto shadow-sm   ql-disabled" 
-              style=" border: none;">
-          </div>
+      <div class="pb-10 overflow-hidden">
+        <div id="editor" class="text-justify bg-transparent -ml-4 resize-none overflow-hidden shadow-sm ql-disabled max-h-[500px] transition-all duration-500 ease-in-out" style="border: none;">
         </div>
-      
-  <div class="container mx-auto mt-10   ">
-    <h1 class="text-3xl font-semibold  mb-5">Course Content</h1>
-    <p class="text-xs pb-4"><span id="course_total_sections"></span> sections •  <span id="course_total_lectures"></span>lectures • <span id="course_total_length"></span> total length</p>
-    <table class="min-w-full border-[1px] border-gray-700 p-4 table-auto   border-collapse shadow-md rounded-lg overflow-hidden">
-        <thead>
-            <tr class=" text-gray-600">
-                <th class="px-6 py-3 text-left text-sm font-medium">Video Title</th>
-                <th class="px-6 py-3 text-left text-sm font-medium">Duration</th>
-            </tr>
-        </thead>
-        <tbody id="videoList">
-            <!-- Video content will be inserted here by JS -->
-        </tbody>
-    </table>
-  </div>
+        <button id="course_details_toggleButton" onclick="courseDetailsToggleHeight()" 
+            class="mt-4 text-sm text-gray-700 font-semibold rounded-lg hover:underline">
+            ... See More
+        </button>
+    </div>
+     
+    
+      <div class="container mx-auto mt-10">
+        <h1 class="text-3xl font-semibold mb-5">Course Content</h1>
+        <p class="text-xs pb-4">
+            <span id="course_total_sections"></span> sections •  
+            <span id="course_total_lectures"></span> lectures • 
+            <span id="course_total_length"></span> total length
+        </p>
+    
+        <div id="videoContainer" class="max-h-[320px] overflow-hidden transition-all duration-300">
+            <table class="min-w-full border border-gray-700 table-auto border-collapse shadow-md rounded-lg overflow-hidden">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="px-6 py-3 text-left text-sm font-medium">Video Title</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium">Duration</th>
+                    </tr>
+                </thead>
+                <tbody id="videoList" class="divide-y divide-gray-300">
+                    <!-- Video content will be inserted here by JS -->
+                </tbody>  
+            </table>
+        </div>
+    
+        <!-- See More Button -->
+        <button id="course_detials_Videos_toggleButton" 
+            class="text-right ml-auto block  text-sm text-gray-700 font-semibold hover:underline transition duration-300"
+            onclick="allVideotoggleHeight()">
+            <i class="fas fa-angle-down"></i>
+         </button>
+    </div>
+     
 
     </div>
 
     <!-- Right Section: Course Image and Key Info -->
-    <div class="space-y-6 col-span-5 pt-20">
+    <div class="space-y-6 col-span-5 pt-20 ">
       <!-- Course Thumbnail with Video Effect -->
       <h1 id="course_details_title"
-      class="text-2xl font-extrabold leading-tight mb-4 transition-all hover:text-blue-300 transform ">
+      class="text-2xl font-extrabold leading-tight mb-4 transition-all hover:text-purple-700 transform ">
       Master </h1>
 
       <div class="relative group ">
         <a href="#enroll" >
          
         <img id="course_details_image" src="https://via.placeholder.com/600x400" alt="Course Overview"
-          class="group-hover:opacity-50 w-full h-66 rounded-xl shadow-lg transform hover:scale-105 transition-all">
+          class="group-hover:opacity-80 shadow-lg w-full h-66 rounded-xl shadow-lg transform hover:scale-105 transition-all">
 
         <!-- Play Button Overlay -->
         <div
-          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10  transition-all rounded-xl">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24"
+          class="absolute inset-0 flex items-center justify-center   transition-all rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-16  bg-black bg-opacity-50 rounded-full h-16 text-white" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M14.752 11.168l-6.016-3.259A1 1 0 007 8.743v6.514a1 1 0 001.736.854l6.016-3.259a1 1 0 000-1.708z" />
           </svg>
         </div> 
         <!-- Video-like Controls -->
-      <div class="absolute inset-0 flex flex-col justify-between">
+      <div class="  ">
         <!-- Top: Video Title -->
-        <div class="flex justify-between items-center px-4 py-2 bg-black bg-opacity-50 text-white">
+        <!-- <div class="flex justify-between items-center px-4 py-2 bg-gray-600 bg-opacity-50 text-white group-hover:opacity-50">
           <span class="text-sm font-semibold"></span>
           <span class="text-xs">HD</span>
-        </div>
+        </div> -->
 
         <!-- Center: Play Button -->
-        <div class="flex items-center justify-center">
+        <!-- <div class="flex items-center justify-center">
           <button
-            class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+            class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center transition-transform hover:scale-110">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-800" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M14.752 11.168l-6.016-3.259A1 1 0 007 8.743v6.514a1 1 0 001.736.854l6.016-3.259a1 1 0 000-1.708z" />
             </svg>
           </button>
-        </div>
-
-        <!-- Bottom: Progress Bar and Time -->
-        <div class="px-4 py-2 bg-black bg-opacity-70 flex items-center justify-between">
-          <!-- Progress Bar -->
-          <div class="w-full bg-gray-600 rounded-full h-2 overflow-hidden mr-4">
-            <div class="bg-blue-500 h-full w-1/4"></div>
-          </div> 
-        </div>
+        </div> --> 
+          <!-- Bottom: Progress Bar and Time -->
+          <div class="px-4 py-2 flex items-center justify-between">
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-700 rounded-full h-2 overflow-hidden mr-4">
+              <div class="bg-blue-500 h-full w-1/4"></div>
+            </div> 
+          </div>
       </div> 
     </a>
     <!-- <span class="w-6 h-6 mr-3 bg-green-500 text-white rounded-full flex items-center justify-center">&#10003;</span>  -->
@@ -490,7 +507,7 @@
                   <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-5 bg-blue-400 rounded-full"></div>
 
                   <!-- Main Sticker -->
-                  <div id="course_price" class="bg-blue-500 text-white font-bold text-md px-6 py-2 rounded-full shadow-lg border border-blue-800 transform rotate-[2deg] hover:rotate-0 hover:scale-105 transition-all">
+                  <div id="course_price" class="bg-blue-500 text-white font-bold text-md px-6 py-2 rounded-full   border border-blue-800 transform rotate-[2deg] hover:rotate-0 hover:scale-105 transition-all">
                       $9
                   </div>
               </div>
@@ -498,16 +515,16 @@
 
       </div>
 
-      <div class="relative text-sm text-white rounded-2xl p-8 border border-gray-600/50 backdrop-blur-lg transition-all flex flex-col items-center text-center w-full max-w-lg mx-auto shadow-xl">
+      <div class="relative  text-sm rounded-2xl p-8 border border-gray-500/50 backdrop-blur-lg transition-all flex flex-col items-center text-center w-full max-w-lg mx-auto shadow-sm">
 
         <!-- Top Label -->
-        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black/80 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest text-blue-300 border border-gray-700">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black/80 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest text-white border border-gray-700">
           🎓 Course Information
         </span>
       
         <!-- Course Details -->
         <div class="w-full mt-6 px-4">
-          <div class="space-y-3 text-sm text-white">
+          <div class="space-y-3 text-sm ">
       
             <!-- Video -->
             <div class="flex items-center space-x-4">
@@ -564,28 +581,30 @@
                 <h3 class="">Certificate of completion</h3>
               </div>
             </div>
-          </div>
-      
-          <!-- Coupon Code and Enroll Button Section -->
-          <div class="mt-12 flex gap-6 items-center justify-between w-full">
+
+            <!-- Certificate -->
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-tag text-green-500"></i>
+
+               <div class="flex gap-4">
+                <label for="couponCode" class=" ">Have a Coupon Code?</label>
+            </div>
+            </div>
+
             <!-- Coupon Code Section -->
-            <div class="flex items-center space-x-4 w-1/2">
-              <div class="flex flex-col space-y-2 w-full">
-                <div class="flex gap-4"> 
-                  <i class="fas fa-tag   text-green-500"></i>
-                  <label for="couponCode" class="text-xs text-white">Have a Coupon Code?</label>
-                </div>
-                <input type="text" id="couponCode" class="w-full bg-transparent px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your coupon code">
-              </div>
-            </div>
-      
-            <!-- Enroll Button -->
-            <div class="w-1/2 text-right">
-              <a href="#enroll" class="inline-block bg-blue-600 hover:bg-blue-700 text-white  py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
-                Enroll Now
+            <div class=" items-center space-x-4 w-full">
+              <div class="lg:flex justify-between gap-4  "> 
+                  <input type="text" id="couponCode"
+                      class="w-full lg:w-1/2 bg-transparent px-4 py-3 my-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Enter your coupon code">
+                      <a href="#enroll"
+                  class="block w-full lg:w-1/2 text-md my-2 bg-gradient-to-r from-blue-600  to-purple-500  hover:bg-blue-700 text-white py-3 px-8 text-center rounded-lg shadow-lg transition duration-300 ease-in-out transform  hover:bg-opacity-70">
+                  Enroll Now
               </a>
-            </div>
+              </div>
           </div>
+
+          </div> 
         </div>
       </div>
 
@@ -599,17 +618,17 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 <!-- Instructor Section -->
-<section class="max-w-6xl mx-auto px-6 py-12">
-  <hr class="border-gray-600 mb-8">
+<section class="max-w-6xl mx-auto px-6 py-12" >
+  <hr class="border-gray-300 mb-8">
   
   <!-- Heading -->
   <div class="text-center mb-10">
-    <h2 class="text-4xl font-extrabold text-white tracking-wide">Meet Your Instructor</h2>
-    <p class="text-lg text-gray-300 mt-3">Learn from an industry expert with real-world experience.</p>
+    <h2 class="text-4xl font-extrabold  tracking-wide">Meet Your Instructor</h2>
+    <p class="text-lg   mt-3">Learn from an industry expert with real-world experience.</p>
   </div>
 
   <!-- Instructor Card -->
-  <div class="flex flex-col md:flex-row justify-center items-center gap-8 bg-gray-800 p-6 md:p-10 rounded-2xl shadow-lg transition-all hover:shadow-2xl">
+  <div  class="flex flex-col md:flex-row justify-center items-center gap-8 bg-gray-200 p-6 md:p-10 rounded-2xl shadow-sm transition-all 1">
     
     <!-- Instructor Image -->
     <div class="relative">
@@ -626,9 +645,9 @@
 
     <!-- Instructor Details -->
     <div class="text-center md:text-left">
-      <h3 id="course_details_instructor_name" class="text-3xl font-bold text-white">John Doe</h3>
-      <p class="text-sm text-blue-400 font-medium mt-1">Senior Full-Stack Developer</p>
-      <p id="course_details_instructor_bio" class="text-gray-300 mt-4 leading-relaxed">
+      <h3 id="course_details_instructor_name" class="text-3xl font-bold  ">John Doe</h3>
+      <p class="text-sm text-blue-600 font-medium mt-1">Senior Full-Stack Developer</p>
+      <p id="course_details_instructor_bio" class=" opacity-90 mt-4 leading-relaxed">
         John is a seasoned full-stack developer with over <strong>10 years</strong> of experience. He has worked with 
         top tech companies and contributed to multiple open-source projects. His passion is teaching and mentoring aspiring developers 
         to master their craft.
@@ -636,13 +655,13 @@
       
       <!-- Social Links -->
       <div class="flex justify-center md:justify-start gap-4 mt-5">
-        <a href="#" class="text-gray-300 hover:text-blue-400 transition-all">
+        <a href="#" class="text-gray-500 hover:text-blue-400 transition-all">
           <i class="fab fa-facebook-f w-6 h-6"></i>
         </a>
-        <a href="#" class="text-gray-300 hover:text-blue-400 transition-all">
+        <a href="#" class="text-gray-500 hover:text-blue-400 transition-all">
           <i class="fab fa-twitter w-6 h-6"></i>
         </a>
-        <a href="#" class="text-gray-300 hover:text-blue-400 transition-all">
+        <a href="#" class="text-gray-500 hover:text-blue-400 transition-all">
           <i class="fab fa-linkedin-in w-6 h-6"></i>
         </a>
       </div>
@@ -652,7 +671,7 @@
 </section>
 
     <!-- Enroll Section -->
-    <section id="enroll" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16">
+    <section id="enroll" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 mb-1">
       <div class="max-w-7xl mx-auto px-6 text-center">
         <h2 class="text-5xl font-bold">Ready to Start Learning?</h2>
         <p class="text-gray-200 mt-4 mb-8">Don’t miss this opportunity to level up your skills. Join now and unlock your
@@ -670,7 +689,7 @@
   
   <div id="instructors_loading" class="pt-4 pl-2">
     <!-- Digital Reloading Animation with TailwindCSS -->
-    <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
+    <div class="flex justify-center items-center  font-mono text-teal-400 text-4xl  space-x-3">
       <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
       <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
       <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
@@ -702,7 +721,7 @@
   <!-- Instructor Cards Section -->
   <div class="w-full max-w-6xl my-8 m-auto p-6">
     <h3 class="text-xl font-semibold text-center text-gray-800 mb-6"> All Instructors</h3>
-    <div id="instructorList" class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="instructorList" class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- Instructor Cards will be added dynamically -->
 
     </div>
@@ -712,9 +731,9 @@
 
 
 
-<main id="instructors_details" class="hidden">
+<main id="instructors_details" class="hidden mb-16">
     <!-- Instructor Info -->
-    <div class="max-w-5xl mx-auto mt-10 p-6 rounded-lg">
+    <div class="max-w-5xl mx-auto   p-6 rounded-lg">
           <div id="instructors_details_loading" class="mt-16"> 
             <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
               <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
@@ -746,7 +765,7 @@
 
           <!-- Right Section -->
           <div class="m-4 col-span-1 gap-6 flex md:flex-col justify-between  items-center p-10">
-              <img id="instructor_details_image" src="https://via.placeholder.com/100" class="w-36 h-36  rounded-full shadow-md" alt="Instructor">
+              <img id="instructor_details_image" src="https://i.pravatar.cc/150" class="w-36 h-36  rounded-full shadow-md" alt="Instructor">
               <ul class="flex flex-col  mt-4 space-y-2 text-sm text-gray-700 space-y-4" id="instructor_details_social_media"> 
                   
               </ul>
@@ -756,7 +775,7 @@
 
 
   <!-- Courses Section -->
-  <div class="max-w-5xl mx-auto  p-6    rounded-lg">
+  <div class="max-w-5xl mx-auto  p-6   rounded-lg">
       <h2 class="text-xl font-semibold text-gray-800">My Courses</h2>
           <div id="instructor_details_course_filed" class="sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 ">
           </div> 
@@ -903,8 +922,8 @@
 
 <!-- student Profile  -->
 
-<main id="student_profile" class="hidden px-8"> 
-    <div class="max-w-7xl mx-auto mt-12 py-16 px-6">
+<main id="student_profile" class="hidden px-2"> 
+    <div class=" mx-auto mt-12 py-16 px-6">
         <!-- Profile Header -->
         <div class="relative bg-white shadow rounded-xl p-8 flex flex-col lg:flex-row items-center gap-6">
             <img id="student_image" class="w-32 h-32 rounded-full border-4 border-blue-500"
@@ -939,7 +958,7 @@
         </div>
 
         <!-- Enrolled Courses -->
-        <div class="mt-12 px-12">
+        <div class="mt-12 px-10">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Enrolled Courses</h2>
             <div id="enrolled_courses" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -970,7 +989,7 @@
 
 
         <!-- Additional Info Section -->
-        <section class="max-w-7xl mx-auto px-6 py-16">
+        <section class="  mx-auto px-6 py-16">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Additional Information</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Certificates Card -->
@@ -998,7 +1017,7 @@
 
 
  
-<main id="student_profile_update" class="hidden  mt-24 ">
+<main id="student_profile_update" class="hidden mt-24 p-6">
   <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 relative p-8">
       <h2 class="text-2xl font-semibold text-gray-700 mb-6">Edit Profile</h2>
 
@@ -1085,18 +1104,18 @@
 
 
 
-<main id="watch_paid_course" class="bg-gray-900 text-white pt-16 hidden pb-36">
+<main id="watch_paid_course" class="text-gray-900 pt-16 hidden pb-16">
     <div id="watch_paid_loading">         <!-- Digital Reloading Animation with TailwindCSS -->
       <div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-6 space-x-3">
         <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0 delay-200"></div>
+        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0 delay-400"></div>
       </div> 
     </div>
   <div class="container mx-auto p-8">
     <h2 id="courseTitle" class="text-xl px-2 py-6 mb-2 font-semibold">Python Advance</h2>
 
-    <div class="grid grid-cols-12 gap-8">
+    <div class="md:grid grid-cols-12 gap-8">
       <!-- Video Player -->
       <div class="col-span-8 rounded-lg   overflow-hidden">
         <div class="relative pb-[56.25%] group" id="video_fram">
@@ -1104,38 +1123,73 @@
             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           <div id="iframe_overview"
             class="absolute border-[1px] border-gray-600 inset-0 flex items-center justify-center bg-black bg-opacity-10 transition-all rounded-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24"
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 " fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M14.752 11.168l-6.016-3.259A1 1 0 007 8.743v6.514a1 1 0 001.736.854l6.016-3.259a1 1 0 000-1.708z" />
             </svg>
           </div>
+            
+
         </div>
         <div class="mt-4 px-4">
           <h2 id="videoTitle" class="text-xl mb-2">Video Title</h2>
-          <p id="videoDescription" class="text-sm text-gray-300">
+          <p id="videoDescription" class="text-sm " >
             Click on a video title above to watch the video and see the description.
           </p>
-        </div>
-
+        </div> 
 
         <!-- Left Section: Course Details -->
-        <div class=" rounded-xl py-8 space-y-6 col-span-7">
-          <h2 class="text-2xl font-bold text-white">Course Description</h2>
-          <div id="course_description" class="text-gray-300 text-xs leading-relaxed space-y-4">
+        <div class="hidden md:block rounded-xl py-8 space-y-6 col-span-7">
+          <h2 class="text-2xl font-bold  ">Course Description</h2>
+          <div id="course_description_under" class="text-xs leading-relaxed space-y-4 max-h-[200px] overflow-hidden transition-all duration-500 ease-in-out">
             
           </div>
+          <button id="paid_course_toggleButton" onclick="courseDetailsToggleHeight()" 
+              class="mt-4 text-sm text-gray-700 font-semibold rounded-lg hover:underline">
+              ... See More
+          </button>
         </div>
-      </div>
+ 
+      
+      <script>
+          let ishas = false;
+          function courseDetailsToggleHeight() {
+              const editor = document.getElementById("course_description_under");
+              const toggleButton = document.getElementById("paid_course_toggleButton");
+      
+              if (ishas) {
+                  editor.style.maxHeight = "200px";
+                  toggleButton.textContent = "... See More";
+              } else {
+                  editor.style.maxHeight = editor.scrollHeight + "px";
+                  toggleButton.textContent = "... See Less";
+              }
+      
+              ishas = !ishas;
+          }
+      </script>
 
+
+      </div>
       <!-- Course Video List -->
-      <div class="text-xs pb-4   col-span-4">
+      <div class="text-xs pb-4 mt-10 md:mt-0  col-span-4">
         <h2 class="text-2xl font-semibold mb-6">Available Courses</h2>
         <div id="video_list" class="space-y-6 h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-rounded">
           <!-- Video Cards dynamically loaded here -->
         </div>
-      </div>
+      </div> 
     </div>
+
+      
+       <!-- Left Section: Course Details -->
+       <div class="block md:hidden  rounded-xl py-8 space-y-6 col-span-7">
+        <h2 class="text-2xl font-bold  ">Course Description</h2>
+        <div id="course_description" class=" text-xs leading-relaxed space-y-4">
+          
+        </div>
+      </div>
+
   </div>
 </main>
 

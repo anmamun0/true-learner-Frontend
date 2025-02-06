@@ -1,7 +1,7 @@
 const header = document.querySelector('header');
 header.innerHTML = `
 <!-- Navbar -->
-<nav id="navHeader" class="bg-white bg-opacity-90 backdrop-blur-sm  shadow-xl text-gray-700  top-0 left-0 w-full z-30 transition-header  " style="box-shadow: 0 4px 6px -1px rgba(56, 2, 107, 0.22);">
+<nav id="navHeader" class="bg-gray-50 bg-opacity-90 backdrop-blur-sm  shadow-sm text-gray-700  top-0 left-0 w-full z-30 transition-header" >
  
 
   <!-- Secondary Bar (Support Links) -->
@@ -42,7 +42,7 @@ header.innerHTML = `
                     <div class="dot w-3 h-3 bg-teal-600 rounded-full opacity-0  delay-400"></div>
                 </div> 
             </div>
-            <div id="header_category"  class="bg-white hidden group-hover:grid grid-cols-2 gap-2 p-4">
+            <div id="header_category"  class="bg-gray-50 hidden group-hover:grid grid-cols-2 gap-2 p-4">
 
             </div>
         </div>
@@ -59,13 +59,11 @@ header.innerHTML = `
         `}
 
     </div>
-
         <!-- Alpine.js Required for Toggle --> 
-        <div x-data="{ open: false }" class="relative">
+        <div x-data="{ open: false }" class=" relative hidden md:block">
             <!-- Button -->
             <button @click="open = !open" class="hover:text-blue-600 flex items-center space-x-2">
-                <i class="fas fa-user text-gray-700" id="fa-user"></i>
-
+               <!-- <i class="fas fa-user text-gray-700" id="fa-user"></i> --> 
             ${isAuthenticated() ? `
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -77,12 +75,12 @@ header.innerHTML = `
                         </svg>
                     </a>
                 `}
+            <img src="https://i.pravatar.cc/150" alt="User Image" class="w-8 h-8 rounded-full border border-gray-300 object-cover">
 
             </button>
-
             <!-- Dropdown Menu -->
             ${isAuthenticated() ? `
-                 <div  x-show="open"  @click.away="open = false" id="account_header"  class="absolute right-0 mt-4 mr-8 w-40 bg-white   shadow-lg rounded-lg z-10" x-transition >
+                 <div  x-show="open"  @click.away="open = false" id="account_header"  class="absolute right-0 mt-4 mr-8 w-40 bg-gray-50 bg-opacity-90 backdrop-blur-sm    shadow-lg rounded-lg z-10" x-transition >
                     <ul>
                     ${isStudent() ? `
                         <li> <a href="" onclick="showPage('student_profile'); event.preventDefault();" class="block px-4 py-2  rounded-lg transition-all duration-300 ease-in-out transform hover:ml-2">Profile</a> </li>
@@ -92,10 +90,8 @@ header.innerHTML = `
                         <li> <a href="#" onclick="logoutUser()" class="block px-4 py-2  rounded-lg transition-all duration-300 ease-in-out transform hover:ml-2">Logout</a> </li>
                     </ul>
                 </div>
-                `: `
-                
-                `}
-           
+                `: ` 
+                `} 
         </div>
 
 
@@ -107,17 +103,24 @@ header.innerHTML = `
     </button>
   </div>
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg rounded-lg mt-4 px-4 py-2">
+  <div id="mobileMenu" class="hidden md:hidden  border-t-[1px] border-gray-300  transition-all duration-500 ease-in-out   shadow-lg rounded-lg mt-4 px-4 py-2">
     <a  href="/" onclick="showPage('index_page');"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Home</a>
     <a href="/" onclick="showPage('courses_page'); event.preventDefault();"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg" >Courses</a>
     <a href="/" onclick="showPage('instructors'); event.preventDefault();"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Instructors</a>
     <a href="/"  onclick="showPage('support'); event.preventDefault();"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Contacts</a>
-    ${isAuthenticated() ? `
+
+    ${isStudent() ? `
+      <a href="" onclick="showPage('student_profile'); event.preventDefault();" class="block px-4 py-2  rounded-lg transition-all duration-300   ">Profile</a>  
+  `: `
+      <a href="" onclick="showPage('deshboard'); event.preventDefault();" class="block px-4 py-2  rounded-lg transition-all duration-300   ">Deshboard</a> 
+  `}
+
+     ${isAuthenticated() ? `
         <a href="#" onclick="logoutUser()"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Logout</a>
         ` : `
         <a href="./login.html"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Login</a>
         <a href="./register.html"  class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg">Sign Up!</a>
-        `} 
+        `}  
   </div>
 </nav>
 `;
@@ -253,21 +256,18 @@ const showPage = (page, course_id = 0) =>
     
   
   if (page === 'courses_page') {  
-    whiteHeader();  
-    setCustomUrl('courses'); 
+     setCustomUrl('courses'); 
     courseShow();
   }
 
   if (page === 'course_details') {  
-    blackHeader(); 
     const newURL = `courses/${course_id}`;
     setCustomUrl(newURL);
     showDetails(course_id);
   }
 
   if (page === 'instructors') {
-    whiteHeader();
-    setCustomUrl('instructors');
+     setCustomUrl('instructors');
   }
 
   if (page ==='instructors_details') {
@@ -275,22 +275,18 @@ const showPage = (page, course_id = 0) =>
   }
 
   if (page === 'support') {
-    whiteHeader();
-    setCustomUrl('support');
+     setCustomUrl('support');
   }
 
   if (page === 'student_profile') {
-    whiteHeader();
-    setCustomUrl('profile');
+     setCustomUrl('profile');
   }
 
   if (page === 'student_profile_update') {
-    whiteHeader();
-    setCustomUrl(`profile/edit`);
+     setCustomUrl(`profile/edit`);
   }
 
-  if (page === 'watch_paid_course') {
-    blackHeader();
+  if (page === 'watch_paid_course') { 
     watchCourse(course_id);
     setCustomUrl(`watch/${course_id}`);
   }

@@ -1,8 +1,7 @@
 // Function to logout the user
 
 
-function logoutUser() {  
-
+function logoutUser() {   
     const logutData = {
         'token': getToken(),
     }  

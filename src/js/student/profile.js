@@ -86,7 +86,6 @@ form.addEventListener('submit', function (event) {
         "address": formData.get('address'),
         "bio": formData.get('about')
     };
-
     console.log(data);
     if (form.elements["image"].files.length == 0) {
 

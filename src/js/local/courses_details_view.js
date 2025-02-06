@@ -85,11 +85,11 @@ function populateTable(videos) {
         row.classList.add("border-t", "border-gray-700");
 
         const titleCell = document.createElement("td");
-        titleCell.classList.add("px-6", "py-4", "text-sm", "font-medium", "text-gray-400");
+        titleCell.classList.add("px-6", "py-4", "text-sm", "font-medium", "opacity-80");
         titleCell.textContent = video.title;
 
         const durationCell = document.createElement("td");
-        durationCell.classList.add("px-6", "py-4", "text-sm", "font-medium", "text-gray-400");
+        durationCell.classList.add("px-6", "py-4", "text-sm", "font-medium", "opacity-80");
         durationCell.textContent = video.duration;
 
         row.appendChild(titleCell);
@@ -99,3 +99,43 @@ function populateTable(videos) {
 }
 
 // Call function to populate the table
+
+
+
+
+
+
+
+let course_details = false;
+function courseDetailsToggleHeight() { 
+    const course_details_editor = document.getElementById("editor");
+    const course_details_toggleButton = document.getElementById("course_details_toggleButton");
+
+    if (course_details) {
+      course_details_editor.style.maxHeight = "500px";
+      course_details_toggleButton.textContent = "... See More";
+    } else {
+      course_details_editor.style.maxHeight = course_details_editor.scrollHeight + "px";
+      course_details_toggleButton.textContent = "... See Less";
+    }
+
+    course_details = !course_details;
+}
+
+
+
+
+function allVideotoggleHeight() {
+    const videoContainer = document.getElementById("videoContainer");
+    const toggleButton = document.getElementById("course_detials_Videos_toggleButton");
+
+    if (videoContainer.classList.contains("max-h-[320px]")) {
+        videoContainer.classList.remove("max-h-[320px]");
+        videoContainer.classList.add("max-h-[1000px]"); // Expand height
+        toggleButton.innerHTML = `<i class="fas fa-angle-up"></i>`;
+    } else {
+        videoContainer.classList.remove("max-h-[1000px]");
+        videoContainer.classList.add("max-h-[320px]"); // Collapse back
+        toggleButton.innerHTML = `<i class="fas fa-angle-down"></i>`;
+    }
+}

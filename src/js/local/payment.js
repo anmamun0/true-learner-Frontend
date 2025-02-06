@@ -8,6 +8,7 @@ const initiatePayment = (user_id, course_id) => {
         pushAlert('alert', "You are not a student!");
         return;
     }
+    pushAlert('success', 'Wait 30 second! Stay here!')
     
     fetch(`https://truelearner-backends.onrender.com/payment/pay/${user_id}/${course_id}/`, {
         method: "POST",

@@ -40,11 +40,13 @@ function watchCourse(course_id) {
             
             document.getElementById("courseTitle").innerText = course.title || "Course Title";
             const course_description = document.getElementById("course_description");
+            const course_description_under = document.getElementById("course_description_under");
             course_description.innerHTML = course.description;
+            course_description_under.innerHTML = course.description;
 
             course.videos.forEach((video, index) => {
                 const videoCard = document.createElement("div");
-                videoCard.className = `rounded-lg bg-gray-800 px-4 py-2 mx-4 hover:transition duration-300 video-card`;
+                videoCard.className = `rounded-lg bg-gray-200 px-3 py-1 mx-4 hover:transition text-gray-900 overflow-hidden duration-300 video-card`;
                 videoCard.setAttribute("data-title", video.title);
                 videoCard.setAttribute("data-description", video.description || ".");
                 videoCard.setAttribute("data-video-url", video.url);
@@ -53,10 +55,10 @@ function watchCourse(course_id) {
                     <button class="w-full text-left">
                         <div class="flex items-center">
                             <div class="w-16 h-16 rounded-md flex items-center justify-center">
-                                <i class="text-lg text-white fas fa-video"></i>
+                                <i class="text-lg  fas fa-video"></i>
                             </div>
                             <div>
-                                <h3 class="text-md font-medium text-white">Video ${index + 1}: ${video.title}</h3>
+                                <h3 class="text-md px-2 font-medium  ">Video ${index + 1}: ${video.title}</h3>
                             </div>
                         </div>
                     </button>
@@ -67,33 +69,43 @@ function watchCourse(course_id) {
             });
 
             // Attach event listener for video cards
-            video_list.addEventListener('click', function (event) {
-                const card = event.target.closest('.video-card');
-                if (!card) return; // Ignore clicks outside video cards
+                video_list.addEventListener("click", function (event) {
+                    const card = event.target.closest(".video-card");
+                    if (!card) return; // Ignore clicks outside video cards
 
-                // Remove active class from all video cards
-                document.querySelectorAll('.video-card').forEach(c => c.classList.remove('bg-blue-600'));
+                    // Remove 'bg-blue-600' and reset all to 'bg-gray-200'
+                    document.querySelectorAll(".video-card").forEach(c => {
+                        c.classList.remove("bg-blue-500", "text-white");
+                        c.classList.add("bg-gray-200");
+                    });
 
-                // Add active class to the clicked card
-                card.classList.add('bg-blue-600');
+                    // Add 'bg-blue-600' to the clicked card
+                    card.classList.remove("bg-gray-200");
+                    card.classList.add("bg-blue-500", "text-white");
 
-                // Get video details from data attributes
-                const videoUrl = card.getAttribute('data-video-url');
-                const title = card.getAttribute('data-title');
-                const description = card.getAttribute('data-description');
+                    // Get video details from data attributes
+                    const videoUrl = card.getAttribute("data-video-url");
+                    const title = card.getAttribute("data-title");
+                    const description = card.getAttribute("data-description");
 
-                // Change video content
-                changeVideo(videoUrl, title, description);
-            });
+                    // Change video content
+                    changeVideo(videoUrl, title, description);
+                });
 
-            // Auto-play first video if available
-            if (course.videos.length > 0) {
-                changeVideo(course.videos[0].url, course.videos[0].title, course.videos[0].description);
-                // Add active class to the first video card
-                video_list.querySelector('.video-card').classList.add('bg-blue-600');
-            }
-            watch_paid_loading.classList.add('hidden');
-        })
+                // Auto-play first video if available
+                if (course.videos.length > 0) {
+                    changeVideo(course.videos[0].url, course.videos[0].title, course.videos[0].description);
+                    
+                    // Select first video card and highlight it
+                    const firstCard = video_list.querySelector(".video-card");
+                    if (firstCard) {
+                        firstCard.classList.remove("bg-gray-200");
+                        firstCard.classList.add("bg-blue-500", "text-white");
+                    }
+                }
+
+                watch_paid_loading.classList.add("hidden");
+                        })
         .catch(e => console.log("Error loading course:", e));
 }
 

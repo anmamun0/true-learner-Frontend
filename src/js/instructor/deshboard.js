@@ -147,7 +147,8 @@ const instinfo = () => {
             // student section: 
             students_totalStudents.textContent = data.instructor_profile.total_students; 
             students_totalCourses.innerText = data.courses.length;  
-            let cnt = 0;
+            let cnt = 0; 
+            console.log('chacking', data.courses);
             data.courses.forEach(course =>
             {
                 cnt += course.total_student;
@@ -156,24 +157,23 @@ const instinfo = () => {
                 <tr class="border-b hover:bg-gray-50">
                         <td class="p-3">${course.title}</td>
                         <td class="p-3">${course.total_student}</td>
-                </tr>`;
+                </tr>`; 
 
-                fetch(`http://127.0.0.1:8000/course/paid_student/${course.code}/`)
+                fetch(`https://truelearner-backends.onrender.com/course/paid_student/${course.code}/`)
                     .then(res => res.json())
                     .then(paid_coures => {
-
                         paid_coures.students.forEach(sdnt => {
                             student_student_list_table.innerHTML += ` 
                                     <td class="p-4 ">
                                         <div class="flex flex-col">
-                                            <span class="text-lg font-semibold text-gray-900">${sdnt.user.first_name} ${sdnt.user.last_name}</span>
+                                            <span class="text-md font-semibold text-gray-900 whitespace-nowrap">${sdnt.user.first_name} ${sdnt.user.last_name}</span>
                                             <span class="text-sm text-gray-500">@${sdnt.user.username}</span>
                                         </div>
                                     </td>
-                                    <td class="p-4 text-gray-700">${sdnt.user.email}</td>
+                                    <td class="p-4 text-gray-700 whitespace-nowrap">${sdnt.user.email}</td>
                                     <td class="p-4 text-gray-700">${sdnt.phone}</td>
-                                    <td class="p-4 text-gray-700">${sdnt.address}</td>
-                                    <td class="p-4 text-center">
+                                    <td class="p-4 text-gray-700 whitespace-nowrap">${sdnt.address}</td>
+                                    <td class="p-4 text-center whitespace-nowrap">
                                         <a href="${sdnt.facebook}" target="_blank"
                                             class="text-blue-600 mx-2 text-xl hover:text-blue-800 transition duration-200">
                                             <i class="fab fa-facebook"></i>
@@ -219,3 +219,15 @@ const deshboardHeader = () => {
 
 deshboardHeader();
 
+
+//  pannel tootle
+const undermenuToggle = document.getElementById('under-menu-toggle');
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+
+menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('-translate-x-full');
+});
+undermenuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('-translate-x-full');
+});
