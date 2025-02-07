@@ -73,6 +73,8 @@ const instinfo = () => {
     document.getElementById('deshboard_loading').classList.remove('hidden');
 
     const totalCourses = document.getElementById('totalCourses');
+    const manage_courseCount = document.getElementById('manage_courseCount');
+
     const totalStudents = document.getElementById('totalStudents');
     const recentEnrollments = document.getElementById('recentEnrollments');
     const last_activity_courses = document.getElementById('last_activity_courses');
@@ -91,6 +93,7 @@ const instinfo = () => {
             // instructore = data;
             console.log(data);
             totalCourses.innerText = data.courses.length;
+            manage_courseCount.innerText = data.courses.length;
             totalStudents.innerText = data.instructor_profile.total_students
             recentEnrollments.innerText = data.courses.length;
 

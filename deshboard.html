@@ -357,9 +357,9 @@
 
                     <!-- Top Section: Course Count -->
                     <div class="flex justify-between items-center mb-8">
-                        <h2 class="text-xl font-semibold text-gray-800">Course Management</h2>
+                        <h2 class="text-xl font-semibold text-gray-800"> </h2>
                         <div class="bg-blue-600 text-white px-6 py-2 rounded-lg md:text-lg font-medium">
-                            Total Courses: <span id="courseCount">3</span>
+                            Total Courses: <span id="manage_courseCount">3</span>
                         </div>
                     </div>
 
@@ -410,7 +410,7 @@
                                     </div>
             
                                     <!-- Edit Button -->
-                                    <div class="flex justify-end items-center mt-4">
+                                    <div class="flex justify-end items-center mt-2">
                                         <button type="button" id="edit-Title"
                                             class="text-blue-500 hover:text-blue-700 flex items-center">
                                             <i class="fas fa-edit mr-1"></i> Edit
@@ -476,7 +476,7 @@
                                 <section 
                                     class="relative space-y-6 bg-white opacity-80 p-6 rounded-xl my-8 pb-12  border border-gray-200">
                                     <!-- Video item -->
-                                   <div id="create_video_container" class="space-y-3">
+                                   <div id="create_video_container" class="space-y-3 max-h-[450px] overflow-y-auto">
 
                                    </div>   
             
@@ -711,12 +711,12 @@
                                             placeholder="Duration (hh:mm:ss)" required />
                                     </div>
                                 </div>
-                                <div class="mt-4 flex justify-between gap-3">
+                                <div class="mt-6 flex justify-end space-x-3">
                                     <button type="button" id="close-video-modal"
-                                        class="px-5 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancel</button>
+                                        class="bg-gray-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">Cancel</button>
                                     <button type="submit" id="save-video"
-                                        class="px-5 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">Save</button>
-                                </div>
+                                        class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-300">Save</button>
+                                </div> 
                             </form>
                         </div>
                     </div>

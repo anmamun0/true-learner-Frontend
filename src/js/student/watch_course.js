@@ -113,3 +113,24 @@ function watchCourse(course_id) {
 // window.onload = function () {
 //     changeVideo("", "", "");
 // };
+
+
+
+
+
+
+let ishas = false;
+function courseDetailsToggleHeight() {
+    const editor = document.getElementById("course_description_under");
+    const toggleButton = document.getElementById("paid_course_toggleButton");
+
+    if (ishas) {
+        editor.style.maxHeight = "200px";
+        toggleButton.textContent = "... See More";
+    } else {
+        editor.style.maxHeight = editor.scrollHeight + "px";
+        toggleButton.textContent = "... See Less";
+    }
+
+    ishas = !ishas;
+}

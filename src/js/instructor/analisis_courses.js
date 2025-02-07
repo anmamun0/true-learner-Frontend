@@ -33,9 +33,11 @@ new Chart(ctx2, {
     }
 });
 
-
+let updateCouse_id = null;
 
 const analisisCourseContent = (code) => {
+    updateCouse_id = code;
+
     document.getElementById('deshboard_loading').classList.remove('hidden');
 
     const analisis_totalCourses = document.getElementById('analisis_total_courses');
@@ -67,8 +69,9 @@ const analisisCourseContent = (code) => {
             analisis_total_length.value = data.total_length;
             analisisDescription.innerHTML = data.description;
 
+            allVideo = ``;
             data.videos.forEach(video=>{
-                create_videoContainer.innerHTML += `
+                allVideo += `
                 <!-- Video item -->
                         <div class="flex justify-between items-center text-sm text-gray-700">
                            <!-- Video description -->
@@ -77,17 +80,26 @@ const analisisCourseContent = (code) => {
                             </div>
             
                                 <!-- Time, Click link, and Delete button -->
-                            <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-2">
                                     <p class="text-gray-500">${video.duration}</p>
-                                     <p class="text-blue-600 cursor-pointer hover:underline">Click</p>
-                                    <button type="button" class="text-gray-900 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-all flex items-center space-x-2" onclick="confirmDelete(this)">
-                                                <i class="fas fa-trash"></i>
-                                    </button>
+                                     <a href="${video.url}" target="_blank" class="text-blue-600 cursor-pointer hover:underline">link</a>
+
+                                     <div class="flex justify-between gap-2">
+                                        <button type="button" class="text-gray-900 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-all flex items-center " onclick="confirmDelete(this,'${video.order}')">
+                                                    <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button type="button" class="text-gray-900 hover:text-green-600 mr-2 rounded-lg hover:scale-[103%] transition-all flex items-center " onclick="confirmDelete(this)">
+                                                    <i class="fas fa-sync"></i> 
+                                        </button>
+                                     </div>
+                            </div>
+
                             </div>
                  </div>
 
                 `; 
             })
+            create_videoContainer.innerHTML = allVideo;
 
             analisis_studentList.innerHTML = '';
 
@@ -277,11 +289,12 @@ document.getElementById('saveButton-Lecture-Session-Length').addEventListener('c
 
 // delete video for confirmation ---------------------------------------------------------------
 let videoToDelete = null;
-
+let videoOrder = null;
     // Show confirmation modal on delete button click
-    function confirmDelete(button) {
+    function confirmDelete(button,order) {
         videoToDelete = button.closest('.flex').parentElement; // Find the parent element of the button
         document.getElementById('delete-confirmation').classList.remove('hidden');
+        videoOrder = order;
     }
 
     // Hide modal and do nothing
@@ -291,8 +304,24 @@ let videoToDelete = null;
 
     // Confirm delete and remove video
     document.getElementById('confirm-delete').addEventListener('click', function () {
-        if (videoToDelete) {
-            // videoToDelete.remove(); // Remove the video item
+        if (videoToDelete) { 
+
+            fetch(`https://truelearner-backends.onrender.com/course/videos/${videoOrder}/delete/`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                }, 
+            })
+                .then(res => res.json())
+                .then(data => { 
+                    pushAlert('success', "Delete successfull");
+                    videoToDelete.remove(); // Remove the video item 
+
+                })
+                .catch(error => {
+                    pushAlert('alert', "Delete successfull");
+                    console.log(error)
+                });
         }
         document.getElementById('delete-confirmation').classList.add('hidden'); // Hide modal
     });
@@ -336,6 +365,24 @@ document.getElementById('video-form').addEventListener('submit', function(event)
     console.log('Video Title:', videoTitle);
     console.log('Video URL:', videoUrl);
     console.log('Video Duration:', videoDuration);
+    const newVideo = {
+        'title': videoTitle,
+        'url': videoUrl,
+        'duration':videoDuration,
+    }
+    console.log('newVidoe',updateCouse_id, newVideo);
+    fetch(`https://truelearner-backends.onrender.com/course/videos/${updateCouse_id}/create/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify(newVideo),
+    })
+        .then(res => res.json())
+        .then(data => {
+            pushAlert('success', "new Video created successfull!");
+        })
+        .catch(error => console.log(error));
 
     // Optionally, you can add the new video to the video container
     const videoItem = document.createElement('div');

@@ -408,7 +408,7 @@
         <p class="text-sm font-semibold pb-4">Course Code: <span id="course_code"> 10</span></p>
         <div class="pb-10 overflow-hidden">
           <div id="editor"
-            class="text-justify bg-transparent -ml-4 resize-none overflow-hidden shadow-sm ql-disabled max-h-[500px] transition-all duration-500 ease-in-out"
+            class="text-justify bg-transparent -ml-4 resize-none overflow-y-auto shadow-sm ql-disabled max-h-[500px] transition-all duration-500 ease-in-out"
             style="border: none;">
           </div>
           <button id="course_details_toggleButton" onclick="courseDetailsToggleHeight()"
@@ -1161,24 +1161,7 @@
           </button>
         </div>
  
-      
-      <script>
-          let ishas = false;
-          function courseDetailsToggleHeight() {
-              const editor = document.getElementById("course_description_under");
-              const toggleButton = document.getElementById("paid_course_toggleButton");
-      
-              if (ishas) {
-                  editor.style.maxHeight = "200px";
-                  toggleButton.textContent = "... See More";
-              } else {
-                  editor.style.maxHeight = editor.scrollHeight + "px";
-                  toggleButton.textContent = "... See Less";
-              }
-      
-              ishas = !ishas;
-          }
-      </script>
+       
 
 
       </div>

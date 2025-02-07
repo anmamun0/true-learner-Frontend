@@ -29,15 +29,16 @@ const studentProfile = () => {
             all_courses.forEach(course => {
                 enrolled_courses.innerHTML += `
                      <!-- Course Card -->
-                    <div class="bg-white shadow rounded-xl overflow-hidden transform hover:scale-[101%] transition duration-300">
+                    <div class="flex flex-col justify-between  bg-white shadow rounded-xl overflow-hidden transform hover:scale-[101%] transition duration-300">
                         <div class="relative">
                             <img src="${course.thumble}" alt="Course Thumbnail"
                                 class="w-full h-48 object-cover">
                            
                         </div>
-                        <div class="p-6">
+
+                        <div class="p-6 flex flex-col justify-between  gap-2">
                             <h3 class="text-lg font-bold text-gray-800">${course.title}</h3> 
-                            <div class="mt-4 flex justify-between items-center">
+                            <div class="mt-4 flex justify-between ">
                                 <span class="text-blue-500 text-sm font-semibold">Completed: 80%</span>
                                 <button onclick="showPage('watch_paid_course','${course.code}')" class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">Continue</button>
                             </div>
