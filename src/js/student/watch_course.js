@@ -73,15 +73,15 @@ function watchCourse(course_id) {
                     const card = event.target.closest(".video-card");
                     if (!card) return; // Ignore clicks outside video cards
 
-                    // Remove 'bg-blue-600' and reset all to 'bg-gray-200'
+                    // Remove 'bg-indigo-600' and reset all to 'bg-gray-200'
                     document.querySelectorAll(".video-card").forEach(c => {
-                        c.classList.remove("bg-blue-500", "text-white");
+                        c.classList.remove("bg-indigo-500", "text-white");
                         c.classList.add("bg-gray-200");
                     });
 
-                    // Add 'bg-blue-600' to the clicked card
+                    // Add 'bg-indigo-600' to the clicked card
                     card.classList.remove("bg-gray-200");
-                    card.classList.add("bg-blue-500", "text-white");
+                    card.classList.add("bg-indigo-500", "text-white");
 
                     // Get video details from data attributes
                     const videoUrl = card.getAttribute("data-video-url");
@@ -100,7 +100,7 @@ function watchCourse(course_id) {
                     const firstCard = video_list.querySelector(".video-card");
                     if (firstCard) {
                         firstCard.classList.remove("bg-gray-200");
-                        firstCard.classList.add("bg-blue-500", "text-white");
+                        firstCard.classList.add("bg-indigo-500", "text-white");
                     }
                 }
 

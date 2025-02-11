@@ -15,7 +15,7 @@ const categroyView = () => {
                 category_list.innerHTML += `
                 <a onclick="courseShow('${cat.slug}')"  >
                     <div class="flex justify-between  items-center text-sm py-2 w-full ">
-                        <span class="font-semibold text-gray-800 cursor-pointer">${cat.name}</span>
+                        <span class="font-semibold text-gray-800 hover:text-indigo-800 cursor-pointer">${cat.name}</span>
                         <span class="text-gray-400">(${cat.course_count})</span> 
                     </div>
                 </a>
@@ -65,7 +65,7 @@ const courseShow = (slug = '') => {
                     if (isListView) {
                         // List View: image on the right side and content on the left side
                         courseCardHTML = `
-                            <div class="bg-white shadow-lg p-4 rounded-xl   shadow-md overflow-hidden transform hover:scale-[102%] hover:shadow-lg transition duration-300 course-card" >
+                            <div class="bg-white shadow-lg p-4 rounded-xl   shadow-md overflow-hidden transform hover:-translate-y-2 hover:shadow-lg transition duration-300 course-card" >
                                 <div class="flex">
                                     <!-- List view image on the right side -->
                                     <img src="${course.thumble}" alt="Course Thumbnail" class="w-24 h-24 object-cover ml-4">
@@ -74,7 +74,13 @@ const courseShow = (slug = '') => {
                                     <div class="px-6 py-4 flex-1">
                                         <h3 class="text-md font-semibold text-gray-900 mb-2">${course.title}</h3>
                                         <p class="text-gray-600 mb-3 text-sm">${plainTextDescription.slice(0, 100)}...</p>
+                                
                                         
+                                        <div class="flex gap-2 items-center mb-2 text-xs ">
+                                            <span class="text-gray-500"><i class="fas fa-user text-gray-500 mr-2"></i> <span class="">${course.students} Students</span></span>
+                                            <span class="text-gray-400"><i class="fas fa-file-alt text-gray-600 mr-2"></i> <span class="">${course.total_lecture} Lessons</span></span>
+                                        </div>
+
                                         <div class="flex justify-between items-center">
                                             <span class="text-lg font-bold text-indigo-600">$${course.price}</span>
                                             <a href="" onclick="showPage('course_details','${course.code}');event.preventDefault();" class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow hover:from-indigo-500 hover:to-purple-500 transition">View</a>
@@ -86,23 +92,30 @@ const courseShow = (slug = '') => {
                     } else {
                         // Grid View: image on top and content underneath
                         courseCardHTML = `
-                         <div class="bg-white rounded-xl w-full shadow-md overflow-hidden transform hover:scale-[102%] hover:shadow-lg transition duration-300 mt-4 relative">
+                         <div class="bg-white rounded-xl w-full shadow-md overflow-hidden transform hover:-translate-y-2 hover:shadow-lg transition duration-300 mt-4 relative">
                             <img src="${course.thumble}" alt="Course Thumbnail" class="w-full h-48 object-cover">
-                            <div class="px-6 py-4 pb-16"> <!-- Add extra padding at the bottom to avoid overlap -->
+                            <div class="px-6 py-4 pb-20"> <!-- Add extra padding at the bottom to avoid overlap -->
                                 <h3 class="text-md font-semibold text-gray-900 mb-2">${course.title}</h3>
-                                <p class="text-gray-600 mb-2 text-xs">${plainTextDescription.slice(0, 70)}...</p>
-                                <!-- Additional Course Info -->
-                                <div class="flex justify-between items-center mb-3">
-                                    <span class="text-sm text-gray-500">Total Students: <span class="font-bold text-blue-600">${course.students}</span></span>
-                                </div>
+                                <p class="text-gray-600 mb-2 text-xs">${plainTextDescription.slice(0, 70)}.</p>
+                             
                             </div>
 
                             <!-- Price and button are fixed to the bottom -->
-                            <div class="absolute bottom-4 left-6 right-6 flex justify-between items-center">
-                                <span class="text-lg font-bold text-indigo-600">$${course.price}</span>
-                                <a href="" onclick="showPage('course_details','${course.code}');event.preventDefault();" class="px-5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow hover:from-indigo-500 hover:to-purple-500 transition">
-                                    View
-                                </a>
+                            <div class="absolute bottom-4 left-6 right-6 "> 
+                                <!-- Additional Course Info -->
+                                    <div class="flex gap-2 items-center mb-2 text-xs ">
+                                        <span class="text-gray-500"><i class="fas fa-user text-gray-500 mr-2"></i> <span class="">${course.students} Students</span></span>
+                                        <span class="text-gray-400"><i class="fas fa-file-alt text-gray-600 mr-2"></i> <span class="">${course.total_lecture} Lessons</span></span>
+          
+                                    </div>
+                            
+                                <div class="flex justify-between items-center">
+                                
+                                    <span class="text-lg font-bold text-indigo-600">$${course.price} </span>
+                                    <a href="" onclick="showPage('course_details','${course.code}');event.preventDefault();" class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow hover:from-indigo-500 hover:to-purple-500 transition">
+                                        View
+                                    </a>
+                                </div>
                             </div>
                         </div>
 

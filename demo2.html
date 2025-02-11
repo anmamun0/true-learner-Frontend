@@ -1,410 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Management Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <title>TrueLearner - Home</title>
 </head>
+<body class="bg-gray-100">
 
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
 
-    <div class="p-6 max-w-6xl mx-auto">
-
-        <header class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold">Course Management</h1>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold">Total Courses</h2>
-                <p class="text-3xl font-bold" id="analisis_total-courses">12</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold">Total Students</h2>
-                <p class="text-3xl font-bold" id="analisis_total-students">1,250</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold">Total Revenue</h2>
-                <p class="text-3xl font-bold" id="analisis_total-revenue">$24,500</p>
-            </div>
-            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold">Completion Rate</h2>
-                <p class="text-3xl font-bold text-green-500" id="analisis_completion-rate">85%</p>
+    <!-- Categories Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-8">Explore Course Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-blue-600 text-3xl mb-2">💻</div>
+                    <h3 class="text-lg font-semibold">Programming</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-green-600 text-3xl mb-2">📊</div>
+                    <h3 class="text-lg font-semibold">Business</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-yellow-600 text-3xl mb-2">🎨</div>
+                    <h3 class="text-lg font-semibold">Design</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-red-600 text-3xl mb-2">📣</div>
+                    <h3 class="text-lg font-semibold">Marketing</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-purple-600 text-3xl mb-2">📷</div>
+                    <h3 class="text-lg font-semibold">Photography</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-indigo-600 text-3xl mb-2">🎬</div>
+                    <h3 class="text-lg font-semibold">Video Editing</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-teal-600 text-3xl mb-2">🎼</div>
+                    <h3 class="text-lg font-semibold">Music</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-orange-600 text-3xl mb-2">⚙️</div>
+                    <h3 class="text-lg font-semibold">Engineering</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-gray-600 text-3xl mb-2">📖</div>
+                    <h3 class="text-lg font-semibold">Writing</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-lime-600 text-3xl mb-2">🏋️</div>
+                    <h3 class="text-lg font-semibold">Fitness</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-pink-600 text-3xl mb-2">🛍️</div>
+                    <h3 class="text-lg font-semibold">E-commerce</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-cyan-600 text-3xl mb-2">🩺</div>
+                    <h3 class="text-lg font-semibold">Health & Wellness</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-fuchsia-600 text-3xl mb-2">🛠️</div>
+                    <h3 class="text-lg font-semibold">DIY & Crafts</h3>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
+                    <div class="text-emerald-600 text-3xl mb-2">🗣️</div>
+                    <h3 class="text-lg font-semibold">Public Speaking</h3>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold mb-4">Enrollment Trends</h2>
-                <canvas id="enrollmentChart"></canvas>
+ <!-- Student Testimonials Section -->
+ <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-8">What Our Students Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
+                <p class="text-gray-700 italic">"TrueLearner has transformed the way I learn. The courses are detailed and engaging!"</p>
+                <div class="mt-4 flex items-center justify-center">
+                    <img src="https://randomuser.me/api/portraits/women/1.jpg" class="w-12 h-12 rounded-full mr-3" alt="Student">
+                    <span class="text-lg font-semibold">Sarah Johnson</span>
+                </div>
             </div>
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-lg font-semibold mb-4">Monthly Revenue</h2>
-                <canvas id="revenueChart"></canvas>
+            <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
+                <p class="text-gray-700 italic">"The instructors are amazing, and the platform is very user-friendly. Highly recommend!"</p>
+                <div class="mt-4 flex items-center justify-center">
+                    <img src="https://randomuser.me/api/portraits/men/2.jpg" class="w-12 h-12 rounded-full mr-3" alt="Student">
+                    <span class="text-lg font-semibold">Michael Smith</span>
+                </div>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
+                <p class="text-gray-700 italic">"I've learned so much from TrueLearner. The courses are structured perfectly for easy learning!"</p>
+                <div class="mt-4 flex items-center justify-center">
+                    <img src="https://randomuser.me/api/portraits/women/3.jpg" class="w-12 h-12 rounded-full mr-3" alt="Student">
+                    <span class="text-lg font-semibold">Emma Brown</span>
+                </div>
             </div>
         </div>
-
-        <div class="mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 class="text-lg font-semibold mb-4">Enrolled Students</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse min-w-max">
-                    <thead>
-                        <tr>
-                            <th class="border-b p-3">Name</th>
-                            <th class="border-b p-3">Email</th>
-                            <th class="border-b p-3">Enrolled Course</th>
-                            <th class="border-b p-3">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="analisis_student_list" class="overflow-x-auto">
-                        <tr>
-                            <td class="p-3">John Doe</td>
-                            <td class="p-3">john@example.com</td>
-                            <td class="p-3">JavaScript Mastery</td>
-                            <td class="p-3 text-green-600">Active</td>
-                        </tr>
-                    </tbody>
-                </table>
+    </div>
+</section>
+    <!-- Categories Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Course Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-md">Programming</div>
+                <div class="p-6 bg-white rounded-lg shadow-md">Business</div>
+                <div class="p-6 bg-white rounded-lg shadow-md">Design</div>
+                <div class="p-6 bg-white rounded-lg shadow-md">Marketing</div>
             </div>
-            
         </div>
-
-
-
-
-        <div class="py-20">
+    </section>
+    
+    <!-- Top Instructors -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Top Instructors</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/100" class="rounded-full mx-auto mb-3" alt="Instructor">
+                    <h3 class="font-bold">John Doe</h3>
+                    <p class="text-sm text-gray-500">Expert in Programming</p>
+                </div>
+                <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/100" class="rounded-full mx-auto mb-3" alt="Instructor">
+                    <h3 class="font-bold">Jane Smith</h3>
+                    <p class="text-sm text-gray-500">Design Specialist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Student Testimonials -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">What Our Students Say</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-6 py-10">
-                    <!-- image  -->
-                    <div>
-                        <label class="block text-xl font-medium mb-1">Course Thumbnail</label>
-                        <div class="relative w-full" id="edit-thumbnail-btn">
-                            <!-- Thumbnail Image -->
-                            <img id="course_details_image" src="https://i.pravatar.cc/150" alt="Course Overview"
-                                class="w-full h-60 rounded-xl shadow-lg object-cover border border-gray-300 dark:border-gray-700">
-
-                            <!-- Edit Button -->
-                            <button id="edit-thumbnail-bt "
-                                class="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full shadow-md hover:bg-gray-900 transition">
-                                <span class="font-semibold ">$40</span>
-                            </button>
-
-                        </div>
-                    </div>
-
-                    <!-- title  -->
-                    <div class="flex gap-6">
-                        <!-- Course Title Field -->
-                        <div class="w-full">
-                            <label for="title" class="block text-sm font-semibold text-gray-700">Course Title</label>
-                            <div class="flex items-center gap-3">
-                                <input type="text" id="title" name="title"
-                                    class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                    placeholder="Enter an engaging course title" disabled />
-                            </div>
-                        </div>
-
-                        <!-- Edit Button -->
-                        <div class="flex justify-end items-center mt-4">
-                            <button type="button" id="edit-Title"
-                                class="text-blue-500 hover:text-blue-700 flex items-center">
-                                <i class="fas fa-edit mr-1"></i> Edit
-                            </button>
-                        </div>
-                    </div>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <p class="italic">"TrueLearner transformed my career! Highly recommend."</p>
+                    <h3 class="mt-4 font-bold">- Alice Brown</h3>
                 </div>
-
-                <div class="mt-10">
-                    <!-- Grid Layout for Inputs Length and lectures and sessions-->
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 my-8">
-                        <!-- Total Lecture Input -->
-                        <div>
-                            <label for="total_lecture" class="block text-sm font-semibold text-gray-700">Total
-                                Lecture</label>
-                            <div class="flex items-center">
-                                <input type="number" id="total_lecture" name="total_lecture"
-                                    class="mt-2 w-full rounded-lg border border-gray-400 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                    placeholder="40" required disabled />
-
-                            </div>
-                        </div>
-
-                        <!-- Total Session Input -->
-                        <div>
-                            <label for="total_session" class="block text-sm font-semibold text-gray-700">Total
-                                Session</label>
-                            <div class="flex items-center">
-                                <input type="number" id="total_session" name="total_session"
-                                    class="mt-2 w-full rounded-lg border border-gray-400 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                    placeholder="10" required disabled />
-
-                            </div>
-                        </div>
-
-                        <!-- Total Length Input -->
-                        <div>
-                            <label for="total_length" class="block text-sm font-semibold text-gray-700">Total
-                                Length</label>
-                            <div class="flex items-center">
-                                <input type="number" id="total_length" name="total_length"
-                                    class="mt-2 w-full rounded-lg border border-gray-400 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                    placeholder="20" required disabled />
-                                <button type="button" id="edit-Lecture-Session-Length"
-                                    class="ml-2 text-blue-500 hover:text-blue-700">
-                                    <i class="fas fa-edit"></i> Edit
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- course all video list -->
-                    <section id="video-container"
-                        class="relative space-y-6 bg-white opacity-80 p-6 rounded-xl my-8 pb-12  border border-gray-200">
-                        <!-- Video item -->
-                        <div class="flex justify-between items-center text-sm text-gray-700">
-                            <!-- Video description -->
-                            <div class="flex items-center space-x-3">
-                                <p class="font-semibold text-gray-900">Now we are talking about Django</p>
-                            </div>
-
-                            <!-- Time, Click link, and Delete button -->
-                            <div class="flex items-center gap-4">
-                                <p class="text-gray-500">10:34</p>
-                                <p class="text-blue-600 cursor-pointer hover:underline">Click</p>
-                                <button type="button"
-                                    class="text-gray-900 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white transition-all flex items-center space-x-2"
-                                    onclick="confirmDelete(this)">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Another Video item (for demonstration) -->
-                        <div class="flex justify-between items-center text-sm text-gray-700">
-                            <!-- Video description -->
-                            <div class="flex items-center space-x-3">
-                                <p class="font-semibold text-gray-900">Now we are talking about Django</p>
-                            </div>
-
-                            <!-- Time, Click link, and Delete button -->
-                            <div class="flex items-center gap-4">
-                                <p class="text-gray-500">10:34</p>
-                                <p class="text-blue-600 cursor-pointer hover:underline">Click</p>
-                                <button type="button"
-                                    class="text-gray-900 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white transition-all flex items-center space-x-2"
-                                    onclick="confirmDelete(this)">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <button type="button" id="add-video"
-                            class="absolute -bottom-2 md:-bottom-4 -right-4 bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-2 px-3 rounded-full shadow-lg hover:opacity-90 transition-transform flex items-center justify-center">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </section>
-
-                </div>
-            </div>
-
-
-            <div>
-                <!-- editor desciptions -->
-                <div> 
-                    <label for="description" class="block text-sm font-semibold text-gray-700">Course Description</label>
-                    <div id="course_create_editor"
-                        class="mt-2 bg-white opacity-80  rounded-lg border border-gray-300 p-3 resize-none overflow-auto shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                        style="height: calc(1.5em * 9);">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-
-
-    <!--  popup models  -->
-    <div>
-        <!-- Popup Modal for Image Update -->
-        <div id="popup-Image"
-            class="fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-70 hidden">
-            <div
-                class="bg-white w-full max-w-md mx-4 sm:mx-0 p-6 rounded-lg shadow-xl transform transition-all scale-95 hover:scale-100">
-                <div class="flex justify-between items-center border-b pb-3">
-                    <h2 class="text-xl font-semibold text-gray-900">Update Course Thumbnail</h2>
-                    <button id="close-popup-btn" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-
-                <!-- Image Preview -->
-                <div class="mt-4">
-                    <img id="previewImage" src="https://i.pravatar.cc/150"
-                        class="w-full h-48 rounded-lg shadow-md object-cover border border-gray-300" />
-                </div>
-
-                <!-- File Input -->
-                <div class="mt-4">
-                    <input type="file" id="thumbnail" accept="image/*"
-                        class="w-full p-2 border border-gray-300 rounded-md" onchange="previewImage(event)">
-                </div>
-
-                <!-- Buttons -->
-                <div class="mt-6 flex justify-end gap-3">
-                    <button id="close-popup-btn"
-                        class="px-5 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition">Cancel</button>
-                    <button id="save-thumbnail-btn"
-                        class="px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Save</button>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <p class="italic">"Best platform for learning online courses!"</p>
+                    <h3 class="mt-4 font-bold">- Michael Lee</h3>
                 </div>
             </div>
         </div>
-
-        <!-- Popup Modal for Title and Price Update -->
-        <div id="popup-Title"
-            class="fixed z-10 inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center hidden">
-            <div class="bg-white w-full max-w-xl mx-4 sm:mx-0 p-8 rounded-xl shadow-2xl transform transition-all  ">
-                <h2 class="text-2xl font-semibold text-gray-900">Update Course Details</h2>
-                <p class="text-gray-600 mt-1">Please enter the new course details below:</p>
-
-                <!-- Course Title Field -->
-                <input type="text" id="popupTitle"
-                    class="mt-4 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter new title" required />
-
-                <!-- Course Price Field -->
-                <div class="mt-4">
-                    <label class="block text-sm font-medium">Course Price ($)</label>
-                    <div class="relative">
-                        <input type="number" id="popupPrice"
-                            class="pr-8 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Enter new price" required />
-                    </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="py-12 bg-blue-600 text-white text-center">
+        <h2 class="text-3xl font-bold mb-4">Start Learning Today!</h2>
+        <p class="mb-6">Join as a student or an instructor.</p>
+        <button class="bg-white text-blue-600 px-6 py-2 rounded-full font-bold">Get Started</button>
+    </section>
+    
+    <!-- Blog Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Latest Blog Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="font-bold">The Future of Online Learning</h3>
+                    <p class="text-sm text-gray-500 mt-2">March 5, 2025</p>
                 </div>
-
-                <div class="mt-6 flex justify-end space-x-3">
-                    <button id="saveButton-Title"
-                        class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">Save</button>
-                    <button id="cancelButton-Title"
-                        class="bg-gray-600 text-white py-2 px-6 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-300">Cancel</button>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="font-bold">Top 5 Programming Courses in 2025</h3>
+                    <p class="text-sm text-gray-500 mt-2">March 2, 2025</p>
                 </div>
             </div>
         </div>
-
-        <!-- Popup Modal for Updating Fields -->
-        <div id="popup-Lecture-Session-Length"
-            class="fixed  z-10 inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center hidden ">
-            <div class="bg-white w-full max-w-xl mx-4 sm:mx-0 p-8 rounded-xl shadow-2xl transform transition-all  ">
-                <h2 class="text-2xl font-semibold text-gray-900">Update Course Details</h2>
-                <p class="text-gray-600 mt-1">Please enter the new values below:</p>
-
-                <div class="flex gap-6 justify-between">
-                    <div class="mt-4">
-                        <label for="popupLecture" class="block text-sm font-semibold text-gray-700">Total
-                            Lecture</label>
-                        <input type="number" id="popupLecture"
-                            class="mt-2 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="40" required />
-                    </div>
-
-                    <div class="mt-4">
-                        <label for="popupSession" class="block text-sm font-semibold text-gray-700">Total
-                            Session</label>
-                        <input type="number" id="popupSession"
-                            class="mt-2 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="10" required />
-                    </div>
-
-                    <div class="mt-4">
-                        <label for="popupLength" class="block text-sm font-semibold text-gray-700">Total
-                            Length</label>
-                        <input type="number" id="popupLength"
-                            class="mt-2 w-full rounded-lg border-2 border-gray-300 p-4 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="20" required />
-                    </div>
-                </div>
-
-                <div class="mt-6 flex justify-end space-x-3">
-                    <button id="saveButton-Lecture-Session-Length"
-                        class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">Save</button>
-                    <button id="cancelButton-Lecture-Session-Length"
-                        class="bg-gray-600 text-white py-2 px-6 rounded-full hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-300">Cancel</button>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Delete Confirmation Modal -->
-        <div id="delete-confirmation"
-            class="fixed inset-0 z-20 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-            <div class="bg-white w-96 p-6 rounded-xl shadow-lg text-center">
-                <p class="font-semibold text-lg text-gray-900 mb-4">Are you sure you want to delete this
-                    video?</p>
-                <div class="flex justify-center gap-4">
-                    <button id="cancel-delete"
-                        class="px-5 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancel</button>
-                    <button id="confirm-delete"
-                        class="px-5 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">Delete</button>
-                </div>
-            </div>
-        </div>
-
- 
-        <!-- Video Section Popup Modal -->
-        <div id="video-section-modal"
-            class="fixed inset-0 z-30 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-            <div class="bg-white w-2xl p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4">Add New Video</h2>
-                <form id="video-form">
-                    <div class="space-y-4">
-                        <div>
-                            <input type="text" name="video_title"
-                                class="w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                placeholder="Video Title" required />
-
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <input type="url" name="video_url"
-                                class="w-full rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                placeholder="Video URL" required />
-                            <input type="text" name="video_duration"
-                                class="w-5/6 rounded-lg border border-gray-300 p-3 text-gray-900 shadow-sm focus:ring-1 focus:ring-slate-400 focus:outline-none"
-                                placeholder="Duration (hh:mm:ss)" required />
-                        </div>
-                    </div>
-                    <div class="mt-4 flex justify-between gap-3">
-                        <button type="button" id="close-video-modal"
-                            class="px-5 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancel</button>
-                        <button type="submit" id="save-video"
-                            class="px-5 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
- 
-
-    <script src="demo2.js"></script>
+    </section>
 </body>
-
 </html>

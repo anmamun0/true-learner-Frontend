@@ -22,7 +22,15 @@
   <!-- Animaitn libary -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
-   
+  <!-- slider animation swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+  <!-- counting animation -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/waypoints/lib/noframework.waypoints.min.js"></script>
+
   <script defer>
     // Toggle Mobile Menu
     function toggleMenu() {
@@ -105,7 +113,7 @@
 
 
 
-
+    <!-- How it works -->
     <section class="py-20 bg-gradient-to-br from-gray-100 to-gray-200" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
       <div class="max-w-6xl mx-auto text-center px-6">
         <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>  
@@ -176,11 +184,84 @@
 
 
 
+  <!-- Water Drop Section -->
+ 
+  <section class="bg-gradient-to-br from-gray-100 to-gray-200" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-6 py-20 "> 
+    <div class="md:grid grid-cols-2 gap-12 ">
+        <div class="relative rounded-lg my-2"> 
+            <!-- Background Image Section (Optional) -->
+            <img src="src/image/1000_F_316253266_kj.jpg" alt="Water Image" class="object-cover rounded-lg  w-full h-full">
+            <div class="absolute opacity-30 bg-black inset-0 rounded-lg "></div>
+
+            <!-- Water Drop Animation (Outer Circle) -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2  -translate-y-1/2 flex items-center justify-center">
+            <!-- Outer Circle Water Drop -->
+            <div class="w-28 h-28 bg-transparent border-2 border-gray-100 rounded-full animate-water-drop-outer"></div>
+            </div>
+
+            <!-- Water Drop Animation (Inner Circle) -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+            <!-- Inner Circle Water Drop -->
+            <div class="w-20 h-20 bg-transparent border-2 border-gray-100 rounded-full   animate-water-drop-inner"></div>
+            </div>
+
+            <!-- Play Button (optional) -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-4 bg-white rounded-full shadow-lg cursor-pointer hover:bg-gray-300 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.25 4.5l14.25 7.5-14.25 7.5V4.5z" />
+            </svg>
+            </div>
+        </div>
+        <div class=" my-2">
+            <h2 class="text-3xl font-bold text-indigo-700">Self Development Course</h2>
+            <p class="text-gray-600 text-lg">Get Instant Access To <span class="font-semibold text-indigo-600">Expert Solution</span></p>
+            
+            <p class="text-gray-700">The ultimate planning solution for busy students who want to reach their personal goals. 
+              Effortless, comfortable, eye-catching, unique detail.</p>
+              
+
+            <div class="grid grid-cols-1   gap-4 text-gray-800 py-4">
+              <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-semibold text-lg"><i class="fas fa-check text-indigo-700 mr-2"></i> High-Quality Video</h3>
+                <p class="text-sm">Detailed lessons with expert guidance.</p>
+              </div>
+              <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-semibold text-lg"><i class="fas fa-check text-indigo-700 mr-2"></i> Powerful Audience</h3>
+                <p class="text-sm">Join a community of like-minded learners.</p>
+              </div>
+              <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-semibold text-lg"><i class="fas fa-check text-indigo-700 mr-2"></i> Premium Content</h3>
+                <p class="text-sm">Accessible worldwide with lifetime updates.</p>
+              </div>
+            </div>
+        
+            <!-- Button with Alpine.js Interaction -->
+            <div x-data="{ showModal: false }">
+              <button @click="showModal = true"
+                class="bg-gradient-to-br from-blue-600 to-indigo-700 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all">
+                Get Instant Access 🚀
+              </button>
+        
+              <!-- Modal -->
+              <div x-show="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="bg-white p-6 rounded-lg shadow-xl text-center w-80">
+                  <h3 class="text-xl font-bold text-gray-800">Join Now!</h3>
+                  <p class="text-gray-600 mt-2">Enroll today and start your transformation journey.</p>
+                  <button @click="showModal = false" class="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  </section>
 
 
-
-    <!-- Features Section -->
-    <section id="features" class="py-10 bg-gray-100" >
+    <!-- Features Why Truelearner Section -->
+    <section id="features" class="py-16 bg-gray-100" >
       <div class="max-w-7xl p-6 mx-auto text-center" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <h2 class="text-3xl font-bold text-gray-800">Why Choose TrueLearner?</h2>
         <p class="text-gray-600 mt-4">Explore the benefits of learning with us</p>
@@ -214,10 +295,201 @@
       </div>
     </section>
 
+  
+      <!-- Popular Courses Section -->
+      <section class="py-16 px-6"  data-aos="fade-up">
+        <div class="max-w-6xl mx-auto text-center py-4">
+            <h2 class="text-3xl font-extrabold text-gray-800 mb-2">Popular Online Courses in Your Region</h2>
+            <p class="text-gray-600 text-lg mb-10">Learn from top instructors and enhance your skills today.</p>
+        </div>
+
+        <div id="popular_courses" class="max-w-6xl mx-auto grid md:grid-cols-3 sm:grid-cols-2 gap-12"  >
+            <!-- Course Card -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                <div class="relative">
+                    <img src="src/image/pexels-andrew-15863066.jpg" alt="Course Image" class="w-full h-48  ">
+                    <div class="absolute bottom-2 right-2 bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-md">
+                        $49.99
+                    </div>
+                </div>
+                <div class="p-4">
+                    <span class="text-sm text-indigo-700 font-semibold uppercase">Web Development</span>
+                    <h3 class="text-lg font-bold text-gray-800 mt-1">Mastering React.js</h3>
+                    <div class="flex items-center text-gray-600 text-sm mt-2">
+                        <span class="mr-4"><i class="fas fa-user"></i> 1.2K Students</span>
+                        <span><i class="fas fa-book"></i> 25 Lectures</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add More Course Cards -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                <div class="relative">
+                    <img src="src/image/pexels-sora-shimazaki-5926382.jpg" alt="Course Image" class=" w-full h-48  ">
+                    <div class="absolute bottom-2 right-2 bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-md">
+                        $39.99
+                    </div>
+                </div>
+                <div class="p-4">
+                    <span class="text-sm text-indigo-700 font-semibold uppercase">Business</span>
+                    <h3 class="text-lg font-bold text-gray-800 mt-1">Entrepreneurship 101</h3>
+                    <div class="flex items-center text-gray-600 text-sm mt-2">
+                        <span class="mr-4"><i class="fas fa-user"></i> 900 Students</span>
+                        <span><i class="fas fa-book"></i> 18 Lectures</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                <div class="relative">
+                    <img src="src/image/pexels-andrew-15863066.jpg" alt="Course Image" class="w-full h-48  ">
+                    <div class="absolute bottom-2 right-2 bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-md">
+                        $29.99
+                    </div>
+                </div>
+                <div class="p-4">
+                    <span class="text-sm text-indigo-700 font-semibold uppercase">Graphic Design</span>
+                    <h3 class="text-lg font-bold text-gray-800 mt-1">UI/UX Design Mastery</h3>
+                    <div class="flex items-center text-gray-600 text-sm mt-2">
+                        <span class="mr-4"><i class="fas fa-user"></i> 1.5K Students</span>
+                        <span><i class="fas fa-book"></i> 20 Lectures</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-600 text-lg my-12 px-[10%]">Take charge of your life and begin taking actionable steps toward achieving your dreams. <a href="" class="underline"> Explore all courses.</a></p>
+
+        </div>
+        
+    </section>
 
 
+  <!-- Counting animation section -->
+  <section class="py-16 px-4 lg:px-16 bg-gradient-to-r from-gray-50 to-indigo-50 bg-opacity-10 text-gray-700">
+    <div class="max-w-7xl mx-auto ">
+      <h2 class="text-4xl font-extrabold tracking-tight sm:text-3xl mb-2">We simplify the process, allowing teams to focus on what’s essential— working </h2>
+      <h2 class="text-4xl font-extrabold mb-8 tracking-tight sm:text-3xl px-1"> together to develop an online career that truly excites and inspires. </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 py-4">
+        <div class="  text-gray-900 p-8 rounded-2xl  transform transition duration-500 transition-all duration-300 ease-in-out transform  hover:ml-2">
+          
+          <h3 class="text-md font-semibold mb-4">Instructors</h3>
+          <p class="text-5xl font-extrabold text-blue-600">
+            <span class="counter " data-count="50" id="index_total_instructors">0</span> 
+          </p>
+          <p class="mt-4 text-gray-600">Our instructors are industry experts, bringing a wealth of knowledge to help you succeed in your online career journey.</p>
 
-    <section id="faqs" class="py-16 pb-20 bg-gradient-to-b from-white to-gray-100">
+        </div>
+
+        <div class="text-gray-900 p-8 rounded-2xl  transform transition duration-500   transition-all duration-300 ease-in-out transform hover:ml-2">
+          <h3 class="text-md font-semibold mb-4">Total Courses</h3>
+          <p class="text-5xl font-extrabold text-green-600">
+            <span class="counter" data-count="12" id="index_total_courses">0</span> 
+          </p>
+          <p class="mt-4 text-gray-600">With over 1200 courses, we provide a wide range of learning opportunities to help you grow your skills.</p>
+        </div>
+
+        <div class="text-gray-900 p-8 rounded-2xl  transform transition duration-500   transition-all duration-300 ease-in-out transform hover:ml-2">
+          <h3 class="text-md font-semibold mb-4">Registered Enrollments</h3>
+          <p class="text-5xl font-extrabold text-yellow-600">
+            <span class="counter" data-count="70" id="index_total_students">0</span>  
+          </p>
+          <p class="mt-4 text-gray-600">Over 75,000 students have enrolled in our courses, joining a growing community of learners.</p>
+
+        </div>
+
+        <div class="text-gray-900 p-8 rounded-2xl  transform transition duration-500   transition-all duration-300 ease-in-out transform hover:ml-2">
+          <h3 class="text-md font-semibold mb-4">Satisfaction Rate</h3>
+          <p class="text-5xl font-extrabold text-red-600">
+            <span class="counter" data-count="95">0</span>% 
+          </p>
+          <p class="mt-4 text-gray-600">Our students are highly satisfied with our courses, with a 95% satisfaction rate across all programs.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- Success Stories Section -->
+    <section class="py-16 bg-gray-100 text-center">
+      <div class="max-w-6xl mx-auto"  data-aos="fade-up">
+          <h2 class="text-3xl font-extrabold text-gray-800 mb-2">Success Stories from Real Achievers</h2>
+          <p class="mb-8 text-gray-600 text-sm">The ultimate learning experience for ambitious individuals striving to reach their personal and professional goals.</p>
+        
+
+          <div class="relative py-12">
+              <div class="swiper mySwiper">
+                  <div class="swiper-wrapper mb-12 m-2">
+                      <div class="swiper-slide p-12 relative bg-white rounded-lg shadow-lg flex flex-col  text-left">
+                          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe" class="w-16 h-16 rounded-full mb-4 border-4 border-gray-300">
+                          <div> 
+                          <span class="text-gray-900 font-semibold  ">AN Mamun </span>
+                          <span class="text-indigo-600 text-sm font-semibold  ">Software Engineer! </span>
+                          </div>
+                          
+
+                          <p class="text-gray-700 text-md tracking-normal opacity-90  mt-2 ">"Completing the Django course with TrueLearner was a life-changing experience. I transformed from having limited web development knowledge to confidently building complex applications. I landed my dream job as a Software Engineer and even started my own business, all thanks to the skills I gained!"</p>
+                          
+
+                          <div class="absolute text-7xl text-gray-700 opacity-10 top-6 right-16"><i class="fas fa-quote-right"></i></div> 
+                      </div>
+                      <div class="swiper-slide p-12 relative bg-white rounded-lg shadow-lg flex flex-col  text-left">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="John Doe" class="w-16 h-16 rounded-full mb-4 border-4 border-gray-300">
+                        <div> 
+                        <span class="text-gray-900 font-semibold  ">Nusrat Jahan</span>
+                        <span class="text-blue-500 text-sm font-semibold  ">Data Science Engineer! </span>
+                        </div>
+                        
+
+                        <p class="text-gray-700   mt-2 ">"Completing the Python Development with Data Science course on TrueLearner was a game-changer. I gained in-depth knowledge of Python and data analysis tools, which helped me land a job as a Data Scientist. The course gave me the skills to tackle real-world problems and launch my career in tech!"</p>
+                        <div class="absolute text-7xl text-gray-700 opacity-10 top-6 right-16"><i class="fas fa-quote-right"></i></div> 
+                    </div>
+                      <div class="swiper-slide p-12 relative bg-white rounded-lg shadow-lg flex flex-col  text-left">
+                          <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="John Doe" class="w-16 h-16 rounded-full mb-4 border-4 border-gray-300">
+                          <div> 
+                          <span class="text-gray-900 font-semibold  ">Ahmad Minner</span>
+                          <span class="text-indigo-600 text-sm font-semibold  ">Web Developer! </span>
+                          </div>
+                          
+
+                          <p class="text-gray-700   mt-2 ">"After completing the Node.js development course with TrueLearner, I gained the skills to build powerful backend applications. From basic concepts to advanced techniques, I became proficient in Node.js and landed my dream job as a backend developer. TrueLearner helped me unlock new career opportunities!"</p>
+                          <div class="absolute text-7xl text-gray-700 opacity-10 top-6 right-16"><i class="fas fa-quote-right"></i></div> 
+                      </div>
+                    
+                      <div class="swiper-slide p-12 relative bg-white rounded-lg shadow-lg flex flex-col  text-left">
+                          <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="John Doe" class="w-16 h-16 rounded-full mb-4 border-4 border-gray-300">
+                          <div> 
+                          <span class="text-gray-900 font-semibold  ">Lila Chowdory</span>
+                          <span class="text-indigo-600 text-sm font-semibold  ">Data Science Engineer! </span>
+                          </div>
+                          
+
+                          <p class="text-gray-700   mt-2 ">"TrueLearner's Machine Learning course was the turning point in my career. The hands-on projects helped me understand complex algorithms, and I secured a job as a Machine Learning Engineer. Now, I'm building intelligent systems and solving real-world problems." </p>
+                          <div class="absolute text-7xl text-gray-700 opacity-10 top-6 right-16"><i class="fas fa-quote-right"></i></div> 
+                      </div>
+                      <div class="swiper-slide p-12 relative bg-white rounded-lg shadow-lg flex flex-col  text-left">
+                          <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="John Doe" class="w-16 h-16 rounded-full mb-4 border-4 border-gray-300">
+                          <div> 
+                          <span class="text-gray-900 font-semibold  ">Nadil Ahmed</span>
+                          <span class="text-indigo-600 text-sm font-semibold  ">Mobile App Development with Flutter </span>
+                          </div>
+                          
+
+                          <p class="text-gray-700   mt-2 "> "Completing the Flutter Mobile App Development course on TrueLearner helped me build high-performance apps. I secured a role as a mobile developer, creating user-friendly apps with amazing UI, all thanks to the knowledge I gained from the course."</p>
+                          <div class="absolute text-7xl text-gray-700 opacity-10 top-6 right-16"><i class="fas fa-quote-right"></i></div> 
+                      </div>
+                  </div>
+              </div>
+              <div class="swiper-pagination mt-20"></div>
+          </div>
+      </div>
+    </section>
+
+
+    <section id="faqs" class="py-20  pb-48 bg-gradient-to-b from-white to-gray-50">
       <div class="max-w-4xl mx-auto text-center px-6" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <h2 class="text-4xl font-extrabold text-gray-900">Frequently Asked Questions</h2>
         <p class="text-lg text-gray-600 mt-3">Find answers to the most common questions about our courses.</p>
@@ -225,7 +497,7 @@
         <div class="mt-10 text-left space-y-4">
           
           <!-- FAQ Item -->
-          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+          <details class="group bg-white bg-opacity-10 p-6 rounded-xl shadow-md transition duration-300">
             <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
               <span>How do I enroll in a course?</span>
               <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
@@ -240,7 +512,7 @@
           </details>
     
           <!-- FAQ Item -->
-          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+          <details class="group bg-white bg-opacity-10  p-6 rounded-xl shadow-md transition duration-300">
             <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
               <span>What payment methods do you accept?</span>
               <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
@@ -255,7 +527,7 @@
           </details>
     
           <!-- FAQ Item -->
-          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+          <details class="group bg-white bg-opacity-10 p-6 rounded-xl shadow-md transition duration-300">
             <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
               <span>Do I get a certificate after completing the course?</span>
               <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
@@ -270,7 +542,7 @@
           </details>
     
           <!-- FAQ Item -->
-          <details class="group bg-white p-6 rounded-xl shadow-md transition duration-300">
+          <details class="group bg-white bg-opacity-10 p-6 rounded-xl shadow-md transition duration-300">
             <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg">
               <span>Can I access the course content after completion?</span>
               <svg class="w-5 h-5 text-indigo-600 group-open:hidden" viewBox="0 0 20 20" fill="currentColor">
@@ -298,10 +570,10 @@
       <a  href="#" onclick="showPage('courses_page')" class="text-indigo-600 hover:text-indigo-800 font-medium">Courses</a>
 
       <div id="course_page_loading" class="opacity-80 px-2">         <!-- Digital Reloading Animation with TailwindCSS -->
-        <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
-          <div class="dot w-4 h-4 bg-teal-600 rounded-full opacity-0  "></div>
-          <div class="dot w-4 h-4 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-          <div class="dot w-4 h-4 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+        <div class="flex justify-center items-center font-mono text-indigo-400 text-4xl  space-x-3">
+          <div class="dot w-4 h-4 bg-indigo-700 rounded-full opacity-0  "></div>
+          <div class="dot w-4 h-4 bg-indigo-700 rounded-full opacity-0   delay-200"></div>
+          <div class="dot w-4 h-4 bg-indigo-700 rounded-full opacity-0  delay-400"></div>
         </div> 
     </div>
     </div>
@@ -398,10 +670,10 @@
         <div class="flex justify-between">
           <h2 class="text-2xl   ">Course Description</h2>
           <div id="course_details_loading">
-            <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
-              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+            <div class="flex justify-center items-center font-mono text-indigo-400 text-4xl  space-x-3">
+              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  "></div>
+              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0   delay-200"></div>
+              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  delay-400"></div>
             </div>
           </div>
         </div>
@@ -699,10 +971,10 @@
   
   <div id="instructors_loading" class="pt-4 pl-2">
     <!-- Digital Reloading Animation with TailwindCSS -->
-    <div class="flex justify-center items-center  font-mono text-teal-400 text-4xl  space-x-3">
-      <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-      <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-      <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+    <div class="flex justify-center items-center  font-mono text-indigo-400 text-4xl  space-x-3">
+      <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  "></div>
+      <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0   delay-200"></div>
+      <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  delay-400"></div>
     </div>
   </div>
   <!-- 🔹 Header Section -->
@@ -745,10 +1017,10 @@
     <!-- Instructor Info -->
     <div class="max-w-5xl mx-auto   p-6 rounded-lg">
           <div id="instructors_details_loading" class="mt-16"> 
-            <div class="flex justify-center items-center font-mono text-teal-400 text-4xl  space-x-3">
-              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-              <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+            <div class="flex justify-center items-center font-mono text-indigo-400 text-4xl  space-x-3">
+              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  "></div>
+              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0   delay-200"></div>
+              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  delay-400"></div>
             </div>
           </div>
       <div class="md:grid grid-cols-2 justify-between p-4 gap-10 justify-between items-center">
@@ -951,17 +1223,17 @@
             </div>
 
                 <button id="profile_edit_button" onclick="showPage('student_profile_update')"
-                    class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">Edit
+                    class="px-6 py-3 bg-gradient-to-br from-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-400 text-white font-semibold rounded-lg shadow-md  transition">Edit
                     Profile
                 </button>
 
                 
                 <div id="profile_loading" class="absolute bottom-6 right-12 ">
                     <!-- Digital Reloading Animation with TailwindCSS -->
-                    <div class="flex font-mono text-teal-400 text-4xl  space-x-3">
-                        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-                        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-                        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+                    <div class="flex font-mono text-indigo-400 text-4xl  space-x-3">
+                        <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  "></div>
+                        <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0   delay-200"></div>
+                        <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  delay-400"></div>
                     </div> 
                 </div> 
             
@@ -1093,7 +1365,7 @@
               <div class="flex flex-col">
                   <label for="photo" class="text-sm font-medium text-gray-700">Profile Photo</label>
                   <input type="file" name="image" accept="image/*"
-                  class="w-full mt-2 p-2 border border-gray-300 rounded-md text-gray-900 placeholder-gray-500 focus:border-teal-600 focus:outline-none hover:border-gray-400 transition-all duration-200 ease-in-out"
+                  class="w-full mt-2 p-2 border border-gray-300 rounded-md text-gray-900 placeholder-gray-500 focus:border-indigo-600 focus:outline-none hover:border-gray-400 transition-all duration-200 ease-in-out"
                   id="id_image" />
                   <span class="text-xs text-gray-500 mt-2">Accepted formats: jpg, png, jpeg</span>
               </div>
@@ -1116,10 +1388,10 @@
 
 <main id="watch_paid_course" class="text-gray-900 pt-16 hidden pb-16">
     <div id="watch_paid_loading">         <!-- Digital Reloading Animation with TailwindCSS -->
-      <div class="flex justify-center items-center font-mono text-teal-400 text-4xl mt-6 space-x-3">
-        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0  "></div>
-        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0 delay-200"></div>
-        <div class="dot w-5 h-5 bg-teal-600 rounded-full opacity-0 delay-400"></div>
+      <div class="flex justify-center items-center font-mono text-indigo-400 text-4xl mt-6 space-x-3">
+        <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  "></div>
+        <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0 delay-200"></div>
+        <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0 delay-400"></div>
       </div> 
     </div>
   <div class="container mx-auto p-8">
@@ -1152,11 +1424,11 @@
         <!-- Left Section: Course Details -->
         <div class="hidden md:block rounded-xl py-8 space-y-6 col-span-7">
           <h2 class="text-2xl font-bold  ">Course Description</h2>
-          <div id="course_description_under" class="text-xs leading-relaxed space-y-4 max-h-[200px] overflow-hidden transition-all duration-500 ease-in-out">
+          <div id="course_description_under" class="text-sm leading-relaxed space-y-4 max-h-[200px] overflow-hidden transition-all duration-500 ease-in-out">
             
           </div>
           <button id="paid_course_toggleButton" onclick="courseDetailsToggleHeight()" 
-              class="mt-4 text-sm text-gray-700 font-semibold rounded-lg hover:underline">
+              class="m-4 text-sm text-gray-700 font-semibold rounded-lg hover:underline">
               ... See More
           </button>
         </div>
@@ -1178,7 +1450,7 @@
        <!-- Left Section: Course Details -->
        <div class="block md:hidden  rounded-xl py-8 space-y-6 col-span-7">
         <h2 class="text-2xl font-bold  ">Course Description</h2>
-        <div id="course_description" class=" text-xs leading-relaxed space-y-4">
+        <div id="course_description" class=" text-sm leading-relaxed space-y-4">
           
         </div>
       </div>
@@ -1222,6 +1494,7 @@
   <!-- Footer -->
   <footer  > </footer>
   <script src="src/js/accounts/cookie.js"></script>
+  <script src="src/js/app.js"></script>
 
   <script src="src/js/local/alert.js"></script>
   <script src="src/js/local/header.js"></script>
