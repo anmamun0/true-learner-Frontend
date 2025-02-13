@@ -1,153 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Courses - Pagination with Animation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    .slide-enter-active {
-      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    }
-    .slide-enter {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    .slide-leave-active {
-      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    }
-    .slide-leave {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-
-
-    @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
-}
-.skeleton {
-    background-color: #e0e0e0;
-    animation: pulse 1.5s infinite;
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- TailwindCSS CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome CDN -->
+    <script>
+        function printReceipt() {
+            // Hide everything except the receipt
+            // document.body.innerHTML = document.getElementById('receipt').outerHTML;
+            document.getElementById('receipt').classList.remove('hidden');
+            // Print only the receipt
+            window.print();
+            
+            // Reload page to restore full content
+            location.reload();
+        }
+    </script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
-
-  <!-- Free Courses Section -->
-  <section class="bg-white shadow-xl rounded-lg max-w-6xl p-10 text-center space-y-6 w-full">
-
-    <h2 class="text-4xl font-bold text-blue-700">Start Learning for Free</h2>
-    <p class="text-gray-600 text-lg max-w-3xl mx-auto">
-      Explore a variety of free courses to boost your skills and advance your career.
-    </p>
-
-    <!-- Course List with Pagination and Motion Effect -->
-    <div x-data="{ 
-          courses: [
-            { title: 'Web Development', category: 'Technology', students: '1200', lectures: '25', image: 'src/image/pexels-andrew-15863066.jpg', price: 'Free' },
-            { title: 'Web Dev243elopment', category: 'Technology', students: '1200', lectures: '25', image: 'src/image/pexels-andrew-15863066.jpg', price: 'Free' },
-            { title: 'Web Deve234lopment', category: 'Technology', students: '1200', lectures: '25', image: 'src/image/pexels-andrew-15863066.jpg', price: 'Free' },
-            { title: 'Web Deve2634lopment', category: 'Technology', students: '1200', lectures: '25', image: 'src/image/pexels-andrew-15863066.jpg', price: 'Free' },
-            { title: 'Web Develo3pment', category: 'Technology', students: '1200', lectures: '25', image: 'src/image/pexels-andrew-15863066.jpg', price: 'Free' },
-            { title: 'Python Programming', category: 'Programming', students: '900', lectures: '18', image: 'https://source.unsplash.com/300x200/?python', price: '$39.99' },
-            { title: 'Data Science', category: 'Data Analysis', students: '1100', lectures: '22', image: 'src/image/pexels-andrew-15863066.jpg', price: '$49.99' },
-            { title: 'Django for Beginners', category: 'Web Development', students: '700', lectures: '15', image: 'src/image/pexels-andrew-15863066.jpg', price: 'Free' },
-            { title: 'JavaScript Mastery', category: 'Programming', students: '1000', lectures: '20', image: 'src/image/pexels-andrew-15863066.jpg', price: '$29.99' },
-            { title: 'Machine Learning', category: 'AI', students: '800', lectures: '30', image: 'src/image/pexels-andrew-15863066.jpg', price: '$59.99' },
-            { title: 'UI/UX Design', category: 'Design', students: '650', lectures: '15', image: 'src/image/pexels-andrew-15863066.jpg', price: 'Free' },
-            { title: 'Cyber Security', category: 'Security', students: '500', lectures: '12', image: 'https://source.unsplash.com/300x200/?security', price: '$19.99' }
-          ],
-          perPage: 4,
-          currentPage: 0,
-          sliding: false,
-          get paginatedCourses() {
-            let start = this.currentPage * this.perPage;
-            let end = start + this.perPage;
-            return this.courses.slice(start, end);
-          },
-          nextPage() {
-            this.sliding = true;
-            setTimeout(() => {
-              this.currentPage = (this.currentPage + 1) % Math.ceil(this.courses.length / this.perPage);
-              this.sliding = false;
-            }, 500);
-          },
-          prevPage() {
-            this.sliding = true;
-            setTimeout(() => {
-              this.currentPage = (this.currentPage - 1 + Math.ceil(this.courses.length / this.perPage)) % Math.ceil(this.courses.length / this.perPage);
-              this.sliding = false;
-            }, 500);
-          }
-        }" class="w-full">
-
-      <!-- Course Grid with Slide Effect -->
-      <div class="overflow-hidden relative w-full">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 transition-transform duration-500"
-          x-bind:class="{'slide-enter-active': sliding, 'slide-enter': sliding}">
-          
-          <template x-for="course in paginatedCourses" :key="course.title">
-            <!-- Course Card -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-              <div class="relative">
-                <img :src="course.image" alt="Course Image" class="w-full h-48 object-cover">
-                <div class="absolute bottom-2 right-2 bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-md" x-text="course.price"></div>
-              </div>
-              <div class="p-4">
-                <span class="text-sm text-indigo-700 font-semibold uppercase" x-text="course.category"></span>
-                <h3 class="text-lg font-bold text-gray-800 mt-1" x-text="course.title"></h3>
-                <div class="flex items-center text-gray-600 text-sm mt-2">
-                  <span class="mr-4"><i class="fas fa-user"></i> <span x-text="course.students"></span> Students</span>
-                  <span><i class="fas fa-book"></i> <span x-text="course.lectures"></span> Lectures</span>
-                </div>
-              </div>
-            </div>
-            <!-- End Course Card -->
-          </template>
-        </div>
-      </div>
-
-      <!-- Pagination Buttons -->
-      <div class="flex justify-center mt-6 space-x-4">
-        <button @click="prevPage"
-                class="px-6 py-2 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-700 transition">
-          Prev
-        </button>
-        <button @click="nextPage"
-                class="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700 transition">
-          Next
-        </button>
-      </div>
-    </div>
-
-    <!-- Call to Action Button -->
-    <button class="px-6 py-3 bg-blue-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-      Get Started Now
-    </button>
-
-  </section>
-
-
-
-
-
-
-
-
-
-  <div class="w-80 p-4 bg-white rounded-lg shadow-md">
-    <div class="skeleton h-48 w-full rounded-md"></div>
-    <div class="mt-4 skeleton h-6 w-3/4 rounded"></div>
-    <div class="mt-2 skeleton h-4 w-1/2 rounded"></div>
-    <div class="mt-4 skeleton h-4 w-1/2 rounded"></div>
-    <div class="absolute bottom-4 left-6 right-6 flex justify-between items-center">
-        <div class="skeleton h-6 w-20 rounded"></div>
-        <div class="skeleton h-8 w-24 rounded"></div>
-    </div>
+<body class="bg-gradient-to-r from-gray-100 via-gray-50 to-white font-poppins">
+<!-- Enrolled Courses -->
+<div class="w-full px-10 mx-auto bg-white p-6 shadow-md rounded-lg">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4">Enrollment History</h2>
+  
+  <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300">
+          <thead>
+              <tr class="bg-blue-500 text-white">
+                  <th class="p-3 text-left">Course Title</th>
+                  <th class="p-3 text-left">Date</th>
+                  <th class="p-3 text-left">Payment</th>
+                  <th class="p-3 text-left">Enroll Type</th>
+                  <th class="p-3 text-center">Receipt</th> <!-- New column for download icon -->
+              </tr>
+          </thead>
+          <tbody id="studentHistoryTable">
+              <!-- Data will be dynamically inserted here -->
+              <tr class="border-b hover:bg-gray-100">
+                <td class="p-3 truncate">${item.title}</td>
+                <td class="p-3"> Date  </td> 
+                <td class="p-3 ${item.payment === '0' ? 'bg-green-200 text-green-600' :  parseFloat(item.payment) > 0 ? 'bg-blue-100 text-blue-600' :  'bg-red-100 text-red-600'} "> ${item.payment === '0' ? 'Free' : item.payment} </td>                        
+                <td class="p-3 ${item.enroll_type === 'Paid' ? 'text-green-600' : item.enroll_type === 'Pending' ? 'text-yellow-500' : item.enroll_type === 'error' ? 'text-red-500' : 'text-gray-500'} ">${item.enroll_type}</td>                    
+                <td class="p-3 text-center">
+                    <a href="/path-to-receipt/${item.transaction_id}" target="_blank" class="text-blue-600 hover:text-blue-800">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
 </div>
+
+
+
+    <div class="h-screen">  
+        <!-- Fullscreen Container -->
+        <div class="flex justify-center items-center px-4 p-10 text-xs">
+
+            <!-- Payment Success Box (Initially Hidden) -->
+            <div id="receipt" class="relative bg-white rounded-3xl shadow-xl w-full max-w-3xl p-12 space-y-4 overflow-hidden transform transition-transform duration-300  ">
+                 
+                <!-- Success Icon -->
+                <div class="flex justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+
+                <!-- Heading -->
+                <h2 class="text-2xl font-semibold text-center text-gray-800">Payment Successful!</h2>
+
+                <!-- Payment Summary -->
+                <div class="text-center text-gray-700">
+                    <p class="text-md mb-2">Your payment has been successfully processed. Thank you for your purchase!</p>
+                </div>
+
+                <!-- Course and Transaction Information -->
+                <div class="flex justify-between gap-6">
+                    <!-- Course Information -->
+                    <div class="flex-1 bg-gray-50 rounded-xl p-6 space-y-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Course Information</h3>
+                        <p class="text-md text-gray-700">Course Title: <span class="font-semibold text-blue-600">{{ course_title }}</span></p>
+                        <p class="text-md text-gray-700">Instructor: <span class="font-semibold text-blue-600">{{ instructor_name }}</span></p>
+                        <p class="text-md text-gray-700">Course Price: <span class="font-semibold text-green-600">${{ course_price }}</span></p>
+                        <p class="text-md text-gray-700">Discount: <span class="font-semibold text-red-600">-${{ discount }}</span></p>
+                    </div>
+
+                    <!-- Transaction Details -->
+                    <div class="flex-1 bg-gray-50 rounded-xl p-6 space-y-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Transaction Details</h3>
+                        <p class="text-md text-gray-700">Transaction ID: <span class="font-semibold text-blue-600">{{ transaction_id }}</span></p>
+                        <p class="text-md text-gray-700">Payment Date: <span class="font-semibold text-gray-700">{{ payment_date }}</span></p>
+                        <p class="text-lg text-gray-700">Total Amount Paid: <span class="font-semibold text-green-600">${{ total_amount }}</span></p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mt-8">
+                    <h2 class="text-2xl mb-2 font-semibold text-center text-gray-500">TrueLearner</h2>
+                    <p class="text-md text-gray-600 mb-6">You will receive a confirmation email shortly.</p>
+                </div>
+            </div>
+
+            <!-- Show "Download Receipt" Button -->
+            <div class="text-center">
+                <button onclick="printReceipt()" class="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-600 transition-all duration-200 transform hover:scale-105">
+                    <i class="fas fa-download text-lg mr-2"></i> Download Receipt
+                </button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

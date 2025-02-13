@@ -224,8 +224,8 @@ window.onload = function () {
 
 const showPage = (page, course_id = 0) =>
 { 
-
-  const pages = ['index_page', 'courses_page', 'course_details','instructors','student_profile','student_profile_update','watch_paid_course','support','instructors_details','deshboard']; // List of page IDs
+  
+  const pages = ['index_page', 'courses_page', 'course_details','instructors','student_profile','student_profile_update','watch_paid_course','support','instructors_details','deshboard','download_receipt']; // List of page IDs
   
   localStorage.setItem('localCall', `showPage('${page}','${course_id}');`);
   if (page === 'index_page')
@@ -300,6 +300,25 @@ const showPage = (page, course_id = 0) =>
     localStorage.removeItem('localCall');
     window.location.href = './deshboard.html';
     // setCustomUrl('deshboard');
+  }
+
+
+  if (page === 'download_receipt')
+  {
+    pushAlert('processing', "wait for loading transaction information!");
+    console.log('asdf', course_id);
+    // the course id means history_id
+    studentHistoryReceipt(course_id);
+    // return;
+    // document.body.innerHTML = document.getElementById('receipt').outerHTML;
+    // const headerContent = document.getElementById('header') ? document.getElementById('header').outerHTML : '';
+ 
+    // document.getElementById('receipt').classList.remove('hidden');
+    // Print only the receipt
+    // document.getElementById('receipt').classList.add('hidden');
+    
+    // Reload page to restore full content
+    // location.reload();
   }
 };
 
