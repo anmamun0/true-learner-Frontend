@@ -1,5 +1,5 @@
 
-const initiatePayment = (user_id, course_id) => {   
+const initiatePayment = (user_id, course_id,price) => {   
     if (!isAuthenticated()) {
         window.location.href = './login.html';
     }
@@ -8,7 +8,15 @@ const initiatePayment = (user_id, course_id) => {
         pushAlert('alert', "You are not a student!");
         return;
     }
-    pushAlert('success', 'Wait 30 second! Stay here!')
+
+    if (price == '0') {
+        pushAlert('success',`Successfully course enrolled,Lets View your profile`) 
+         
+    }
+    else {
+    pushAlert('processing', 'Wait few second! Stay here!')
+        
+    }
     
     fetch(`https://truelearner-backends.onrender.com/payment/pay/${user_id}/${course_id}/`, {
         method: "POST",
@@ -19,7 +27,7 @@ const initiatePayment = (user_id, course_id) => {
     .then(response => response.json()) // Expect JSON response
     .then(data => {
         if (data.url) {
-            console.log("Redirecting to:", data.url);
+            pushAlert('success','loaded payment option!')
             window.open(data.url, "_blank");  // Redirect user to SSLCOMMERZ payment page
         } else {
             console.error("Error:", data.error);

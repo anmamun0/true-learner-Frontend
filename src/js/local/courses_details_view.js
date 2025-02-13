@@ -24,7 +24,7 @@ const showDetails = (course_id) => {
             
             const enroll_now = document.getElementById('enroll_now')
             enroll_now.onclick = () =>  {
-                initiatePayment(user_id, course.code);
+                initiatePayment(user_id, course.code,course.price);
             }; 
                 // Initialize Quill.js editor in read-only mode
                 var quill = new Quill('#editor', {

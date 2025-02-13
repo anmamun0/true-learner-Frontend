@@ -1,5 +1,36 @@
 const student_id = localStorage.getItem('user_id');
 
+const tabs = { btnEnrolled: "enrolledSection", btnHistory: "historySection" };
+      
+document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-contents").forEach(div => {
+            div.classList.add("opacity-0", "translate-y-3", "hidden");
+            div.classList.remove("opacity-100", "translate-y-0");
+        });
+
+        let activeSection = document.getElementById(tabs[btn.id]);
+        activeSection.classList.remove("hidden");
+        setTimeout(() => {
+            activeSection.classList.remove("opacity-0", "translate-y-3");
+            activeSection.classList.add("opacity-100", "translate-y-0");
+        }, 10);
+
+        // Reset button styles
+        document.querySelectorAll(".tab-btn").forEach(b => {
+            b.classList.replace("bg-blue-500", "bg-gray-300");
+            b.classList.replace("text-white", "text-gray-900");
+        });
+
+        // Set clicked button to active state
+        btn.classList.replace("bg-gray-300", "bg-blue-500");
+        btn.classList.replace("text-gray-900", "text-white");
+    });
+});
+
+
+
+
 
 const studentProfile = () => {  
     const student_image = document.getElementById('student_image');
@@ -45,8 +76,7 @@ const studentProfile = () => {
                         </div>
                     </div>
                 `;
-            });
-            
+            }); 
             form.querySelector('[name="username"]').value = student.username;
             form.querySelector('[name="email"]').value = student.email;
             form.querySelector('[name="first_name"]').value = student.first_name;
@@ -54,6 +84,60 @@ const studentProfile = () => {
             form.querySelector('[name="phone"]').value = student.student_profile ? student.student_profile.phone : '';
             form.querySelector('[name="about"]').value = student.student_profile ? student.student_profile.bio : '';
             form.querySelector('[name="address"]').value = student.student_profile.address;
+
+
+
+            const tableBody = document.getElementById("studentHistoryTable");
+
+            // history
+                  // Sample data (Replace this with actual data from your backend)
+                student.student_history.forEach(history => {
+                  
+                    fetch(`https://truelearner-backends.onrender.com/course/courses/${history.course}`)
+                        .then(res => res.json())
+                        .then(course => {
+                            const studentHistoryData = [];
+
+                            let demo = {
+                                'title': course.title,
+                                'date': history.created_on, // You might need to format the date
+                                "payment": history.payment,
+                                "enroll_type": history.enroll_type
+                            }; 
+                            studentHistoryData.push(demo); 
+
+                            // Populate the table dynamically
+                            studentHistoryData.forEach(item => {
+                                let row = `<tr class="border-b hover:bg-gray-100">
+                                    <td class="p-3 truncate">${item.title}</td>
+                                    <td class="p-3">
+                                        ${new Date(item.date).toLocaleString('en-US', { 
+                                            year: 'numeric', 
+                                            month: '2-digit', 
+                                            day: '2-digit', 
+                                            hour: '2-digit', 
+                                            minute: '2-digit', 
+                                            second: '2-digit', 
+                                            hour12: false 
+                                        })}
+                                    </td> 
+                                    <td class="p-3 ${item.payment === '0' ? 'bg-green-200 text-green-600' :  parseFloat(item.payment) > 0 ? 'bg-blue-100 text-blue-600' :  'bg-red-100 text-red-600'} "> ${item.payment === '0' ? 'Free' : item.payment} </td>                        
+                                    <td class="p-3   ${item.enroll_type === 'Paid' ? 'text-green-600' :   item.enroll_type === 'Pending' ? 'text-yellow-500' :  item.enroll_type === 'error' ? 'text-red-500' :  'text-gray-500'} ">${item.enroll_type}</td>                    
+                                </tr>`;
+
+                                tableBody.innerHTML += row;
+                            });
+
+
+
+
+
+
+                        })
+                        .catch(error => console.log(error));
+                     // Use push to add to the array  
+                });
+             
 
             document.getElementById('profile_loading').innerHTML = '';
         })

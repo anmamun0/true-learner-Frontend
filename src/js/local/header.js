@@ -36,10 +36,10 @@ header.innerHTML = `
         <div class="absolute bg-opacity-90 left-0 top-full pt-5 w-[500px] bg-transparent shadow-lg rounded-lg z-20 hidden group-hover:block" data-aos="fade-up-left">
             <div id="header_reloading" class="absolute left-6 top-6">
             <!-- Digital Reloading Animation with TailwindCSS -->
-                <div class="flex font-mono text-teal-400 text-4xl   space-x-3">
-                    <div class="dot w-3 h-3 bg-teal-600 rounded-full opacity-0  "></div>
-                    <div class="dot w-3 h-3 bg-teal-600 rounded-full opacity-0   delay-200"></div>
-                    <div class="dot w-3 h-3 bg-teal-600 rounded-full opacity-0  delay-400"></div>
+                <div class="flex font-mono text-indigo-400 text-4xl   space-x-3">
+                    <div class="dot w-3 h-3 bg-indigo-600 rounded-full opacity-0  "></div>
+                    <div class="dot w-3 h-3 bg-indigo-600 rounded-full opacity-0   delay-200"></div>
+                    <div class="dot w-3 h-3 bg-indigo-600 rounded-full opacity-0  delay-400"></div>
                 </div> 
             </div>
             <div id="header_category"  class="bg-gray-50 hidden group-hover:grid grid-cols-2 gap-2 p-4">

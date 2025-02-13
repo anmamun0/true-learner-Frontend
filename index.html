@@ -1237,16 +1237,54 @@
                     </div> 
                 </div> 
             
+        </div> 
+
+
+        <div class="py-10">
+          <button id="btnEnrolled" class="tab-btn px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg mr-2 shadow-md transition-all">Enrolled Courses</button>
+          <button id="btnHistory" class="tab-btn px-4 py-2 bg-gray-300 text-gray-900 font-semibold rounded-lg mr-2 shadow-md transition-all">History</button>
+      </div>
+      
+      <div class="w-full bg-white rounded-lg shadow-md">
+          <div id="enrolledSection" class="tab-contents opacity-100 transition-opacity duration-300 transform translate-y-0">
+              <!-- Enrolled Courses -->
+              <div class=" p-6  mx-auto px-10">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Enrolled Courses</h2>
+                <div id="enrolled_courses" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+                </div>
+            </div>          
         </div>
 
-        <!-- Enrolled Courses -->
-        <div class="mt-12 px-10">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Enrolled Courses</h2>
-            <div id="enrolled_courses" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-
-            </div>
-        </div>
+          <div id="historySection" class="tab-contents opacity-0 hidden transition-opacity duration-300 transform translate-y-3">
+                  <!-- Enrolled Courses -->
+                  <div class="w-full px-10  mx-auto bg-white p-6 shadow-md rounded-lg">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Enrollment History</h2>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead>
+                                <tr class="bg-blue-500 text-white">
+                                    <th class="p-3 text-left">Course Title</th>
+                                    <th class="p-3 text-left">Date</th>
+                                    <th class="p-3 text-left">Payment</th>
+                                    <th class="p-3 text-left">Enroll Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentHistoryTable">
+                                <!-- Data will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+          </div>
+      </div> 
+      
+      
+  
+     
+    
 
         <!-- Certificates -->
         <!-- <div class="mt-12">
