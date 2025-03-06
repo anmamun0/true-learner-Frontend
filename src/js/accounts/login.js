@@ -113,3 +113,12 @@ function togglePassword(field,eyeOpen_icon,eyeClosed_icon) {
         eyeClosed.classList.add("hidden");
     }
 } 
+
+
+const demoUser = () => {
+    document.getElementById('student-email').value = 'al1006mamun@gmail.com';
+    document.getElementById('instructor-email').value = 'anmamun0@gmail.com';
+    
+    document.getElementById('student-password').value = '12345mamun';
+    document.getElementById('instructor-password').value = '12345mamun';
+}

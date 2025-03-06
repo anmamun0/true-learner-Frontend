@@ -668,35 +668,42 @@
       <!-- Left Section: Course Details -->
       <div class=" rounded-xl p-8 space-y-2 col-span-7">
         <div class="flex justify-between">
+          <div> 
+          <h1 id="course_details_title" class="text-2xl font-extrabold leading-tight mb-4 transition-all hover:text-purple-700 transform "> Master </h1>
+
           <h2 class="text-2xl   ">Course Description</h2>
-          <div id="course_details_loading">
-            <div class="flex justify-center items-center font-mono text-indigo-400 text-4xl  space-x-3">
-              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  "></div>
-              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0   delay-200"></div>
-              <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  delay-400"></div>
-            </div>
-          </div>
+          </div> 
         </div>
         <p class="text-sm font-semibold pb-4">Course Code: <span id="course_code"> 10</span></p>
         <div class="pb-10 overflow-hidden">
+          
           <div id="editor"
-            class="text-justify bg-transparent -ml-4 resize-none overflow-y-auto shadow-sm ql-disabled max-h-[500px] transition-all duration-500 ease-in-out"
+            class="text-justify bg-transparent -ml-4 resize-none overflow-hidden shadow-sm ql-disabled max-h-[500px] transition-all duration-500 ease-in-out"
             style="border: none;">
           </div>
-          <button id="course_details_toggleButton" onclick="courseDetailsToggleHeight()"
-            class="mt-4 text-sm text-gray-700 font-semibold rounded-lg hover:underline">
-            ... See More
-          </button>
+           <button id="course_details_toggleButton" onclick="courseDetailsToggleHeight()"
+            class="mt-4 text-sm text-indigo-700 font-semibold rounded-lg hover:underline">
+             See More  <i class="fas fa-angle-down pt-2"></i> 
+          </button> 
         </div>
 
 
         <div class="container mx-auto mt-10">
           <h1 class="text-3xl font-semibold mb-5">Course Content</h1>
-          <p class="text-xs pb-4">
-            <span id="course_total_sections"></span> sections •
-            <span id="course_total_lectures"></span> lectures •
-            <span id="course_total_length"></span> total length
-          </p>
+          <div class="flex gap-4 justify-between"> 
+            <p class="text-xs pb-4">
+              <span id="course_total_sections"></span> sections •
+              <span id="course_total_lectures"></span> lectures •
+              <span id="course_total_length"></span> total length
+            </p>
+
+            <!-- See More Button -->
+            <button id="course_detials_Videos_toggleButton"
+            class="text-right ml-auto block  text-sm text-indigo-700 font-semibold hover:underline transition duration-300"
+            onclick="allVideotoggleHeight()"> Expand All lecture
+            <i class="fas fa-angle-down pt-2"></i>
+            </button>
+          </div>
 
           <div id="videoContainer" class="max-h-[320px] overflow-hidden transition-all duration-300">
             <table
@@ -713,12 +720,7 @@
             </table>
           </div>
 
-          <!-- See More Button -->
-          <button id="course_detials_Videos_toggleButton"
-            class="text-right ml-auto block  text-sm text-gray-700 font-semibold hover:underline transition duration-300"
-            onclick="allVideotoggleHeight()">
-            <i class="fas fa-angle-down"></i>
-          </button>
+          
         </div>
 
 
@@ -727,18 +729,22 @@
       <!-- Right Section: Course Image and Key Info -->
       <div class="space-y-6 col-span-5 pt-20 ">
         <!-- Course Thumbnail with Video Effect -->
-        <h1 id="course_details_title"
-          class="text-2xl font-extrabold leading-tight mb-4 transition-all hover:text-purple-700 transform ">
-          Master </h1>
-
+        <div id="course_details_loading">
+          <div class="flex justify-center items-center font-mono text-indigo-400 text-4xl  space-x-3">
+            <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  "></div>
+            <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0   delay-200"></div>
+            <div class="dot w-5 h-5 bg-indigo-600 rounded-full opacity-0  delay-400"></div>
+          </div>
+        </div>
+        
         <div class="relative group ">
           <a href="#enroll">
 
             <img id="course_details_image" src="https://via.placeholder.com/600x400" alt="Course Overview"
-              class="group-hover:opacity-80 shadow-lg w-full h-66 rounded-xl shadow-lg transform hover:scale-105 transition-all">
+              class="group-hover:opacity-80 shadow-lg w-full h-64   shadow-lg transform   transition-all">
 
             <!-- Play Button Overlay -->
-            <div class="absolute inset-0 flex items-center justify-center   transition-all rounded-xl">
+            <div class="absolute inset-0 flex items-center justify-center   transition-all  ">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-16  bg-black bg-opacity-50 rounded-full h-16 text-white"
                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -767,9 +773,9 @@
               <!-- Bottom: Progress Bar and Time -->
               <div class="px-4 py-2 flex items-center justify-between">
                 <!-- Progress Bar -->
-                <div class="w-full bg-gray-700 rounded-full h-2 overflow-hidden mr-4">
-                  <div class="bg-blue-500 h-full w-1/4"></div>
-                </div>
+                <!-- <div class="w-full bg-gray-700 rounded-full h-2 overflow-hidden mr-4"> -->
+                  <!-- <div class="bg-blue-500 h-full w-1/4"></div> -->
+                <!-- </div> -->
               </div>
             </div>
           </a>
@@ -1339,7 +1345,7 @@
 
  
 
-<main id="download_receipt"> 
+<main id="download_receipt" class="hidden"> 
   <div id="receipt" class="container mx-auto items-center bg-gray-50 flex m-12">
     <div class="m-auto">
       <!-- Payment Success Box (Initially Hidden) -->

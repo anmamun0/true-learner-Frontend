@@ -2,6 +2,7 @@
 
 
 function logoutUser() {   
+    pushAlert('processing',"wait few second! ")
     const logutData = {
         'token': getToken(),
     }  

@@ -17,6 +17,8 @@ const showDetails = (course_id) => {
     const course_total_sections2 = document.getElementById('course_total_sections2');
     const course_total_length = document.getElementById('course_total_length');
     const course_total_length2 = document.getElementById('course_total_length2');
+    const course_code = document.getElementById('course_code');
+
 
     fetch(`https://truelearner-backends.onrender.com/course/courses/${course_id}`)
         .then(res => res.json())
@@ -34,11 +36,11 @@ const showDetails = (course_id) => {
                 });
                 document.getElementById('editor').innerHTML = course.description;
                             
-            console.log(course);
-            title.innerText = `${course.title}`; 
+             title.innerText = `${course.title}`; 
             image.src = course.thumble;
             course_total_sections.innerText = course.total_session;
             course_total_sections2.innerText = course.total_session;
+            course_code.textContent = 'TL' + course.code;
 
             course_total_lectures.innerText = course.total_lecture;
             course_total_lectures2.innerText = course.total_lecture;
@@ -105,21 +107,20 @@ function populateTable(videos) {
 
 
 
-
-
-
+ 
 
 let course_details = false;
-function courseDetailsToggleHeight() { 
+const courseDetailsToggleHeight=() =>{ 
+ 
     const course_details_editor = document.getElementById("editor");
     const course_details_toggleButton = document.getElementById("course_details_toggleButton");
 
     if (course_details) {
       course_details_editor.style.maxHeight = "500px";
-      course_details_toggleButton.textContent = "... See More";
+      course_details_toggleButton.innerHTML = 'See More <i class="fas fa-angle-down pt-2"></i>';
     } else {
       course_details_editor.style.maxHeight = course_details_editor.scrollHeight + "px";
-      course_details_toggleButton.textContent = "... See Less";
+      course_details_toggleButton.innerHTML = 'See Less <i class="fas fa-angle-up pt-2"></i>';
     }
 
     course_details = !course_details;

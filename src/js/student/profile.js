@@ -47,8 +47,7 @@ const studentProfile = () => {
     fetch(`https://truelearner-backends.onrender.com/user/students/${student_id}`)
         .then(res => res.json())
         .then(student => {
-            console.log(student);
-            student_image.src = student.student_profile.image || '';
+             student_image.src = student.student_profile.image || '';
             enroll_count.innerText = student.student_profile.courses.length || 0;
             student_image.src = student.student_profile.image
             student_name.innerText = student.first_name;
@@ -288,6 +287,7 @@ const studentHistoryReceipt = (history_id) => {
                             document.body.innerHTML = originalPage;
                             pushAlert('success', "Transaction PDF loaded.")
                             showPage('student_profile');
+                            window.location.reload();
 
                         })
                         .catch(error => console.log(error));

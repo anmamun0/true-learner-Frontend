@@ -101,8 +101,7 @@ const popular_courses = document.getElementById('popular_courses');
 fetch(`https://truelearner-backends.onrender.com/course/courses/`)
   .then(res => res.json())
   .then(data => {
-    popular_courses.innerHTML = '';
-    console.log('Fetched Courses:', data);
+    popular_courses.innerHTML = ''; 
 
     // Sort courses by total_student in descending order and take the top 3
     const topCourses = data.sort((a, b) => b.total_student - a.total_student).slice(0, 3);
