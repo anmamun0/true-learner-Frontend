@@ -35,6 +35,7 @@ window.onload = function () {
 // Function to log form data to the console after form submission
 function  loginFormData(event, userType) {
     event.preventDefault(); // Prevent form submission to allow logging
+    pushAlert('processing',"wait few second! ")
     
     // Get the form data
     

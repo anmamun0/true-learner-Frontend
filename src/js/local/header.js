@@ -6,7 +6,7 @@ header.innerHTML = `
 
   <!-- Secondary Bar (Support Links) -->
   <div class="bg-gray-100 text-gray-600 text-sm py-2" id="upper_header">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
       <div class="flex items-center space-x-4">
         <i class="fas fa-envelope"></i>
         <span>anmamun0@gmail.com</span>
@@ -66,12 +66,12 @@ header.innerHTML = `
                <!-- <i class="fas fa-user text-gray-700" id="fa-user"></i> --> 
 
             ${isAuthenticated() ? `
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                     ` : `
                     <a href="./login.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </a>

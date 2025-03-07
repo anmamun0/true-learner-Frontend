@@ -56,7 +56,7 @@
 
 <body class="bg-purple-50">
 
-  <header class=" z-30"   data-aos="fade-down" >  </header>
+  <header class="z-30"   data-aos="fade-down" >  </header>
 
 
   <main id="index_page" class=" " data-aos="fade-down">
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div class="container mx-auto px-6 lg:px-20 py-20 text-center lg:text-left mt-36">
+      <div class="container mx-auto px-6 lg:px-6 py-20 text-center lg:text-left mt-36">
         <!-- Text Content -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <!-- Headline and CTA -->
@@ -86,8 +86,7 @@
             </p>
             <div
               class="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <button
-                class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-yellow-300 transition-transform transform hover:scale-105">
+              <button onclick="getStart()" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-yellow-300 transition-transform transform hover:scale-105">
                 Get Started
               </button>
               <button onclick="showPage('courses_page'); "
@@ -115,7 +114,7 @@
 
     <!-- How it works -->
     <section class="py-20 bg-gradient-to-br from-gray-100 to-gray-200" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="max-w-6xl mx-auto text-center px-6">
+      <div class="max-w-7xl mx-auto text-center px-6">
         <h2 class="text-4xl font-bold text-gray-900">How It Works</h2>  
         <p class="text-gray-600 mt-4 text-lg">Follow these simple steps to start your learning journey.</p>
         
@@ -187,7 +186,7 @@
   <!-- Water Drop Section -->
  
   <section class="bg-gradient-to-br from-gray-100 to-gray-200" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto px-6 py-20 "> 
+    <div class="max-w-7xl mx-auto px-6 py-20 "> 
     <div class="md:grid grid-cols-2 gap-12 ">
         <div class="relative rounded-lg my-2"> 
             <!-- Background Image Section (Optional) -->
@@ -298,12 +297,13 @@
   
       <!-- Popular Courses Section -->
       <section class="py-16 px-6"  data-aos="fade-up">
-        <div class="max-w-6xl mx-auto text-center py-4">
+        <div class="max-w-7xl mx-auto px-8 py-20 "> 
+          <div class=" text-center py-4">
             <h2 class="text-3xl font-extrabold text-gray-800 mb-2">Popular Online Courses in Your Region</h2>
             <p class="text-gray-600 text-lg mb-10">Learn from top instructors and enhance your skills today.</p>
         </div>
 
-        <div id="popular_courses" class="max-w-6xl mx-auto grid md:grid-cols-3 sm:grid-cols-2 gap-12"  >
+        <div id="popular_courses" class="grid md:grid-cols-3 sm:grid-cols-2 gap-12"  >
             <!-- Course Card -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
                 <div class="relative">
@@ -362,13 +362,13 @@
             <p class="text-gray-600 text-lg my-12 px-[10%]">Take charge of your life and begin taking actionable steps toward achieving your dreams. <a href="" class="underline"> Explore all courses.</a></p>
 
         </div>
-        
+      </div>
     </section>
 
 
   <!-- Counting animation section -->
-  <section class="py-16 px-4 lg:px-16 bg-gradient-to-r from-gray-50 to-indigo-50 bg-opacity-10 text-gray-700">
-    <div class="max-w-7xl mx-auto ">
+  <section class="py-16 px-6   bg-gradient-to-r from-gray-50 to-indigo-50 bg-opacity-10 text-gray-700">
+    <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-extrabold tracking-tight sm:text-3xl mb-2">We simplify the process, allowing teams to focus on what’s essential— working </h2>
       <h2 class="text-4xl font-extrabold mb-8 tracking-tight sm:text-3xl px-1"> together to develop an online career that truly excites and inspires. </h2>
       
@@ -415,7 +415,7 @@
 
     <!-- Success Stories Section -->
     <section class="py-16 bg-gray-100 text-center">
-      <div class="max-w-6xl mx-auto"  data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-6"  data-aos="fade-up">
           <h2 class="text-3xl font-extrabold text-gray-800 mb-2">Success Stories from Real Achievers</h2>
           <p class="mb-8 text-gray-600 text-sm">The ultimate learning experience for ambitious individuals striving to reach their personal and professional goals.</p>
         
@@ -1204,8 +1204,44 @@
       <textarea class="w-full p-2 border rounded-md " placeholder="Type your message here..."></textarea>
       <button class="w-full mt-4 p-2 bg-blue-600 text-white rounded-md">Send</button>
   </div>
-</main>
 
+  <script>
+  
+    const faqSections = document.querySelectorAll('.faq-section');
+    
+    faqSections.forEach(faq => {
+        faq.addEventListener('click', function () {
+            const answer = this.querySelector('p');
+            answer.classList.toggle('hidden');
+        });
+    });
+    
+    const tabs = document.querySelectorAll('.tab-navigation');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            const activeTab = tab.getAttribute('data-tab');
+            tabContents.forEach(content => {
+                if (content.classList.contains(activeTab)) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        });
+    });
+    
+    const  toggleLiveChat = () => {
+        const liveChatBox = document.getElementById('liveChatBox');
+        liveChatBox.classList.toggle('active');
+     }
+    </script>
+    
+</main>
 
 
 <!-- student Profile  -->
@@ -1613,8 +1649,8 @@
   <script src="src/js/student/profile.js"> </script>
   <script src="src/js/student/watch_course.js"></script>
 
-
   <script src="src/js/support/support.js"> </script>
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

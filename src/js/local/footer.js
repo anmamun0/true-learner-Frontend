@@ -1,10 +1,10 @@
 const footer = document.querySelector('footer')
 footer.innerHTML = `
 <!-- Footer Section -->
-<div class="relative bg-gradient-to-br   from-gray-100 to-gray-200 text-gray-900 py-16 px-8 border-t-[1px] border-gray-300">
+<div class="relative bg-gradient-to-br   from-gray-100 to-gray-200 text-gray-900 py-16  border-t-[1px] border-gray-300">
   <div class="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg"></div>
   
-  <div class="relative max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+  <div class="relative max-w-7xl px-6 mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
     
     <!-- About Us -->
     <div>

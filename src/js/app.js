@@ -1,3 +1,20 @@
+
+const getStart = () => {
+  let getStartChack = localStorage.getItem('role'); 
+  if (getStartChack === 'Student') {
+    showPage('student_profile');
+  }
+  else if (getStartChack === 'Instructor') {
+    showPage('deshboard');
+  }
+  else {
+    window.location.href = "./login.html";
+  }
+}
+  
+
+
+
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
