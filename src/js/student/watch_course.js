@@ -102,25 +102,19 @@ function watchCourse(course_id) {
                         firstCard.classList.remove("bg-gray-200");
                         firstCard.classList.add("bg-indigo-500", "text-white");
                     }
+                    
                 }
 
                 watch_paid_loading.classList.add("hidden");
-                        })
+        })
+        
         .catch(e => console.log("Error loading course:", e));
-}
+    
+} 
+ 
 
-// // Set default video placeholder when the page loads
-// window.onload = function () {
-//     changeVideo("", "", "");
-// };
-
-
-
-
-
-
-let ishas = false;
-function courseDetailsToggleHeight() {
+let ishas = false; 
+function paid_Course_Show_Details() { 
     const editor = document.getElementById("course_description_under");
     const toggleButton = document.getElementById("paid_course_toggleButton");
 
