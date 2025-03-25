@@ -1,32 +1,5 @@
+ 
 const student_id = localStorage.getItem('user_id');
-
-const tabs = { btnEnrolled: "enrolledSection", btnHistory: "historySection" };
-
-document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelectorAll(".tab-contents").forEach(div => {
-            div.classList.add("opacity-0", "translate-y-3", "hidden");
-            div.classList.remove("opacity-100", "translate-y-0");
-        });
-
-        let activeSection = document.getElementById(tabs[btn.id]);
-        activeSection.classList.remove("hidden");
-        setTimeout(() => {
-            activeSection.classList.remove("opacity-0", "translate-y-3");
-            activeSection.classList.add("opacity-100", "translate-y-0");
-        }, 10);
-
-        // Reset button styles
-        document.querySelectorAll(".tab-btn").forEach(b => {
-            b.classList.replace("bg-blue-500", "bg-gray-300");
-            b.classList.replace("text-white", "text-gray-900");
-        });
-
-        // Set clicked button to active state
-        btn.classList.replace("bg-gray-300", "bg-blue-500");
-        btn.classList.replace("text-gray-900", "text-white");
-    });
-});
 
 
 
@@ -47,7 +20,7 @@ const studentProfile = () => {
     fetch(`https://truelearner-backends.onrender.com/user/students/${student_id}`)
         .then(res => res.json())
         .then(student => {
-             student_image.src = student.student_profile.image || '';
+            student_image.src = student.student_profile.image || '';
             enroll_count.innerText = student.student_profile.courses.length || 0;
             student_image.src = student.student_profile.image
             student_name.innerText = student.first_name;
@@ -297,3 +270,30 @@ const studentHistoryReceipt = (history_id) => {
         })
         .catch(error => console.log(error));
 }
+
+const profileButtonChange = (activeTab) => {
+    // Hide all tab content sections
+    document.querySelectorAll(".tab-contents").forEach(div => {
+        div.classList.add("opacity-0", "translate-y-3", "hidden");
+        div.classList.remove("opacity-100", "translate-y-0");
+    });
+
+    // Show the selected tab content
+    let activeSection = document.getElementById(activeTab);
+    activeSection.classList.remove("hidden");
+    setTimeout(() => {
+        activeSection.classList.remove("opacity-0", "translate-y-3");
+        activeSection.classList.add("opacity-100", "translate-y-0");
+    }, 10);
+
+    // Reset all button styles
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.replace("bg-blue-500", "bg-gray-300");
+        btn.classList.replace("text-white", "text-gray-900");
+    });
+
+    // Set clicked button to active state
+    let activeButton = activeTab === "enrolledSection" ? document.getElementById("btnEnrolled") : document.getElementById("btnHistory");
+    activeButton.classList.replace("bg-gray-300", "bg-blue-500");
+    activeButton.classList.replace("text-gray-900", "text-white");
+};

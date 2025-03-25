@@ -1283,9 +1283,14 @@
 
 
         <div class="py-10">
-          <button id="btnEnrolled" class="tab-btn px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg mr-2 shadow-md transition-all">Enrolled Courses</button>
-          <button id="btnHistory" class="tab-btn px-4 py-2 bg-gray-300 text-gray-900 font-semibold rounded-lg mr-2 shadow-md transition-all">History</button>
+          <button id="btnEnrolled" onclick="profileButtonChange('enrolledSection')" class="tab-btn px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg mr-2 shadow-md transition-all">
+              Enrolled Courses
+          </button>
+          <button id="btnHistory" onclick="profileButtonChange('historySection')" class="tab-btn px-4 py-2 bg-gray-300 text-gray-900 font-semibold rounded-lg mr-2 shadow-md transition-all">
+              History
+          </button>
       </div>
+      
       
       <div class="w-full bg-white rounded-lg shadow-md">
           <div id="enrolledSection" class="tab-contents opacity-100 transition-opacity duration-300 transform translate-y-0">
