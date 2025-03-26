@@ -74,6 +74,8 @@ function  loginFormData(event, userType) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user_id', data.user_id);
                 localStorage.setItem('role', role); 
+                localStorage.setItem('profile_id', data.profile_id); 
+                
 
                 // console.log('Login successful:', data);
                 pushAlert('success', 'Login successful!');

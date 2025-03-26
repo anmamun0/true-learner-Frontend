@@ -25,6 +25,54 @@ function changeVideo(videoUrl, title, description) {
     document.getElementById("videoDescription").innerText = description || "Click on a video title above to watch the video and see the description.";
 }
 
+
+const progress_Update = (course_id, video_id) => {
+    let profile_id = localStorage.getItem('profile_id')
+ 
+    fetch(`https://truelearner-backends.onrender.com/progress/all/?student=${profile_id}&course=${course_id}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.length == 0) {
+                return;
+            }
+            const progress = data[0]; 
+            
+            document.getElementById('paidCourse_watchedCount').innerText = progress.video_list.length;
+            document.getElementById('paidCourse_totalVideos').innerText  = progress.total_video;
+            document.getElementById('paidCourse_progressPercentage').innerText = (progress.video_list.length / parseInt(progress.total_video)) * 100 + "%";
+             // Show completion message if all videos are watched
+            if (progress.video_list.length === progress.total_video) {
+                document.getElementById('paidCourse_completionMessage').classList.remove("hidden");
+            }
+                    
+            if (video_id == -1) {
+                return;
+            }
+
+
+            const url = `https://truelearner-backends.onrender.com/progress/all/${progress.id}/update/`;
+            fetch(url, {
+                method: "POST", 
+                headers: {
+                    "Content-Type": "application/json",  
+                },
+                body: JSON.stringify({
+                    "video_id":video_id
+                })
+            })
+            .then(response => response.json())  
+            .then(data => console.log("Success:", data))   
+            .catch(error => console.error("Error:", error)); 
+
+                 
+
+        })
+        .catch(error => {
+            console.log(error);
+    })
+}
+
 // Function to load course videos dynamically
 function watchCourse(course_id) {
     const watch_paid_loading = document.getElementById('watch_paid_loading');
@@ -52,7 +100,7 @@ function watchCourse(course_id) {
                 videoCard.setAttribute("data-video-url", video.url);
 
                 videoCard.innerHTML = `
-                    <button class="w-full text-left">
+                    <button class="w-full text-left" onclick="progress_Update('${course_id}','${video.order}')">
                         <div class="flex items-center">
                             <div class="w-16 h-16 rounded-md flex items-center justify-center">
                                 <i class="text-lg  fas fa-video"></i>
@@ -104,7 +152,8 @@ function watchCourse(course_id) {
                     }
                     
                 }
-
+                
+                progress_Update(course_id, -1);
                 watch_paid_loading.classList.add("hidden");
         })
         
